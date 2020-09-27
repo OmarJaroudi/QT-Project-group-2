@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>thumbnails/back_button.png</file>
+        <file>thumbnails/blank_profile.png</file>
+    </qresource>
+</RCC>
