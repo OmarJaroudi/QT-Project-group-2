@@ -1,5 +1,5 @@
 #include "mainmenuwidget.h" //test push
-
+//OMAR JAROUDI
 MainMenuWidget::MainMenuWidget(QWidget *parent) : QWidget(parent)
 {
     birthday = new QLabel("");
