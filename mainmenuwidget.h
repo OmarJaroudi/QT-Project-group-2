@@ -15,7 +15,9 @@ public:
     Accounts * currentUser;
     QLabel *log;
     QGridLayout * grid;
+    QVBoxLayout * VBox;
     QLabel *birthday;
+    QLabel *currentDateLabel;
     QLabel *img;
     QTimer *timer;
     void prepareMenu(Accounts * curr);

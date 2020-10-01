@@ -4,6 +4,7 @@
 
 SignInWidget::SignInWidget(QWidget *parent) : QWidget(parent)
 {
+    //setting up Widgets
     QColor col = QColor::fromRgb(148,0,211);
     QColor backgroundColor = QColor::fromRgb(33,33,35);
     this->setStyleSheet(QString("background-color: %1").arg(backgroundColor.name()));
@@ -46,6 +47,7 @@ SignInWidget::SignInWidget(QWidget *parent) : QWidget(parent)
     LogIn->setStyleSheet(QString("QPushButton {font-size: 20px; background-color: %1 ;}").arg(col.name()));
     hbox = new QHBoxLayout();
 
+    //adding widgets to a grid and Hbox
     QGridLayout * grid = new QGridLayout;
     grid->addWidget(username,0,0);
     grid->addWidget(usernameBox,0,1);
@@ -58,6 +60,7 @@ SignInWidget::SignInWidget(QWidget *parent) : QWidget(parent)
 
     grid->addItem(hbox,6,0,1,3,Qt::AlignHCenter);
 
+    //adding the grid and Hbox and widgets to a Vbox which is then displayed
     layout = new QVBoxLayout();
     layout->addItem(grid);
     layout->addWidget(errorMessage);
@@ -66,26 +69,27 @@ SignInWidget::SignInWidget(QWidget *parent) : QWidget(parent)
 
     this->setLayout(layout);
 
+    //signal slot connections
     QObject::connect(Back,SIGNAL(clicked()),this,SLOT(ClickReturn()));
     QObject::connect(LogIn,SIGNAL(clicked()),this,SLOT(verifyCredentials()));
 }
 
-void SignInWidget::verifyCredentials(){
+void SignInWidget::verifyCredentials(){//passes the input to attemptSignIn.
     QString user = this->usernameBox->text();
     QString pass = this->passBox->text();
 
     Accounts * acc = new Accounts(user,pass);
     QString result = acc->attemptSignIn();
     if (result!="success")
-        errorMessage->setText(result);
+        errorMessage->setText(result);//failed verification
     else{
         this->close();
-        MainMenuWidget *menu = new MainMenuWidget();
+        MainMenuWidget *menu = new MainMenuWidget();//verification succes, transitions to mainmenu
         menu->prepareMenu(acc);
     }
 }
 
-void SignInWidget:: ClickReturn()
+void SignInWidget:: ClickReturn()//returns the user to the welcome screen if the return button is pushed
 {
     this->close();
     WelcomeWidget * scene = new WelcomeWidget();

@@ -3,7 +3,7 @@
 
 Accounts::Accounts(QString username,QString password, QString confirmPass, QString DOB, QString email, QString fName,QString lName,QString imgPath)
 {
-    key = Q_UINT64_C(0x0c2ad4a4acb9f023);
+    key = Q_UINT64_C(0x0c2ad4a4acb9f023);//encryption key
     this->username = username;
     this->password = password;
     this->confirmPass = confirmPass;
@@ -14,14 +14,14 @@ Accounts::Accounts(QString username,QString password, QString confirmPass, QStri
     this->imgPath = imgPath;
 
 }
-Accounts::Accounts(QString username,QString password)
+Accounts::Accounts(QString username,QString password)//basic constructor passed for a sign in
 {
     key = Q_UINT64_C(0x0c2ad4a4acb9f023);
     this->username = username;
     this->password = password;
 
 }
-QString Accounts::attemptSignIn(){
+QString Accounts::attemptSignIn(){//
     if (username==NULL || password == NULL){
         return("username or password field is empty!");
     }
@@ -29,18 +29,20 @@ QString Accounts::attemptSignIn(){
         bool found = false;
         bool verified = false;
         QString foundUsername = "";
+        //access the txt file where the info is stored
         QString path = QDir::currentPath();
         path.append("/userData/data.txt");
         QFile inputFile(path);
         if (inputFile.size()!=0){
-        inputFile.open(QIODevice::ReadOnly);
+        inputFile.open(QIODevice::ReadOnly);//configure to read and write
         QTextStream stream(&inputFile);
             QString line = stream.readLine();
-            while (!line.isNull()) {
+            while (!line.isNull()) { //extract info from txt file to verify
                 QStringList tempLine = line.split(" ");
-                if (tempLine[0]==username || tempLine[2]==username){
+                if (tempLine[0]==username || tempLine[2]==username){//check username or email exist
                     found = true;
-                    if (DecryptPass(tempLine[1])==password){
+                    if (DecryptPass(tempLine[1])==password){//check password match
+                        //set the rest of the Account parameters
                         foundUsername = tempLine[0];
                         verified = true;
                         this->username = tempLine[0];
@@ -56,6 +58,7 @@ QString Accounts::attemptSignIn(){
             }
         }
 
+        //return success or an error message
         if (verified==true && found==true)
             return("success");
         else if (found == true)
@@ -75,7 +78,7 @@ QString Accounts::attemptSignUp(){
             lName == NULL ||
             email == NULL||
             DOB == NULL) {
-        return("Error empty field(s)!");
+        return("Error empty field(s)!");//checks for empty fields
     }
 
     if(username.contains(" ")||
@@ -84,22 +87,23 @@ QString Accounts::attemptSignUp(){
             fName.contains(" ") ||
             lName.contains(" ") ||
             email.contains(" ")) {
-        return("Fields cannot contain whitespace!");
+        return("Fields cannot contain whitespace!");//checks for the presence of any whitespace. Whitespaces are used to sperate info in the txt file.
     }
 
-    else if (!ValidateEmail(email)){
+    else if (!ValidateEmail(email)){//validate possible email
         return("Invalid email address!");
     }
-    else if (password!=confirmPass){
+    else if (password!=confirmPass){//pass!=confirm pass
         return("Passwords don't match!");
     }
-    else if(password.length()<8){
+    else if(password.length()<8){//password too short
         return("Password must be longer than 8 characters!");
     }
-    else if (re.exactMatch(password)){
+    else if (re.exactMatch(password)){//password does not meet other requirements
         return("Password must contain 1 uppercase char, \n1 lowecase char, and 1 number!");
     }
     else {
+        //set up to write to the txt file
         QString path = QDir::currentPath();
         path.append("/userData");
         if (!QDir(path).exists())
@@ -113,17 +117,17 @@ QString Accounts::attemptSignUp(){
             QString line = stream.readLine();
             while (!line.isNull()) {
                 QStringList tempLine = line.split(" ");
-                if (tempLine[0]==username)
+                if (tempLine[0]==username)//check for duplicate username
                     return("Username already taken!");
-                else if (tempLine[2]==email)
+                else if (tempLine[2]==email)//check for duplicate email
                     return("Email already registered!");
                 line = stream.readLine();
             }
         }
-        if (imgPath==NULL)
+        if (imgPath==NULL)//no picture selected
             return ("Please select a profile picture!");
 
-
+        //add image directory into the info string
         QFileInfo imgInfo(imgPath);
         QString newPath = QDir::currentPath();
         newPath.append("/userDP");
@@ -136,6 +140,7 @@ QString Accounts::attemptSignUp(){
             QFile::remove(newPath);
         }
 
+        //write all the account info into the txt file
         bool status = QFile::copy(imgPath, newPath);
         if (status == false)
             return ("Error adding profile picture!");
@@ -153,7 +158,7 @@ QString Accounts::attemptSignUp(){
     }
 
 }
-bool Accounts::ValidateEmail(QString email){
+bool Accounts::ValidateEmail(QString email){//check if the string entered is really an email (doesnt have to be active)
     email = email.toLower();
     QRegExp re("([a-z]+)([_.a-z0-9]*)([a-z0-9]+)(@)([a-z]+)([.a-z]+)([a-z]+)");
     if (re.exactMatch(email))
@@ -161,6 +166,7 @@ bool Accounts::ValidateEmail(QString email){
 
     return false;
 }
+//encyrpt and decrypt
 QString Accounts::EncryptPass(QString plaintext){
    SimpleCrypt crypto(this->key);
     return (crypto.encryptToString(plaintext));
@@ -171,6 +177,7 @@ QString Accounts::DecryptPass(QString ciphertext){
     return(crypto.decryptToString(ciphertext));
 }
 
+//setters and getters
 QString  Accounts::getDOB(){
     return (*(new QString(DOB)));
 }

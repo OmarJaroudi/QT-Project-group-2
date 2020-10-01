@@ -4,6 +4,7 @@
 
 SignUpWidget::SignUpWidget(QWidget *parent) : QWidget(parent)
 {
+    //setting up Widgets
     QColor col = QColor::fromRgb(148,0,211);
     QColor backgroundColor = QColor::fromRgb(33,33,35);
     this->setStyleSheet(QString("background-color: %1").arg(backgroundColor.name()));
@@ -84,6 +85,7 @@ SignUpWidget::SignUpWidget(QWidget *parent) : QWidget(parent)
 
     Grid= new QGridLayout();
 
+    //add widgets to a grid and display it
     Grid->addWidget(Prompt,0,0,1,3,Qt::AlignHCenter);
     Grid->addWidget(FirstName,1,0);
     Grid->addWidget(FirstNameBox,1,1);
@@ -108,17 +110,18 @@ SignUpWidget::SignUpWidget(QWidget *parent) : QWidget(parent)
 
     this->setLayout(Grid);
 
+    //setting up signal slot connections
     QObject::connect(ChoosePic,SIGNAL(clicked()),this,SLOT(BrowseForImage()));
     QObject::connect(Back,SIGNAL(clicked()),this,SLOT(ClickReturn()));
     QObject::connect(Create,SIGNAL(clicked()),this,SLOT(CreateAccount()));
 
 }
 
-void SignUpWidget::BrowseForImage(){
+void SignUpWidget::BrowseForImage(){ //opens up the browser widget
     Browser->Disp->show();
 }
 
-void SignUpWidget::CreateAccount(){
+void SignUpWidget::CreateAccount(){//passes the info entered into an instance of account. Attempts sign up.
     errorMessage->clear();
     QString userStr = UsernameBox->text();
     QString passStr = PasswordBox->text();
@@ -130,16 +133,16 @@ void SignUpWidget::CreateAccount(){
     QString imgDirectory = Browser->directory;
     Accounts * acc = new Accounts(userStr,passStr,confirmPassStr,dateStr,emailStr,fNameStr,lNameStr,imgDirectory);
     QString result = acc->attemptSignUp();
-    if (result!="success")
+    if (result!="success")//sign up failed, show error message
         errorMessage->setText(result);
-    else {
+    else {//sign up succeeded, transition to main menu
         this->close();
         MainMenuWidget *menu = new MainMenuWidget();
         menu->prepareMenu(acc);
     }
 
 }
-void SignUpWidget:: ClickReturn()
+void SignUpWidget:: ClickReturn()//return to welcome screen if return button clicked
 {
     this->close();
     WelcomeWidget * scene = new WelcomeWidget();

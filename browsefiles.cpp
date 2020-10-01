@@ -5,7 +5,7 @@ BrowseFiles::BrowseFiles(QWidget *parent) : QWidget(parent)
     Disp= new QWidget();
     Browse= new QFileDialog();
     layout= new QVBoxLayout();
-    Browse->setNameFilter(tr ("JPEG/PNG (*.jpg *.jpeg *.png)"));
+    Browse->setNameFilter(tr ("JPEG/PNG (*.jpg *.jpeg *.png)"));//ensures the user selects an image
     layout->addWidget(Browse);
     Disp->setLayout(layout);
 
@@ -13,7 +13,7 @@ BrowseFiles::BrowseFiles(QWidget *parent) : QWidget(parent)
 
 }
 
-void BrowseFiles::ChooseFile()
+void BrowseFiles::ChooseFile()//closes the pop up after an image is selected
 {
     directory = Browse->selectedFiles()[0];
     //QString destinationPath= "/home/eece435l/Desktop/IUwo6l_Q-copy.jpg";

@@ -6,10 +6,12 @@
 
 WelcomeWidget::WelcomeWidget(QWidget *parent) : QWidget(parent)
 {
+    //setting background color
     QColor col = QColor::fromRgb(148,0,211);
     QColor backgroundColor = QColor::fromRgb(33,33,35);
     this->setStyleSheet(QString("background-color: %1").arg(backgroundColor.name()));
 
+    //setting up the widgets
     Welcome = new QLabel("Welcome!");
     Welcome->setAlignment(Qt::AlignCenter);
     QFont f = Welcome->font();
@@ -32,6 +34,7 @@ WelcomeWidget::WelcomeWidget(QWidget *parent) : QWidget(parent)
     PlayAsGuest->setFont(f);
     PlayAsGuest->setStyleSheet(QString("background-color: %1").arg(col.name()));
 
+    //adding the widgets to a Vbox layout
     VBox = new QVBoxLayout();
     VBox->addWidget(Welcome);
     VBox->addWidget(SignIn);
@@ -39,24 +42,25 @@ WelcomeWidget::WelcomeWidget(QWidget *parent) : QWidget(parent)
     VBox->addWidget(PlayAsGuest);
     this->setLayout(VBox);
 
+    //signal slot connections
     QObject::connect(SignIn,SIGNAL(clicked()),this,SLOT(SignInButton()));
     QObject::connect(SignUp,SIGNAL(clicked()),this,SLOT(SignUpButton()));
     QObject::connect(PlayAsGuest,SIGNAL(clicked()),this,SLOT(PlayAsGuestButton()));
 
 
 }
-void WelcomeWidget::SignInButton(){
+void WelcomeWidget::SignInButton(){//transitions to signInWidget
     SignInWidget * signInWidget = new SignInWidget();
     signInWidget->show();
     this->close();
 
 }
-void WelcomeWidget::SignUpButton(){
+void WelcomeWidget::SignUpButton(){//transitions to signUpWidget
     SignUpWidget * signUpWidget = new SignUpWidget();
     signUpWidget->show();
     this->close();
 }
-void WelcomeWidget::PlayAsGuestButton(){
+void WelcomeWidget::PlayAsGuestButton(){//transitions to MainMenuWidget with Account set as a guest
     Accounts * guestAcc = new Accounts("Guest player","","","","","","",":/thumbnails/blank_profile.png");
     MainMenuWidget * menu = new MainMenuWidget();
     menu->prepareMenu(guestAcc);
