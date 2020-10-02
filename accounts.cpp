@@ -69,8 +69,7 @@ QString Accounts::attemptSignIn(){//
 }
 
 QString Accounts::attemptSignUp(){
-    QRegExp re("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])");
-
+QRegExp re("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])");
     if(username==NULL||
             password==NULL||
             confirmPass == NULL ||
@@ -99,7 +98,7 @@ QString Accounts::attemptSignUp(){
     else if(password.length()<8){//password too short
         return("Password must be longer than 8 characters!");
     }
-    else if (re.exactMatch(password)){//password does not meet other requirements
+    else if (re.indexIn(password)==-1){//password does not meet other requirements
         return("Password must contain 1 uppercase char, \n1 lowecase char, and 1 number!");
     }
     else {
