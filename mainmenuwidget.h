@@ -13,19 +13,19 @@ class MainMenuWidget : public QWidget
     Q_OBJECT
 public:
     explicit MainMenuWidget(QWidget *parent = nullptr);
-    QPushButton * game1Button;
-    Accounts * currentUser;
+    QPushButton * game_1_button;
+    Accounts * current_user;
     QLabel *log;
     QGridLayout * grid;
-    QVBoxLayout * VBox;
+    QVBoxLayout * vbox;
     QLabel *birthday;
-    QLabel *currentDateLabel;
+    QLabel *current_date_label;
     QLabel *img;
     QTimer *timer;
-    void prepareMenu(Accounts * curr);
+    void PrepareMenu(Accounts * curr);
 private slots:
-    void blink();
-    void playGame1();
+    void Blink();
+    void PlayGame1();
 signals:
 
 };

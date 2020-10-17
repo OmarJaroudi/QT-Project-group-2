@@ -13,11 +13,11 @@ SignInWidget::SignInWidget(QWidget *parent) : QWidget(parent)
     QColor backgroundColor = QColor::fromRgb(33,33,35);
     this->setStyleSheet(QString("background-color: %1").arg(backgroundColor.name()));
 
-    errorMessage = new QLabel(" ");
-    errorMessage->setAlignment(Qt::AlignHCenter);
-    QPalette palette = errorMessage->palette();
-    palette.setColor(errorMessage->foregroundRole(),Qt::red);
-    errorMessage->setPalette(palette);
+    error_message = new QLabel(" ");
+    error_message->setAlignment(Qt::AlignHCenter);
+    QPalette palette = error_message->palette();
+    palette.setColor(error_message->foregroundRole(),Qt::red);
+    error_message->setPalette(palette);
 
     this->setWindowTitle("Sign in");
     this->setMinimumSize(200,300);
@@ -25,11 +25,11 @@ SignInWidget::SignInWidget(QWidget *parent) : QWidget(parent)
     QFont f;
     f.setPointSize(15);
 
-    Back = new QPushButton();
+    back_button = new QPushButton();
 
-    Back->setIcon(QIcon(":/thumbnails/back_button.png"));
-    Back->setIconSize(QSize(30, 30));
-    Back->setFixedSize(30,30);
+    back_button->setIcon(QIcon(":/thumbnails/back_button.png"));
+    back_button->setIconSize(QSize(30, 30));
+    back_button->setFixedSize(30,30);
 
     username = new QLabel("username/email");
     username->setFont(f);
@@ -39,57 +39,57 @@ SignInWidget::SignInWidget(QWidget *parent) : QWidget(parent)
     password->setFont(f);
     password->setStyleSheet(QString("color: %1").arg(col.name()));
 
-    usernameBox = new QLineEdit;
-    usernameBox->setStyleSheet("QLineEdit {font-size:20px; border: 3px solid white; border-radius:5px; color:white;}");
+    username_box = new QLineEdit;
+    username_box->setStyleSheet("QLineEdit {font-size:20px; border: 3px solid white; border-radius:5px; color:white;}");
 
-    passBox = new QLineEdit;
-    passBox->setEchoMode(QLineEdit::Password);
-    passBox->setStyleSheet("QLineEdit {font-size:20px; border: 3px solid white; border-radius:5px; color:white;}");
+    pass_box = new QLineEdit;
+    pass_box->setEchoMode(QLineEdit::Password);
+    pass_box->setStyleSheet("QLineEdit {font-size:20px; border: 3px solid white; border-radius:5px; color:white;}");
 
-    LogIn = new QPushButton("Log in");
-    LogIn->setMinimumSize(100,20);
-    LogIn->setStyleSheet(QString("QPushButton {font-size: 20px; background-color: %1 ;}").arg(col.name()));
+    log_in = new QPushButton("Log in");
+    log_in->setMinimumSize(100,20);
+    log_in->setStyleSheet(QString("QPushButton {font-size: 20px; background-color: %1 ;}").arg(col.name()));
     hbox = new QHBoxLayout();
 
     //adding widgets to a grid and Hbox
     QGridLayout * grid = new QGridLayout;
     grid->addWidget(username,0,0);
-    grid->addWidget(usernameBox,0,1);
+    grid->addWidget(username_box,0,1);
     grid->addItem(new QSpacerItem(50, 10), 1, 0,1,2);
     grid->addWidget(password,2,0);
-    grid->addWidget(passBox,2,1);
+    grid->addWidget(pass_box,2,1);
     grid->addItem(new QSpacerItem(50, 10), 3, 0,2,2);
 
-    hbox->addWidget(LogIn);
+    hbox->addWidget(log_in);
 
     grid->addItem(hbox,6,0,1,3,Qt::AlignHCenter);
 
     //adding the grid and Hbox and widgets to a Vbox which is then displayed
     layout = new QVBoxLayout();
     layout->addItem(grid);
-    layout->addWidget(errorMessage);
-    layout->addWidget(Back,Qt::AlignLeft | Qt::AlignBottom);
+    layout->addWidget(error_message);
+    layout->addWidget(back_button,Qt::AlignLeft | Qt::AlignBottom);
 
 
     this->setLayout(layout);
 
     //signal slot connections
-    QObject::connect(Back,SIGNAL(clicked()),this,SLOT(ClickReturn()));
-    QObject::connect(LogIn,SIGNAL(clicked()),this,SLOT(verifyCredentials()));
+    QObject::connect(back_button,SIGNAL(clicked()),this,SLOT(ClickReturn()));
+    QObject::connect(log_in,SIGNAL(clicked()),this,SLOT(VerifyCredentials()));
 }
 
-void SignInWidget::verifyCredentials(){//passes the input to attemptSignIn.
-    QString user = this->usernameBox->text();
-    QString pass = this->passBox->text();
+void SignInWidget::VerifyCredentials(){//passes the input to attemptSignIn.
+    QString user = this->username_box->text();
+    QString pass = this->pass_box->text();
 
     Accounts * acc = new Accounts(user,pass);
-    QString result = acc->attemptSignIn();
+    QString result = acc->AttemptSignIn();
     if (result!="success")
-        errorMessage->setText(result);//failed verification
+        error_message->setText(result);//failed verification
     else{
         this->close();
         MainMenuWidget *menu = new MainMenuWidget();//verification succes, transitions to mainmenu
-        menu->prepareMenu(acc);
+        menu->PrepareMenu(acc);
     }
 }
 

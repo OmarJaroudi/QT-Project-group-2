@@ -11,30 +11,30 @@ class SignUpWidget : public QWidget
     Q_OBJECT
 public:
     explicit SignUpWidget(QWidget *parent = nullptr);
-    BrowseFiles * Browser;
-    QLabel * imgLocation;
-    QLabel * errorMessage;
-    QLabel * Prompt;
-    QLabel * FirstName;
-    QLabel * LastName;
-    QLabel * Username;
-    QLabel * Email;
-    QLabel * Password;
-    QLabel * ConfirmPassword;
-    QLabel * BirthDate;
-    QLabel * ProfilePic;
-    QPushButton * Create;
-    QPushButton * Back;
-    QLineEdit * FirstNameBox;
-    QLineEdit * LastNameBox;
-    QLineEdit * UsernameBox;
-    QLineEdit * EmailBox;
-    QLineEdit * PasswordBox;
-    QLineEdit * ConfirmPasswordBox;
-    QGridLayout * Grid;
-    QDateEdit * Date;
-    QFileDialog * Browse;
-    QPushButton * ChoosePic;
+    BrowseFiles * browser;
+    QLabel * img_location;
+    QLabel * error_message;
+    QLabel * prompt;
+    QLabel * first_name;
+    QLabel * last_name;
+    QLabel * username;
+    QLabel * email;
+    QLabel * password;
+    QLabel * confirm_password;
+    QLabel * birth_date;
+    QLabel * profile_pic;
+    QPushButton * create;
+    QPushButton * back_button;
+    QLineEdit * first_name_box;
+    QLineEdit * last_name_box;
+    QLineEdit * username_box;
+    QLineEdit * email_box;
+    QLineEdit * password_box;
+    QLineEdit * confirm_password_box;
+    QGridLayout * grid;
+    QDateEdit * date;
+    QFileDialog * browse;
+    QPushButton * choose_pic;
 
 public slots:
     void BrowseForImage();

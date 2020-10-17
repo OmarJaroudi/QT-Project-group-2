@@ -10,24 +10,24 @@ MainMenuWidget::MainMenuWidget(QWidget *parent) : QWidget(parent)
     sp_retain.setRetainSizeWhenHidden(true);
     birthday->setSizePolicy(sp_retain); //steps made to ensure that "Happy Birthday" blinking wont disrupt the
 
-    game1Button = new QPushButton("Game 1");
+    game_1_button = new QPushButton("Game 1");
     this-> setWindowTitle("Main Menu");
     this->setMinimumSize(400,400); //ensure proper size of window
 
     timer = new QTimer();
-    QObject::connect(timer,SIGNAL(timeout()),this,SLOT(blink())); //make happy birthday blink
+    QObject::connect(timer,SIGNAL(timeout()),this,SLOT(Blink())); //make happy birthday blink
 }
-void MainMenuWidget::prepareMenu(Accounts * curr)
+void MainMenuWidget::PrepareMenu(Accounts * curr)
 {
-    currentUser = curr;//loads in current user
+    current_user = curr;//loads in current user
 
-    log = new QLabel("Welcome " + this->currentUser->getUsername() + "!");
+    log = new QLabel("Welcome " + this->current_user->GetUsername() + "!");
 
     grid = new QGridLayout();
     grid->addWidget(log,0,0);//shows welcome username
     img = new QLabel();
 
-    img->setPixmap(QPixmap(this->currentUser->getImgPath()).scaled(50,50));
+    img->setPixmap(QPixmap(this->current_user->GetImgPath()).scaled(50,50));
     img->setScaledContents(true);
     img->setMaximumSize(125,125); //loads in the account's image and sets parameteres
 
@@ -35,13 +35,13 @@ void MainMenuWidget::prepareMenu(Accounts * curr)
     QDateEdit *currDate = new QDateEdit(QDate::currentDate());//get current date
     currDate->setDisplayFormat("dd/MM/yyyy");
     QString todayDate = currDate->text();//define current date as a string
-    currentDateLabel= new QLabel(todayDate);
-    grid->addWidget(currentDateLabel,0,1);//display today's date on top right
+    current_date_label= new QLabel(todayDate);
+    grid->addWidget(current_date_label,0,1);//display today's date on top right
 
     bool IsBirthday=true;
     for(int i=0;i<todayDate.length()-4;i++)
     {
-        if(todayDate[i]!=this->currentUser->getDOB()[i])
+        if(todayDate[i]!=this->current_user->GetDOB()[i])
         {
             IsBirthday=false; //checks if birthday and todays date have equal day and month
         }
@@ -57,19 +57,19 @@ void MainMenuWidget::prepareMenu(Accounts * curr)
         grid->addWidget(birthday,1,0);//add happy birthday message to the screen
     }
 
-    VBox = new QVBoxLayout();
-    VBox->addItem(grid);
-    VBox->addItem(new QSpacerItem(200,200));//space to add games later on
-    VBox ->addWidget(game1Button);
-    this->setLayout(VBox);
+    vbox = new QVBoxLayout();
+    vbox->addItem(grid);
+    vbox->addItem(new QSpacerItem(200,200));//space to add games later on
+    vbox ->addWidget(game_1_button);
+    this->setLayout(vbox);
     this->setStyleSheet("QWidget { background-color : grey }");//set background color to grey
     this->show();
 
-    QObject::connect(game1Button,SIGNAL(clicked()),this,SLOT(playGame1()));
+    QObject::connect(game_1_button,SIGNAL(clicked()),this,SLOT(PlayGame1()));
 
 }
 
-void MainMenuWidget::blink(){//function that hides and then shows the label every timer cycle
+void MainMenuWidget::Blink(){//function that hides and then shows the label every timer cycle
     if (birthday->isVisible())
         birthday->hide();
     else
@@ -80,8 +80,8 @@ void MainMenuWidget::blink(){//function that hides and then shows the label ever
  *
  * create a new instance of game1 class
  */
-void MainMenuWidget::playGame1(){
-    Game1 * game1 = new Game1(currentUser);
+void MainMenuWidget::PlayGame1(){
+    Game1 * game1 = new Game1(current_user);
     this->hide();
     game1->show();
 }

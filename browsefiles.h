@@ -10,10 +10,10 @@ class BrowseFiles : public QWidget
 public:
     explicit BrowseFiles(QWidget *parent = nullptr);
     QString directory;
-    QWidget * Disp;
-    QFileDialog * Browse;
+    QWidget * disp;
+    QFileDialog * browse;
     QVBoxLayout * layout;
-    QString * Dir;
+    QString * dir;
 public slots:
     void ChooseFile();
 

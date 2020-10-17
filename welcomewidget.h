@@ -9,11 +9,11 @@ class WelcomeWidget : public QWidget
     Q_OBJECT
 public:
     explicit WelcomeWidget(QWidget *parent = nullptr);
-    QLabel * Welcome;
-    QPushButton * SignIn;
-    QPushButton * SignUp;
-    QPushButton * PlayAsGuest;
-    QVBoxLayout * VBox;
+    QLabel * welcome;
+    QPushButton * sign_in;
+    QPushButton * sign_up;
+    QPushButton * play_as_guest;
+    QVBoxLayout * vbox;
 
 public slots:
     void SignInButton();

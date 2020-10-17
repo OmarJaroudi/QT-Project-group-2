@@ -11,12 +11,12 @@ class Accounts
 public:
     Accounts(QString username,QString password, QString confirmPass, QString DOB, QString email, QString fName,QString lName,QString imgPath);
     Accounts(QString username,QString password);
-    QString attemptSignUp();
-    QString attemptSignIn();
-    QString getDOB();
-    QString getImgPath();
-    QString getUsername();
-    QString getFName();
+    QString AttemptSignUp();
+    QString AttemptSignIn();
+    QString GetDOB();
+    QString GetImgPath();
+    QString GetUsername();
+    QString GetFName();
 
 private:bool ValidateEmail(QString email);
      QString EncryptPass(QString plaintext);
@@ -24,12 +24,12 @@ private:bool ValidateEmail(QString email);
      long key;
      QString username;
      QString password;
-     QString confirmPass;
+     QString confirm_pass;
      QString email;
-     QString DOB;
-     QString fName;
-     QString lName;
-     QString imgPath;
+     QString dob;
+     QString f_name;
+     QString l_name;
+     QString img_path;
 
 };
 

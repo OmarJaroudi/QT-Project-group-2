@@ -13,17 +13,17 @@ public:
     explicit SignInWidget(QWidget *parent = nullptr);
     QLabel * username;
     QLabel * password;
-    QLineEdit * usernameBox;
-    QLineEdit * passBox;
-    QPushButton * LogIn;
+    QLineEdit * username_box;
+    QLineEdit * pass_box;
+    QPushButton * log_in;
     QHBoxLayout *hbox;
     QGridLayout * grid;
     QVBoxLayout * layout;
-    QLabel * errorMessage;
-    QPushButton * Back;
+    QLabel * error_message;
+    QPushButton * back_button;
 
 public slots:
-    void verifyCredentials();
+    void VerifyCredentials();
     void ClickReturn();
 signals:
 

@@ -12,13 +12,19 @@
 class Game1 : public QWidget
 {
     Accounts *player;
-    QPushButton *playButton;
+    QPushButton *play_button;
+    QVBoxLayout *difficulty_layout;
     QVBoxLayout *layout;
+    QPushButton *easy;
+    QPushButton *medium;
+    QPushButton *hard;
+    QPushButton *back_button;
     Q_OBJECT
 public:
     void keyPressEvent(QKeyEvent *event);
     explicit Game1(Accounts *acc,QWidget *parent = nullptr);
-
+public slots: void ChooseDifficulty();
+    void PressBack();
 signals:
 
 };

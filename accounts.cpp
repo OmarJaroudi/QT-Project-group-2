@@ -6,12 +6,12 @@ Accounts::Accounts(QString username,QString password, QString confirmPass, QStri
     key = Q_UINT64_C(0x0c2ad4a4acb9f023);//encryption key
     this->username = username;
     this->password = password;
-    this->confirmPass = confirmPass;
+    this->confirm_pass = confirmPass;
     this ->email = email;
-    this->DOB = DOB;
-    this->fName = fName;
-    this->lName = lName;
-    this->imgPath = imgPath;
+    this->dob = DOB;
+    this->f_name = fName;
+    this->l_name = lName;
+    this->img_path = imgPath;
 
 }
 Accounts::Accounts(QString username,QString password)//basic constructor passed for a sign in
@@ -21,14 +21,14 @@ Accounts::Accounts(QString username,QString password)//basic constructor passed 
     this->password = password;
 
 }
-QString Accounts::attemptSignIn(){//
+QString Accounts::AttemptSignIn(){//
     if (username==NULL || password == NULL){
         return("username or password field is empty!");
     }
     else {
         bool found = false;
         bool verified = false;
-        QString foundUsername = "";
+        QString found_username = "";
         //access the txt file where the info is stored
         QString path = QDir::currentPath();
         path.append("/userData/data.txt");
@@ -43,14 +43,14 @@ QString Accounts::attemptSignIn(){//
                     found = true;
                     if (DecryptPass(tempLine[1])==password){//check password match
                         //set the rest of the Account parameters
-                        foundUsername = tempLine[0];
+                        found_username = tempLine[0];
                         verified = true;
                         this->username = tempLine[0];
                         this->email = tempLine[2];
-                        this->fName = tempLine[3];
-                        this->lName = tempLine[4];
-                        this->DOB = tempLine[5];
-                        this->imgPath = tempLine[6];
+                        this->f_name = tempLine[3];
+                        this->l_name = tempLine[4];
+                        this->dob = tempLine[5];
+                        this->img_path = tempLine[6];
                         break;
                     }
                 }
@@ -68,23 +68,23 @@ QString Accounts::attemptSignIn(){//
     }
 }
 
-QString Accounts::attemptSignUp(){
+QString Accounts::AttemptSignUp(){
 QRegExp re("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])");
     if(username==NULL||
             password==NULL||
-            confirmPass == NULL ||
-            fName == NULL ||
-            lName == NULL ||
+            confirm_pass == NULL ||
+            f_name == NULL ||
+            l_name == NULL ||
             email == NULL||
-            DOB == NULL) {
+            dob == NULL) {
         return("Error empty field(s)!");//checks for empty fields
     }
 
     if(username.contains(" ")||
             password.contains(" ")||
-            confirmPass.contains(" ") ||
-            fName.contains(" ") ||
-            lName.contains(" ") ||
+            confirm_pass.contains(" ") ||
+            f_name.contains(" ") ||
+            l_name.contains(" ") ||
             email.contains(" ")) {
         return("Fields cannot contain whitespace!");//checks for the presence of any whitespace. Whitespaces are used to sperate info in the txt file.
     }
@@ -92,7 +92,7 @@ QRegExp re("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])");
     else if (!ValidateEmail(email)){//validate possible email
         return("Invalid email address!");
     }
-    else if (password!=confirmPass){//pass!=confirm pass
+    else if (password!=confirm_pass){//pass!=confirm pass
         return("Passwords don't match!");
     }
     else if(password.length()<8){//password too short
@@ -123,11 +123,11 @@ QRegExp re("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])");
                 line = stream.readLine();
             }
         }
-        if (imgPath==NULL)//no picture selected
+        if (img_path==NULL)//no picture selected
             return ("Please select a profile picture!");
 
         //add image directory into the info string
-        QFileInfo imgInfo(imgPath);
+        QFileInfo imgInfo(img_path);
         QString newPath = QDir::currentPath();
         newPath.append("/userDP");
         if (!QDir(newPath).exists())
@@ -140,17 +140,17 @@ QRegExp re("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])");
         }
 
         //write all the account info into the txt file
-        bool status = QFile::copy(imgPath, newPath);
+        bool status = QFile::copy(img_path, newPath);
         if (status == false)
             return ("Error adding profile picture!");
         QString data = (username + " " +
                     EncryptPass(password) + " " +
                     email + " " +
-                    fName + " " +
-                    lName + " " +
-                    DOB + " " +
+                    f_name + " " +
+                    l_name + " " +
+                    dob + " " +
                     newPath);
-        this->imgPath = newPath;
+        this->img_path = newPath;
         stream<<data<<endl;
         inputFile.close();
         return "success";
@@ -177,16 +177,16 @@ QString Accounts::DecryptPass(QString ciphertext){
 }
 
 //setters and getters
-QString  Accounts::getDOB(){
-    return (*(new QString(DOB)));
+QString  Accounts::GetDOB(){
+    return (*(new QString(dob)));
 }
 
-QString  Accounts::getUsername(){
+QString  Accounts::GetUsername(){
     return (*(new QString(username)));
 }
-QString  Accounts::getFName(){
-    return (*(new QString(fName)));
+QString  Accounts::GetFName(){
+    return (*(new QString(f_name)));
 }
-QString  Accounts::getImgPath(){
-    return (*(new QString(imgPath)));
+QString  Accounts::GetImgPath(){
+    return (*(new QString(img_path)));
 }
