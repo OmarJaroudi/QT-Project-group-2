@@ -6,6 +6,11 @@
 
 WelcomeWidget::WelcomeWidget(QWidget *parent) : QWidget(parent)
 {
+    QRect primaryScreenGeometry(QApplication::desktop()->screenGeometry());
+    this->move(-500000,-500000);
+    this->move((primaryScreenGeometry.width() - this->width()) / 2.0,
+                    (primaryScreenGeometry.height() - this->height()) / 2.0);
+
     //setting background color
     QColor col = QColor::fromRgb(148,0,211);
     QColor backgroundColor = QColor::fromRgb(33,33,35);
@@ -63,6 +68,7 @@ void WelcomeWidget::SignUpButton(){//transitions to signUpWidget
 void WelcomeWidget::PlayAsGuestButton(){//transitions to MainMenuWidget with Account set as a guest
     Accounts * guestAcc = new Accounts("Guest player","","","","","","",":/thumbnails/blank_profile.png");
     MainMenuWidget * menu = new MainMenuWidget();
+    this->hide();
     menu->prepareMenu(guestAcc);
 }
 

@@ -1,6 +1,7 @@
 HEADERS += \
     accounts.h \
     browsefiles.h \
+    game1.h \
     mainmenuwidget.h \
     signinwidget.h \
     signupwidget.h \
@@ -10,6 +11,7 @@ HEADERS += \
 SOURCES += \
     accounts.cpp \
     browsefiles.cpp \
+    game1.cpp \
     main.cpp \
     mainmenuwidget.cpp \
     signinwidget.cpp \
@@ -18,6 +20,7 @@ SOURCES += \
     welcomewidget.cpp
 
 QT += widgets
+QT += multimedia
 
 RESOURCES += \
     images.qrc

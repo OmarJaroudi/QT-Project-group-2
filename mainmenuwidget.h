@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <accounts.h>
+#include <game1.h>
 #include <QtWidgets>
 #include <QTimer>
 #include <QObject>
@@ -12,6 +13,7 @@ class MainMenuWidget : public QWidget
     Q_OBJECT
 public:
     explicit MainMenuWidget(QWidget *parent = nullptr);
+    QPushButton * game1Button;
     Accounts * currentUser;
     QLabel *log;
     QGridLayout * grid;
@@ -21,7 +23,9 @@ public:
     QLabel *img;
     QTimer *timer;
     void prepareMenu(Accounts * curr);
-private slots:void blink();
+private slots:
+    void blink();
+    void playGame1();
 signals:
 
 };

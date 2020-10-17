@@ -1,12 +1,16 @@
 #include "mainmenuwidget.h" //test push
-//OMAR JAROUDI
 MainMenuWidget::MainMenuWidget(QWidget *parent) : QWidget(parent)
 {
+    QRect primaryScreenGeometry(QApplication::desktop()->screenGeometry());
+    this->move(-500000,-500000);
+    this->move((primaryScreenGeometry.width() - this->width()) / 2.0,
+                    (primaryScreenGeometry.height() - this->height()) / 2.0);
     birthday = new QLabel("");
     QSizePolicy sp_retain = birthday->sizePolicy();
     sp_retain.setRetainSizeWhenHidden(true);
     birthday->setSizePolicy(sp_retain); //steps made to ensure that "Happy Birthday" blinking wont disrupt the
 
+    game1Button = new QPushButton("Game 1");
     this-> setWindowTitle("Main Menu");
     this->setMinimumSize(400,400); //ensure proper size of window
 
@@ -56,10 +60,13 @@ void MainMenuWidget::prepareMenu(Accounts * curr)
     VBox = new QVBoxLayout();
     VBox->addItem(grid);
     VBox->addItem(new QSpacerItem(200,200));//space to add games later on
-
+    VBox ->addWidget(game1Button);
     this->setLayout(VBox);
     this->setStyleSheet("QWidget { background-color : grey }");//set background color to grey
     this->show();
+
+    QObject::connect(game1Button,SIGNAL(clicked()),this,SLOT(playGame1()));
+
 }
 
 void MainMenuWidget::blink(){//function that hides and then shows the label every timer cycle
@@ -67,4 +74,14 @@ void MainMenuWidget::blink(){//function that hides and then shows the label ever
         birthday->hide();
     else
         birthday->show();
+}
+/**
+ * @brief redirect user to new window to start playing game 1
+ *
+ * create a new instance of game1 class
+ */
+void MainMenuWidget::playGame1(){
+    Game1 * game1 = new Game1(currentUser);
+    this->hide();
+    game1->show();
 }

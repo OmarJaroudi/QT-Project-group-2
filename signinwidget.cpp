@@ -4,6 +4,10 @@
 
 SignInWidget::SignInWidget(QWidget *parent) : QWidget(parent)
 {
+    QRect primaryScreenGeometry(QApplication::desktop()->screenGeometry());
+    this->move(-500000,-500000);
+    this->move((primaryScreenGeometry.width() - this->width()) / 2.0,
+                    (primaryScreenGeometry.height() - this->height()) / 2.0);
     //setting up Widgets
     QColor col = QColor::fromRgb(148,0,211);
     QColor backgroundColor = QColor::fromRgb(33,33,35);

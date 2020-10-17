@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>thumbnails/back_button.png</file>
         <file>thumbnails/blank_profile.png</file>
+        <file>thumbnails/game1.PNG</file>
+        <file>thumbnails/green_play_button.png</file>
     </qresource>
 </RCC>
