@@ -26,6 +26,7 @@ public:
     explicit Game1(Accounts *acc,QWidget *parent = nullptr);
 public slots: void ChooseDifficulty();
     void PressBack();
+    void StartGame();
 signals:
 
 };

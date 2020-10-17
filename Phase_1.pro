@@ -23,4 +23,5 @@ QT += widgets
 QT += multimedia
 
 RESOURCES += \
+    audio.qrc \
     images.qrc

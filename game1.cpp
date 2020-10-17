@@ -35,13 +35,13 @@ Game1::Game1(Accounts *acc, QWidget *parent) : QWidget(parent)
     play_button->setFixedSize(75,75);
     play_button->setStyleSheet("QPushButton {color: #333;border: 2px solid #555;border-radius: 20px;border-style: outset;background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #fff, stop: 1 #888);padding: 5px;}");
 
-    /*QMediaPlaylist *playlist = new QMediaPlaylist();
-    playlist->addMedia(QUrl("qrc:/sounds/backgroundmusic.mp3"));
+    QMediaPlaylist *playlist = new QMediaPlaylist();
+    playlist->addMedia(QUrl("qrc:/audio/GTA_san_andreas.mp3"));
     playlist->setPlaybackMode(QMediaPlaylist::Loop);
 
     QMediaPlayer *music = new QMediaPlayer();
     music->setPlaylist(playlist);
-    music->play();*/
+    music->play();
 
     QSpacerItem *spacer = new QSpacerItem(300,400, QSizePolicy::Expanding, QSizePolicy::Fixed);
 
@@ -58,6 +58,10 @@ Game1::Game1(Accounts *acc, QWidget *parent) : QWidget(parent)
     QObject::connect(play_button,SIGNAL(clicked()),this,SLOT(ChooseDifficulty()));
 
     QObject::connect(back_button,SIGNAL(clicked()),this,SLOT(PressBack()));
+
+    QObject::connect(easy,SIGNAL(clicked()),this,SLOT(StartGame()));
+    QObject::connect(medium,SIGNAL(clicked()),this,SLOT(StartGame()));
+    QObject::connect(hard,SIGNAL(clicked()),this,SLOT(StartGame()));
 
 }
 
@@ -85,4 +89,9 @@ void Game1::PressBack(){
     delete this;
     MainMenuWidget * main_menu = new MainMenuWidget(this->player);
     main_menu->show();
+}
+void Game1::StartGame(){
+    QPushButton* buttonSender = qobject_cast<QPushButton*>(sender()); // retrieve the button you have clicked
+    QString buttonText = buttonSender->text();
+
 }
