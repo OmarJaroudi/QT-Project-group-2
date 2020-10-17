@@ -2,6 +2,7 @@ HEADERS += \
     accounts.h \
     browsefiles.h \
     game1.h \
+    game1grid.h \
     mainmenuwidget.h \
     signinwidget.h \
     signupwidget.h \
@@ -12,6 +13,7 @@ SOURCES += \
     accounts.cpp \
     browsefiles.cpp \
     game1.cpp \
+    game1grid.cpp \
     main.cpp \
     mainmenuwidget.cpp \
     signinwidget.cpp \

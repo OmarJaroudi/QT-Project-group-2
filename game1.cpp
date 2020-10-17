@@ -93,5 +93,16 @@ void Game1::PressBack(){
 void Game1::StartGame(){
     QPushButton* buttonSender = qobject_cast<QPushButton*>(sender()); // retrieve the button you have clicked
     QString buttonText = buttonSender->text();
+    QGraphicsScene *grid = new game1grid();
+    this->close();
+    delete this;
+    QGraphicsView *view = new QGraphicsView(grid);
+    QRect primaryScreenGeometry(QApplication::desktop()->screenGeometry());
+    view->move(-500000,-500000);
+    view->move((primaryScreenGeometry.width() - this->width()) / 2.0,
+                    (primaryScreenGeometry.height() - this->height()) / 2.0);
+    view->show();
+
+
 
 }

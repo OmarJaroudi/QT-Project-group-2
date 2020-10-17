@@ -9,6 +9,7 @@
 #include <QMediaPlaylist>
 #include <QKeyEvent>
 #include "mainmenuwidget.h"
+#include "game1grid.h"
 
 class Game1 : public QWidget
 {
