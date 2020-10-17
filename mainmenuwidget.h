@@ -12,7 +12,7 @@ class MainMenuWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit MainMenuWidget(QWidget *parent = nullptr);
+    explicit MainMenuWidget(Accounts *curr, QWidget *parent = nullptr);
     QPushButton * game_1_button;
     Accounts * current_user;
     QLabel *log;
@@ -22,7 +22,6 @@ public:
     QLabel *current_date_label;
     QLabel *img;
     QTimer *timer;
-    void PrepareMenu(Accounts * curr);
 private slots:
     void Blink();
     void PlayGame1();

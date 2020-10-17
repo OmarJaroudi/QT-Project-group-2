@@ -1,5 +1,5 @@
 #include "mainmenuwidget.h" //test push
-MainMenuWidget::MainMenuWidget(QWidget *parent) : QWidget(parent)
+MainMenuWidget::MainMenuWidget(Accounts *curr,QWidget *parent) : QWidget(parent)
 {
     QRect primaryScreenGeometry(QApplication::desktop()->screenGeometry());
     this->move(-500000,-500000);
@@ -16,9 +16,7 @@ MainMenuWidget::MainMenuWidget(QWidget *parent) : QWidget(parent)
 
     timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),this,SLOT(Blink())); //make happy birthday blink
-}
-void MainMenuWidget::PrepareMenu(Accounts * curr)
-{
+
     current_user = curr;//loads in current user
 
     log = new QLabel("Welcome " + this->current_user->GetUsername() + "!");
@@ -67,6 +65,7 @@ void MainMenuWidget::PrepareMenu(Accounts * curr)
 
     QObject::connect(game_1_button,SIGNAL(clicked()),this,SLOT(PlayGame1()));
 
+
 }
 
 void MainMenuWidget::Blink(){//function that hides and then shows the label every timer cycle
@@ -75,6 +74,7 @@ void MainMenuWidget::Blink(){//function that hides and then shows the label ever
     else
         birthday->show();
 }
+
 /**
  * @brief redirect user to new window to start playing game 1
  *
@@ -82,6 +82,6 @@ void MainMenuWidget::Blink(){//function that hides and then shows the label ever
  */
 void MainMenuWidget::PlayGame1(){
     Game1 * game1 = new Game1(current_user);
-    this->hide();
     game1->show();
+    delete this;
 }

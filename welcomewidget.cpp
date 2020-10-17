@@ -67,8 +67,7 @@ void WelcomeWidget::SignUpButton(){//transitions to sign_upWidget
 }
 void WelcomeWidget::PlayAsGuestButton(){//transitions to MainMenuWidget with Account set as a guest
     Accounts * guestAcc = new Accounts("Guest player","","","","","","",":/thumbnails/blank_profile.png");
-    MainMenuWidget * menu = new MainMenuWidget();
-    this->hide();
-    menu->PrepareMenu(guestAcc);
+    MainMenuWidget * menu = new MainMenuWidget(guestAcc);
+    delete this;
 }
 

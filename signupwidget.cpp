@@ -141,14 +141,16 @@ void SignUpWidget::CreateAccount(){//passes the info entered into an instance of
         error_message->setText(result);
     else {//sign up succeeded, transition to main menu
         this->close();
-        MainMenuWidget *menu = new MainMenuWidget();
-        menu->PrepareMenu(acc);
+        MainMenuWidget *menu = new MainMenuWidget(acc);
+        delete this;
+
     }
 
 }
 void SignUpWidget:: ClickReturn()//return to welcome screen if return button clicked
 {
     this->close();
+    delete this;
     WelcomeWidget * scene = new WelcomeWidget();
     scene->setMinimumSize(300,300);
     scene->show();

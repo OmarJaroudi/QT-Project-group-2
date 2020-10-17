@@ -81,5 +81,8 @@ void Game1::ChooseDifficulty(){
     this->setLayout(difficulty_layout);
 }
 void Game1::PressBack(){
-    qDebug()<<"success";
+    this->close();
+    delete this;
+    MainMenuWidget * main_menu = new MainMenuWidget(this->player);
+    main_menu->show();
 }

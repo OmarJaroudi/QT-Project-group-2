@@ -88,14 +88,15 @@ void SignInWidget::VerifyCredentials(){//passes the input to attemptSignIn.
         error_message->setText(result);//failed verification
     else{
         this->close();
-        MainMenuWidget *menu = new MainMenuWidget();//verification succes, transitions to mainmenu
-        menu->PrepareMenu(acc);
+        delete this;
+        MainMenuWidget *menu = new MainMenuWidget(acc);//verification succes, transitions to mainmenu
     }
 }
 
 void SignInWidget:: ClickReturn()//returns the user to the welcome screen if the return button is pushed
 {
     this->close();
+    delete this;
     WelcomeWidget * scene = new WelcomeWidget();
     scene->setMinimumSize(300,300);
     scene->show();

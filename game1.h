@@ -8,6 +8,7 @@
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
 #include <QKeyEvent>
+#include "mainmenuwidget.h"
 
 class Game1 : public QWidget
 {
