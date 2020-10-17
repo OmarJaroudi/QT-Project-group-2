@@ -19,22 +19,38 @@ MainMenuWidget::MainMenuWidget(Accounts *curr,QWidget *parent) : QWidget(parent)
 
     current_user = curr;//loads in current user
 
-    log = new QLabel("Welcome " + this->current_user->GetUsername() + "!");
+    log = new QLabel(this->current_user->GetUsername() + "!");
+    QFont Font1;
+    Font1.setBold(true);
+    Font1.setPointSize(12);
 
     grid = new QGridLayout();
-    grid->addWidget(log,0,0);//shows welcome username
+    Logout= new QPushButton("Logout");
+    Logout->setFixedSize(80,20);
+    grid->addWidget(Logout,0,0);
     img = new QLabel();
-
-    img->setPixmap(QPixmap(this->current_user->GetImgPath()).scaled(50,50));
+    img->setPixmap(QPixmap(this->current_user->GetImgPath()).scaled(150,200));
     img->setScaledContents(true);
-    img->setMaximumSize(125,125); //loads in the account's image and sets parameteres
-
+    img->setMaximumSize(150,200); //loads in the account's image and sets parameteres
+    bigSpacer= new QSpacerItem(175, 0);
+    grid->addItem(bigSpacer,1,0);
+    grid->addItem(bigSpacer,1,2);
     grid->addWidget(img,1,1);
+    Welcome= new QLabel("Welcome");
+    log->setFont(Font1);
+    Welcome->setFont(Font1);
+//    grid->addWidget(Welcome,2,1,Qt::AlignCenter);
+//    grid->addItem(bigSpacer,2,0);
+//    grid->addItem(bigSpacer,2,2);
+//    grid->addWidget(log,3,1,Qt::AlignCenter);
+//    grid->addItem(new QSpacerItem(150,0),3,0);
+//    grid->addItem(new QSpacerItem(150,0),3,2);
+
+
+
     QDateEdit *currDate = new QDateEdit(QDate::currentDate());//get current date
     currDate->setDisplayFormat("dd/MM/yyyy");
     QString todayDate = currDate->text();//define current date as a string
-    current_date_label= new QLabel(todayDate);
-    grid->addWidget(current_date_label,0,1);//display today's date on top right
 
     bool IsBirthday=true;
     for(int i=0;i<todayDate.length()-4;i++)
@@ -44,26 +60,43 @@ MainMenuWidget::MainMenuWidget(Accounts *curr,QWidget *parent) : QWidget(parent)
             IsBirthday=false; //checks if birthday and todays date have equal day and month
         }
     }
+
+    vbox = new QVBoxLayout();
+    vbox->addItem(grid);
+    Welcome->setAlignment(Qt::AlignCenter);
+    log->setAlignment(Qt::AlignCenter);
+    vbox->addWidget(Welcome);
+    vbox->addWidget(log);
+
     if (IsBirthday){
         birthday->setText("HAPPY BIRTHDAY!!!");//set the value of birthday
         timer->start(750);//start timer
         birthday->setStyleSheet("QLabel { color : red; }");//change color to red
         QFont font =birthday->font();
         font.setBold(true);//set bold
-        font.setPointSize(14);//change font size
+        font.setPointSize(18);//change font size
         birthday->setFont(font);//set font
-        grid->addWidget(birthday,1,0);//add happy birthday message to the screen
+        birthday->setAlignment(Qt::AlignCenter);
+        vbox->addWidget(birthday);//add happy birthday message to the screen
     }
 
-    vbox = new QVBoxLayout();
-    vbox->addItem(grid);
-    vbox->addItem(new QSpacerItem(200,200));//space to add games later on
+
+
+    vbox->addItem(new QSpacerItem(0,20));
+    gameGrid= new QGridLayout;
+    Game1Label=new ClickableLabel();
+    Game1Label->setPixmap(QPixmap(":/thumbnails/game1.PNG").scaled(200,150));
+    Game1Label->setFixedSize(200,150);
+    gameGrid->addWidget(Game1Label,0,0);
+    gameGrid->addItem(new QSpacerItem(200,150),0,1);
+    vbox->addItem(gameGrid);
+
     vbox ->addWidget(game_1_button);
     this->setLayout(vbox);
     this->setStyleSheet("QWidget { background-color : grey }");//set background color to grey
     this->show();
 
-    QObject::connect(game_1_button,SIGNAL(clicked()),this,SLOT(PlayGame1()));
+    QObject::connect(Game1Label,SIGNAL(clicked()),this,SLOT(PlayGame1()));
 
 
 }
@@ -83,5 +116,6 @@ void MainMenuWidget::Blink(){//function that hides and then shows the label ever
 void MainMenuWidget::PlayGame1(){
     Game1 * game1 = new Game1(current_user);
     game1->show();
-    delete this;
+    this->hide();
+
 }

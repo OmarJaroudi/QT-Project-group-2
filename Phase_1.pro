@@ -1,6 +1,7 @@
 HEADERS += \
     accounts.h \
     browsefiles.h \
+    clickablelabel.h \
     game1.h \
     game1grid.h \
     mainmenuwidget.h \
@@ -12,6 +13,7 @@ HEADERS += \
 SOURCES += \
     accounts.cpp \
     browsefiles.cpp \
+    clickablelabel.cpp \
     game1.cpp \
     game1grid.cpp \
     main.cpp \
