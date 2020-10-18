@@ -9,7 +9,10 @@ class ClickableLabel : public QLabel
 signals:
     void clicked();
 public:
+    QString color;
     void mousePressEvent(QMouseEvent* event);
+    ClickableLabel();
+    ClickableLabel(QString color);
     //using QLabel::QLabel;
 };
 

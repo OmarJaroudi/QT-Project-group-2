@@ -17,17 +17,17 @@ game1grid::game1grid()
     this->setSceneRect(QRectF(0,0,1010,485));
 
 
-    blue_virus=new ClickableLabel();
+    blue_virus=new ClickableLabel("blue");
     blue_virus->setStyleSheet("QLabel {background-color: rgba(255, 255, 255, 0);}");
     blue_virus->setPixmap(QPixmap(":/thumbnails/blue_.png").scaled(75,75));
     blue_virus->setFixedSize(75,75);
 
-    yellow_virus=new ClickableLabel();
+    yellow_virus=new ClickableLabel("yellow");
     yellow_virus->setStyleSheet("QLabel {background-color: rgba(255, 255, 255, 0);}");
     yellow_virus->setPixmap(QPixmap(":/thumbnails/yellow.png").scaled(65,65));
     yellow_virus->setFixedSize(65,65);
 
-    green_virus=new ClickableLabel();
+    green_virus=new ClickableLabel("green");
     green_virus->setStyleSheet("QLabel {background-color: rgba(255, 255, 255, 0);}");
     green_virus->setPixmap(QPixmap(":/thumbnails/green.png").scaled(55,55));
     green_virus->setFixedSize(55,55);
@@ -55,8 +55,9 @@ game1grid::game1grid()
     timer_info->setStyleSheet("QLabel {font-size:40px;color:white;background-color: rgba(255, 255, 255, 0);}");
     this->addWidget(timer_info);
 
+    score = 0;
     score_info = new QLabel("0");
-    score_info->move(500,50);
+    score_info->move(500,40);
     score_info->setFixedSize(150,40);
     score_info->setStyleSheet("QLabel {font-size:50px;color:white;background-color: rgba(255, 255, 255, 0);}");
 
@@ -65,14 +66,19 @@ game1grid::game1grid()
 }
 
 void game1grid::ShootVirus(){
-    QLabel * source = qobject_cast<QLabel*>(sender());
-
+    ClickableLabel * source = qobject_cast<ClickableLabel*>(sender());
     if (source->isVisible()){
         source->hide();
-        QString virus = source->text();
-        qDebug()<<virus;
-
+        QString virus = source->color;
+        if (virus=="blue")
+            score+=7;
+        else if (virus=="yellow")
+            score+=5;
+        else
+            score+=3;
+        score_info->setText(QStringLiteral("%1").arg(score));
     }
+
 }
 
 void game1grid::UpdateTime(){
