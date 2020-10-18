@@ -108,5 +108,4 @@ void Game1::StartGame(){
     view->show();
 
 
-
 }

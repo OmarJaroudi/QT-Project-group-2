@@ -16,19 +16,20 @@ public:
     explicit MainMenuWidget(Accounts *curr, QWidget *parent = nullptr);
     Accounts * current_user;
     QLabel *log;
-    QLabel *Welcome;
+    QLabel *welcome;
     QGridLayout * grid;
     QVBoxLayout * vbox;
-    QGridLayout * gameGrid;
+    QGridLayout * game_grid;
     QLabel *birthday;
     QLabel *img;
     QTimer *timer;
     QSpacerItem *bigSpacer;
-    QPushButton *Logout;
-    ClickableLabel *Game1Label;
+    QPushButton *logout;
+    ClickableLabel *game_1_label;
 private slots:
     void Blink();
     void PlayGame1();
+    void LogOut();
 signals:
 
 };

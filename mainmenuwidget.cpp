@@ -1,4 +1,7 @@
+#pragma once
 #include "mainmenuwidget.h"
+#include "welcomewidget.h"
+
 MainMenuWidget::MainMenuWidget(Accounts *curr,QWidget *parent) : QWidget(parent)
 {
     //this->setAttribute(Qt::WA_DeleteOnClose);
@@ -25,9 +28,9 @@ MainMenuWidget::MainMenuWidget(Accounts *curr,QWidget *parent) : QWidget(parent)
     Font1.setPointSize(12);
 
     grid = new QGridLayout();
-    Logout= new QPushButton("Logout");
-    Logout->setFixedSize(80,20);
-    grid->addWidget(Logout,0,0);
+    logout= new QPushButton("Logout");
+    logout->setFixedSize(80,20);
+    grid->addWidget(logout,0,0);
     img = new QLabel();
     img->setPixmap(QPixmap(this->current_user->GetImgPath()).scaled(150,200));
     img->setScaledContents(true);
@@ -36,9 +39,9 @@ MainMenuWidget::MainMenuWidget(Accounts *curr,QWidget *parent) : QWidget(parent)
     grid->addItem(bigSpacer,1,0);
     grid->addItem(bigSpacer,1,2);
     grid->addWidget(img,1,1);
-    Welcome= new QLabel("Welcome");
+    welcome= new QLabel("Welcome");
     log->setFont(Font1);
-    Welcome->setFont(Font1);
+    welcome->setFont(Font1);
 //    grid->addWidget(Welcome,2,1,Qt::AlignCenter);
 //    grid->addItem(bigSpacer,2,0);
 //    grid->addItem(bigSpacer,2,2);
@@ -48,9 +51,9 @@ MainMenuWidget::MainMenuWidget(Accounts *curr,QWidget *parent) : QWidget(parent)
 
 
 
-    QDateEdit *currDate = new QDateEdit(QDate::currentDate());//get current date
-    currDate->setDisplayFormat("dd/MM/yyyy");
-    QString todayDate = currDate->text();//define current date as a string
+    QDateEdit *curr_date = new QDateEdit(QDate::currentDate());//get current date
+    curr_date->setDisplayFormat("dd/MM/yyyy");
+    QString todayDate = curr_date->text();//define current date as a string
 
     bool IsBirthday=true;
     for(int i=0;i<todayDate.length()-4;i++)
@@ -63,9 +66,9 @@ MainMenuWidget::MainMenuWidget(Accounts *curr,QWidget *parent) : QWidget(parent)
 
     vbox = new QVBoxLayout();
     vbox->addItem(grid);
-    Welcome->setAlignment(Qt::AlignCenter);
+    welcome->setAlignment(Qt::AlignCenter);
     log->setAlignment(Qt::AlignCenter);
-    vbox->addWidget(Welcome);
+    vbox->addWidget(welcome);
     vbox->addWidget(log);
 
     if (IsBirthday){
@@ -83,19 +86,20 @@ MainMenuWidget::MainMenuWidget(Accounts *curr,QWidget *parent) : QWidget(parent)
 
 
     vbox->addItem(new QSpacerItem(0,20));
-    gameGrid= new QGridLayout;
-    Game1Label=new ClickableLabel();
-    Game1Label->setPixmap(QPixmap(":/thumbnails/game1.PNG").scaled(200,150));
-    Game1Label->setFixedSize(200,150);
-    gameGrid->addWidget(Game1Label,0,0);
-    gameGrid->addItem(new QSpacerItem(200,150),0,1);
-    vbox->addItem(gameGrid);
+    game_grid= new QGridLayout;
+    game_1_label=new ClickableLabel();
+    game_1_label->setPixmap(QPixmap(":/thumbnails/game1.PNG").scaled(200,150));
+    game_1_label->setFixedSize(200,150);
+    game_grid->addWidget(game_1_label,0,0);
+    game_grid->addItem(new QSpacerItem(200,150),0,1);
+    vbox->addItem(game_grid);
 
     this->setLayout(vbox);
     this->setStyleSheet("QWidget { background-color : grey }");//set background color to grey
     this->show();
 
-    QObject::connect(Game1Label,SIGNAL(clicked()),this,SLOT(PlayGame1()));
+    QObject::connect(game_1_label,SIGNAL(clicked()),this,SLOT(PlayGame1()));
+    QObject::connect(logout,SIGNAL(clicked()),this,SLOT(LogOut()));
 
 
 }
@@ -119,4 +123,9 @@ void MainMenuWidget::PlayGame1(){
     this->close();
 }
 
-
+void MainMenuWidget::LogOut(){
+    delete current_user;
+    WelcomeWidget *welcome = new WelcomeWidget();
+    welcome->show();
+    this->close();
+}

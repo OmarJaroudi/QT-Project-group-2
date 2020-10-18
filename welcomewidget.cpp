@@ -1,3 +1,4 @@
+#pragma once
 #include "welcomewidget.h"
 #include "signinwidget.h"
 #include "signupwidget.h"
@@ -6,6 +7,7 @@
 
 WelcomeWidget::WelcomeWidget(QWidget *parent) : QWidget(parent)
 {
+    this->setFixedSize(300,300);
     this->setAttribute(Qt::WA_DeleteOnClose);
 
     QRect primaryScreenGeometry(QApplication::desktop()->screenGeometry());
