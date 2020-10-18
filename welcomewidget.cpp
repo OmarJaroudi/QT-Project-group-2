@@ -6,6 +6,8 @@
 
 WelcomeWidget::WelcomeWidget(QWidget *parent) : QWidget(parent)
 {
+    this->setAttribute(Qt::WA_DeleteOnClose);
+
     QRect primaryScreenGeometry(QApplication::desktop()->screenGeometry());
     this->move(-500000,-500000);
     this->move((primaryScreenGeometry.width() - this->width()) / 2.0,
@@ -68,6 +70,6 @@ void WelcomeWidget::SignUpButton(){//transitions to sign_upWidget
 void WelcomeWidget::PlayAsGuestButton(){//transitions to MainMenuWidget with Account set as a guest
     Accounts * guestAcc = new Accounts("Guest player","","","","","","",":/thumbnails/blank_profile.png");
     MainMenuWidget * menu = new MainMenuWidget(guestAcc);
-    delete this;
+    this->close();
 }
 

@@ -1,6 +1,7 @@
-#include "mainmenuwidget.h" //test push
+#include "mainmenuwidget.h"
 MainMenuWidget::MainMenuWidget(Accounts *curr,QWidget *parent) : QWidget(parent)
 {
+    //this->setAttribute(Qt::WA_DeleteOnClose);
     QRect primaryScreenGeometry(QApplication::desktop()->screenGeometry());
     this->move(-500000,-500000);
     this->move((primaryScreenGeometry.width() - this->width()) / 2.0,
@@ -10,7 +11,6 @@ MainMenuWidget::MainMenuWidget(Accounts *curr,QWidget *parent) : QWidget(parent)
     sp_retain.setRetainSizeWhenHidden(true);
     birthday->setSizePolicy(sp_retain); //steps made to ensure that "Happy Birthday" blinking wont disrupt the
 
-    game_1_button = new QPushButton("Game 1");
     this-> setWindowTitle("Main Menu");
     this->setMinimumSize(400,400); //ensure proper size of window
 
@@ -91,7 +91,6 @@ MainMenuWidget::MainMenuWidget(Accounts *curr,QWidget *parent) : QWidget(parent)
     gameGrid->addItem(new QSpacerItem(200,150),0,1);
     vbox->addItem(gameGrid);
 
-    vbox ->addWidget(game_1_button);
     this->setLayout(vbox);
     this->setStyleSheet("QWidget { background-color : grey }");//set background color to grey
     this->show();
@@ -114,8 +113,10 @@ void MainMenuWidget::Blink(){//function that hides and then shows the label ever
  * create a new instance of game1 class
  */
 void MainMenuWidget::PlayGame1(){
-    Game1 * game1 = new Game1(current_user);
+    Accounts *temp = new Accounts(*(current_user));
+    Game1 * game1 = new Game1(temp);
     game1->show();
-    this->hide();
-
+    this->close();
 }
+
+

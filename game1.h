@@ -21,6 +21,7 @@ class Game1 : public QWidget
     QPushButton *medium;
     QPushButton *hard;
     QPushButton *back_button;
+    QMediaPlayer *music;
     Q_OBJECT
 public:
     void keyPressEvent(QKeyEvent *event);

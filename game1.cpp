@@ -2,6 +2,8 @@
 
 Game1::Game1(Accounts *acc, QWidget *parent) : QWidget(parent)
 {
+    this->setAttribute(Qt::WA_DeleteOnClose);
+
     player = acc;
     easy  =new QPushButton("easy");
     medium = new QPushButton("medium");
@@ -39,9 +41,10 @@ Game1::Game1(Accounts *acc, QWidget *parent) : QWidget(parent)
     playlist->addMedia(QUrl("qrc:/audio/GTA_san_andreas.mp3"));
     playlist->setPlaybackMode(QMediaPlaylist::Loop);
 
-    QMediaPlayer *music = new QMediaPlayer();
+    music = new QMediaPlayer();
     music->setPlaylist(playlist);
-    music->play();
+    //if (music->state() != QMediaPlayer::PlayingState)
+      //  music->play();
 
     QSpacerItem *spacer = new QSpacerItem(300,400, QSizePolicy::Expanding, QSizePolicy::Fixed);
 
@@ -81,21 +84,22 @@ void Game1::ChooseDifficulty(){
     difficulty_layout->addWidget(easy,200,Qt::AlignCenter);
     difficulty_layout->addWidget(medium,200,Qt::AlignCenter);
     difficulty_layout->addWidget(hard,200,Qt::AlignCenter);
-    //difficultyLayout->addWidget(Back,30,Qt::AlignLeft|Qt::AlignBottom);
     this->setLayout(difficulty_layout);
 }
 void Game1::PressBack(){
     this->close();
-    delete this;
     MainMenuWidget * main_menu = new MainMenuWidget(this->player);
     main_menu->show();
+    if (music->state() == QMediaPlayer::PlayingState){
+        music->stop();
+    }
+
 }
 void Game1::StartGame(){
     QPushButton* buttonSender = qobject_cast<QPushButton*>(sender()); // retrieve the button you have clicked
     QString buttonText = buttonSender->text();
     QGraphicsScene *grid = new game1grid();
     this->close();
-    delete this;
     QGraphicsView *view = new QGraphicsView(grid);
     QRect primaryScreenGeometry(QApplication::desktop()->screenGeometry());
     view->move(-500000,-500000);

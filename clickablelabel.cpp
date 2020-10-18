@@ -4,3 +4,4 @@ void ClickableLabel::mousePressEvent(QMouseEvent* event1)
 {
     emit clicked();
 }
+

@@ -4,6 +4,7 @@
 
 SignInWidget::SignInWidget(QWidget *parent) : QWidget(parent)
 {
+    this->setAttribute(Qt::WA_DeleteOnClose);
     QRect primaryScreenGeometry(QApplication::desktop()->screenGeometry());
     this->move(-500000,-500000);
     this->move((primaryScreenGeometry.width() - this->width()) / 2.0,
@@ -88,7 +89,6 @@ void SignInWidget::VerifyCredentials(){//passes the input to attemptSignIn.
         error_message->setText(result);//failed verification
     else{
         this->close();
-        delete this;
         MainMenuWidget *menu = new MainMenuWidget(acc);//verification succes, transitions to mainmenu
     }
 }
@@ -96,7 +96,6 @@ void SignInWidget::VerifyCredentials(){//passes the input to attemptSignIn.
 void SignInWidget:: ClickReturn()//returns the user to the welcome screen if the return button is pushed
 {
     this->close();
-    delete this;
     WelcomeWidget * scene = new WelcomeWidget();
     scene->setMinimumSize(300,300);
     scene->show();

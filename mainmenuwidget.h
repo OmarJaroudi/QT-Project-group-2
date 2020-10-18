@@ -14,7 +14,6 @@ class MainMenuWidget : public QWidget
     Q_OBJECT
 public:
     explicit MainMenuWidget(Accounts *curr, QWidget *parent = nullptr);
-    QPushButton * game_1_button;
     Accounts * current_user;
     QLabel *log;
     QLabel *Welcome;

@@ -4,6 +4,8 @@
 
 SignUpWidget::SignUpWidget(QWidget *parent) : QWidget(parent)
 {
+    this->setAttribute(Qt::WA_DeleteOnClose);
+
     QRect primaryScreenGeometry(QApplication::desktop()->screenGeometry());
     this->move(-500000,-500000);
     this->move((primaryScreenGeometry.width() - this->width()) / 2.0,
@@ -142,7 +144,6 @@ void SignUpWidget::CreateAccount(){//passes the info entered into an instance of
     else {//sign up succeeded, transition to main menu
         this->close();
         MainMenuWidget *menu = new MainMenuWidget(acc);
-        delete this;
 
     }
 
@@ -150,7 +151,6 @@ void SignUpWidget::CreateAccount(){//passes the info entered into an instance of
 void SignUpWidget:: ClickReturn()//return to welcome screen if return button clicked
 {
     this->close();
-    delete this;
     WelcomeWidget * scene = new WelcomeWidget();
     scene->setMinimumSize(300,300);
     scene->show();
