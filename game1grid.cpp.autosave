@@ -71,7 +71,7 @@ void game1grid::ShootVirus(){
         source->hide();
         QString virus = source->text();
         qDebug()<<virus;
-
+        
     }
 }
 

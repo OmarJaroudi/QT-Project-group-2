@@ -106,6 +106,8 @@ void Game1::StartGame(){
     view->move((primaryScreenGeometry.width() - this->width()) / 2.0,
                     (primaryScreenGeometry.height() - this->height()) / 2.0);
     view->show();
-
+    view->setFixedSize(1010,485);
+    view->setHorizontalScrollBarPolicy((Qt::ScrollBarAlwaysOff));
+    view->setVerticalScrollBarPolicy((Qt::ScrollBarAlwaysOff));
 
 }
