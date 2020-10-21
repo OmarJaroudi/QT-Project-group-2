@@ -30,4 +30,5 @@ QT += multimedia
 
 RESOURCES += \
     audio.qrc \
+    game1grid.qrc \
     images.qrc

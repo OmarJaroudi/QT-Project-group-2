@@ -1,6 +1,6 @@
 #include "game1grid.h"
 #include <QDebug>
-game1grid::game1grid()
+Game1Grid::Game1Grid()
 {
 
     setBackgroundBrush(QBrush(QColor::fromRgb(128,0,0),Qt::SolidPattern));
@@ -32,7 +32,7 @@ game1grid::game1grid()
     this->addWidget(timer_info);
     QObject::connect(timer,SIGNAL(timeout()),this,SLOT(UpdateTime()));
 
-    score = 0;
+    current_score = 0;
     score_info = new QLabel("0");
     score_info->move(500,50);
     score_info->setFixedSize(150,40);
@@ -48,24 +48,60 @@ game1grid::game1grid()
 
     smash_sound = new QMediaPlayer();
     smash_sound->setPlaylist(playlist);
+    LoadGrid();
 
 }
 
-void game1grid::ShootVirus(){
+void Game1Grid::ShootVirus(){
     VirusObject * source = qobject_cast<VirusObject*>(sender());
     if (source->isVisible()){
         smash_sound->play();
         source->hide();
-        score += source->getScore();
-        score_info->setText(QStringLiteral("%1").arg(score));
+        current_score += source->getScore();
+        score_info->setText(QStringLiteral("%1").arg(current_score));
 
         smashed_virus->move(source->x(),source->y());
         this->addWidget(smashed_virus);
-
+        next_virus.clear();
     }
 }
 
-void game1grid::UpdateTime(){
+void Game1Grid::LoadGrid(){
+    QFile inputFile(":/game1_grid.txt");
+    int theoretical_score = 0;
+    if (inputFile.size()!=0){
+        inputFile.open(QIODevice::ReadOnly);//configure to read
+        QTextStream stream(&inputFile);
+        QString line = stream.readLine();
+        this->winning_score  = line.toInt();
+        line = stream.readLine();
+        while (!line.isNull()) { //extract grid info from txt file
+            QStringList tempLine = line.split(QRegExp(" |\t"));
+            int increment =0;
+            if (tempLine[0].toInt()==1)
+                increment=3;
+            else if (tempLine[0].toInt()==1)
+                increment=5;
+            else if (tempLine[0].toInt()==2)
+                increment=7;
+            if ((theoretical_score+increment)<=(winning_score-3)||(theoretical_score+increment)==winning_score)
+                theoretical_score+=increment;
+
+            line = stream.readLine();
+            vector<int> auxVector;
+            auxVector.push_back(tempLine[0].toInt());
+            auxVector.push_back(tempLine[1].toInt());
+            auxVector.push_back(tempLine[2].toInt());
+            next_virus.push_back(auxVector);
+        }
+        inputFile.close();
+    }
+    if (theoretical_score!=winning_score)
+        qDebug()<<"Loading grid from text file failed. Generating real-time grid instead "<<theoretical_score;
+        winning_score = 150;
+
+}
+void Game1Grid::UpdateTime(){
     elapsed_time+=1;
     int sec = int(elapsed_time % 60);
     QString seconds = "";

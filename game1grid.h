@@ -8,13 +8,17 @@
 #include <QTimer>
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
-class game1grid : public QGraphicsScene
+#include <QFile>
+#include <QVector> // for 2D vector
+using namespace std;
+class Game1Grid : public QGraphicsScene
 {
     Q_OBJECT
 public:
-    game1grid();
+    Game1Grid();
     int elapsed_time;
-    int score;
+    int current_score;
+    int winning_score;
     QLabel *timer_info;
     QLabel *score_info;
     QTimer *timer;
@@ -23,6 +27,8 @@ public:
     QLabel *green_virus;
     QLabel *smashed_virus;
     QMediaPlayer *smash_sound;
+    vector <vector<int>> next_virus;
+    void LoadGrid();
 
 
 public slots: void ShootVirus();

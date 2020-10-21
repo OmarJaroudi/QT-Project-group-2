@@ -87,7 +87,7 @@ void Game1::PressBack(){
 void Game1::StartGame(){
     QPushButton* buttonSender = qobject_cast<QPushButton*>(sender());
     QString difficulty = buttonSender->text();
-    QGraphicsScene *grid = new game1grid();
+    QGraphicsScene *grid = new Game1Grid();
     this->close();
     QGraphicsView *view = new QGraphicsView(grid);
     QRect primaryScreenGeometry(QApplication::desktop()->screenGeometry());
