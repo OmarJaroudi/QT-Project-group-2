@@ -1,6 +1,5 @@
 #ifndef WELCOMEWIDGET_H
 #define WELCOMEWIDGET_H
-
 #include <QWidget>
 #include<QObject>
 #include <QtWidgets>

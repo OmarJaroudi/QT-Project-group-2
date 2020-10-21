@@ -1,4 +1,3 @@
-#pragma once
 #include "welcomewidget.h"
 #include "signinwidget.h"
 #include "signupwidget.h"

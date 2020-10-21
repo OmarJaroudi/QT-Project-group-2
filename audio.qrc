@@ -1,5 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>audio/GTA_san_andreas.mp3</file>
+        <file>audio/smashed.mp3</file>
     </qresource>
 </RCC>

@@ -1,5 +1,6 @@
 #ifndef MAINMENU_H
 #define MAINMENU_H
+#pragma once
 
 #include <QWidget>
 #include <accounts.h>

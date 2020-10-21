@@ -30,21 +30,13 @@ Game1::Game1(Accounts *acc, QWidget *parent) : QWidget(parent)
         this->setPalette(palette);
     this->setWindowTitle("Kill COVID-19");
     play_button = new QPushButton();
+
     QPixmap pixMap;
     pixMap.load(":/thumbnails/green_play_button.png");
     play_button->setIcon(pixMap);
     play_button->setIconSize(QSize(75, 75));
     play_button->setFixedSize(75,75);
     play_button->setStyleSheet("QPushButton {color: #333;border: 2px solid #555;border-radius: 20px;border-style: outset;background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #fff, stop: 1 #888);padding: 5px;}");
-
-    QMediaPlaylist *playlist = new QMediaPlaylist();
-    playlist->addMedia(QUrl("qrc:/audio/GTA_san_andreas.mp3"));
-    playlist->setPlaybackMode(QMediaPlaylist::Loop);
-
-    music = new QMediaPlayer();
-    music->setPlaylist(playlist);
-    //if (music->state() != QMediaPlayer::PlayingState)
-      //  music->play();
 
     QSpacerItem *spacer = new QSpacerItem(300,400, QSizePolicy::Expanding, QSizePolicy::Fixed);
 
@@ -90,14 +82,11 @@ void Game1::PressBack(){
     this->close();
     MainMenuWidget * main_menu = new MainMenuWidget(this->player);
     main_menu->show();
-    if (music->state() == QMediaPlayer::PlayingState){
-        music->stop();
-    }
 
 }
 void Game1::StartGame(){
-    QPushButton* buttonSender = qobject_cast<QPushButton*>(sender()); // retrieve the button you have clicked
-    QString buttonText = buttonSender->text();
+    QPushButton* buttonSender = qobject_cast<QPushButton*>(sender());
+    QString difficulty = buttonSender->text();
     QGraphicsScene *grid = new game1grid();
     this->close();
     QGraphicsView *view = new QGraphicsView(grid);

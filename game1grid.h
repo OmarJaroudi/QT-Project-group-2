@@ -2,9 +2,12 @@
 #define GAME1GRID_H
 #include <QGraphicsScene>
 #include "clickablelabel.h"
+#include "virusobject.h"
 #include <QGraphicsPixmapItem>
 #include <QPixmap>
 #include <QTimer>
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
 class game1grid : public QGraphicsScene
 {
     Q_OBJECT
@@ -18,6 +21,10 @@ public:
     QLabel *blue_virus;
     QLabel *yellow_virus;
     QLabel *green_virus;
+    QLabel *smashed_virus;
+    QMediaPlayer *smash_sound;
+
+
 public slots: void ShootVirus();
     void UpdateTime();
 

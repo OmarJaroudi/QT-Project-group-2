@@ -8,6 +8,7 @@ HEADERS += \
     signinwidget.h \
     signupwidget.h \
     simplecrypt.h \
+    virusobject.h \
     welcomewidget.h
 
 SOURCES += \
@@ -21,6 +22,7 @@ SOURCES += \
     signinwidget.cpp \
     signupwidget.cpp \
     simplecrypt.cpp \
+    virusobject.cpp \
     welcomewidget.cpp
 
 QT += widgets

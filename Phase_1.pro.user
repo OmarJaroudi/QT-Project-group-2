@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.12.2, 2020-10-17T23:22:16. -->
+<!-- Written by QtCreator 4.12.2, 2020-10-21T10:25:30. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -306,9 +306,8 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Phase_12</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/eece435l/QT-Project-group-2/QT-Project-group-2/Phase_1.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/eece435l/QT-Project-group-2/QT-Project-group-2/Phase_1.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/eece435l/Desktop/QT-Project-group-2/Phase_1.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/eece435l/Desktop/QT-Project-group-2/Phase_1.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>

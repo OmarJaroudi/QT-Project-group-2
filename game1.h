@@ -1,12 +1,9 @@
 #ifndef GAME1_H
 #define GAME1_H
-
 #include <QWidget>
 #include <QtWidgets>
 #include "accounts.h"
 #include <QGraphicsPixmapItem>
-#include <QMediaPlayer>
-#include <QMediaPlaylist>
 #include <QKeyEvent>
 #include "mainmenuwidget.h"
 #include "game1grid.h"
@@ -21,7 +18,6 @@ class Game1 : public QWidget
     QPushButton *medium;
     QPushButton *hard;
     QPushButton *back_button;
-    QMediaPlayer *music;
     Q_OBJECT
 public:
     void keyPressEvent(QKeyEvent *event);

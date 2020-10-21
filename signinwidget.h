@@ -1,5 +1,6 @@
 #ifndef SIGNINWIDGET_H
 #define SIGNINWIDGET_H
+#pragma once
 
 #include <QWidget>
 #include<QtWidgets>

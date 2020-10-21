@@ -1,4 +1,3 @@
-#pragma once
 #include "mainmenuwidget.h"
 #include "welcomewidget.h"
 
