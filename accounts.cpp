@@ -153,7 +153,58 @@ QRegExp re("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])");
         this->img_path = newPath;
         stream<<data<<endl;
         inputFile.close();
+        path="/home/eece435l/build-Phase_1-Desktop_Qt_5_12_9_GCC_64bit-Debug/userData/history.txt";
+        QFile inputFile2(path);
+        inputFile2.open(QIODevice::ReadWrite);
+        QTextStream stream2(&inputFile2);
+        if (inputFile2.size()!=0){
+            QString line = stream2.readLine();
+            while (line.isNull()) {
+                line=stream2.readLine();
+            }
+        }
+        data=(username+" 0 0 ");
+        stream2<<data<<endl;
+        inputFile2.close();
         return "success";
+    }
+
+}
+
+QString Accounts::UpdateHistory(QString username,double score, int game)
+{
+    if(game!=1 && game!=2)
+        return "failed to update. Invalid Game number ";
+    else{
+
+        QString path="/home/eece435l/build-Phase_1-Desktop_Qt_5_12_9_GCC_64bit-Debug/userData/history.txt";
+        QString data;
+        QFile inputFile(path);
+        inputFile.open(QIODevice::ReadWrite);
+        QTextStream stream(&inputFile);
+        if (inputFile.size()!=0){
+            QString line = stream.readLine();
+            while (!line.isNull()) {
+                QStringList tempLine = line.split(" ");
+                if(username==tempLine[0])
+                {
+                    if(tempLine[game].toDouble()<score)
+                    {
+                        QString scoreString= QString::number(score);
+                        tempLine[game]=scoreString;
+                        data=tempLine[0]+" "+tempLine[1]+" "+tempLine[2]+" ";
+                        stream<<data;
+                        inputFile.resize(0);
+
+                        inputFile.close();
+                    }
+                    return "success";
+                }
+                line= stream.readLine();
+            }
+            inputFile.close();
+            return "failed to update. username does not exist within the data files";
+        }
     }
 
 }

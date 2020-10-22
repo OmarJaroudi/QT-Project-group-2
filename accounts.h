@@ -13,6 +13,7 @@ public:
     Accounts(QString username,QString password);
     QString AttemptSignUp();
     QString AttemptSignIn();
+    QString UpdateHistory(QString username,double score, int game);
     QString GetDOB();
     QString GetImgPath();
     QString GetUsername();
