@@ -153,8 +153,9 @@ QRegExp re("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])");
         this->img_path = newPath;
         stream<<data<<endl;
         inputFile.close();
-        path="/home/eece435l/build-Phase_1-Desktop_Qt_5_12_9_GCC_64bit-Debug/userData/history.txt";
-        QFile inputFile2(path);
+        QString path2 = qApp->applicationDirPath();
+        path2.append("/userData/game_1_history.txt");
+        QFile inputFile2(path2);
         inputFile2.open(QIODevice::ReadWrite);
         QTextStream stream2(&inputFile2);
         if (inputFile2.size()!=0){
@@ -163,50 +164,98 @@ QRegExp re("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])");
                 line=stream2.readLine();
             }
         }
-        data=(username+" 0 0 ");
+        QDateTime curr_date_time = QDateTime::currentDateTime();
+        data=(username+" 0 "+ curr_date_time.toString());
         stream2<<data<<endl;
         inputFile2.close();
+        QString path3 = qApp->applicationDirPath();
+        path3.append("/userData/game_2_history.txt");
+        QFile inputFile3(path3);
+        inputFile3.open(QIODevice::ReadWrite);
+        QTextStream stream3(&inputFile3);
+        if (inputFile3.size()!=0){
+            QString line1 = stream3.readLine();
+            while (line1.isNull()) {
+                line1=stream3.readLine();
+            }
+        }
+        data=(username+" 0 "+ curr_date_time.toString());
+        stream3<<data<<endl;
+        inputFile3.close();
         return "success";
     }
 
 }
 
-QString Accounts::UpdateHistory(QString username,double score, int game)
+QString Accounts::UpdateHistory(double score, int game)
 {
-    if(game!=1 && game!=2)
-        return "failed to update. Invalid Game number ";
-    else{
-
-        QString path="/home/eece435l/build-Phase_1-Desktop_Qt_5_12_9_GCC_64bit-Debug/userData/history.txt";
+    QDateTime curr_date_time = QDateTime::currentDateTime();
+    if(game==1 || game==2)
+    {
+        QString scoreString= QString::number(score);
+        QString gameString= QString::number(game);
+        std::vector<QString> tempData;
+        std::vector<int> tempScores;
+        QString path = qApp->applicationDirPath();
+        path.append("/userData/game_"+gameString+"_history.txt");
         QString data;
         QFile inputFile(path);
         inputFile.open(QIODevice::ReadWrite);
         QTextStream stream(&inputFile);
         if (inputFile.size()!=0){
             QString line = stream.readLine();
-            while (!line.isNull()) {
+            while (line!="") {
                 QStringList tempLine = line.split(" ");
-                if(username==tempLine[0])
+                if(this->username==tempLine[0])
                 {
                     if(tempLine[game].toDouble()<score)
                     {
-                        QString scoreString= QString::number(score);
-                        tempLine[game]=scoreString;
-                        data=tempLine[0]+" "+tempLine[1]+" "+tempLine[2]+" ";
-                        stream<<data;
-                        inputFile.resize(0);
-
-                        inputFile.close();
+                        data=tempLine[0]+" "+scoreString+" "+curr_date_time.toString();
+                        tempData.push_back(data);
+                        tempScores.push_back(score);
                     }
-                    return "success";
+                    else return "up to date";
+                }
+                else
+                {
+                    tempData.push_back(line);
+                    tempScores.push_back(tempLine[1].toInt());
                 }
                 line= stream.readLine();
             }
+
+            std::sort(tempScores.begin(),tempScores.end());
+            std::reverse(tempScores.begin(),tempScores.end());
+            std::vector<QString> sortedData;
+            sortedData.assign(tempScores.size(),"");
+
+            for(int i=0;i<tempScores.size();i++)
+            {
+                QStringList tempLine1 = tempData[i].split(" ");
+                for(int j=0;j<tempScores.size();j++)
+                {
+                    if(tempLine1[1].toInt()==tempScores[j])
+                    {
+                        sortedData[j]=tempData[i];
+                        tempScores[j]=-1;
+                        break;
+                    }
+                }
+            }
+            inputFile.resize(0);
+            QTextStream stream2(&inputFile);
+            QString finalAdd="";
+            for(int i=0; i<sortedData.size();i++)
+            {
+                finalAdd.append(sortedData[i]+"\n");
+            }
+            stream2.seek(0);
+            stream2<<finalAdd;
             inputFile.close();
-            return "failed to update. username does not exist within the data files";
+            return "succesfully updated";
         }
     }
-
+    else return "not a valid game number";
 }
 bool Accounts::ValidateEmail(QString email){//check if the string entered is really an email (doesnt have to be active)
     email = email.toLower();
@@ -241,3 +290,4 @@ QString  Accounts::GetFName(){
 QString  Accounts::GetImgPath(){
     return (*(new QString(img_path)));
 }
+

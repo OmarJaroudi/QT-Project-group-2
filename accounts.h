@@ -3,8 +3,12 @@
 #include <QString>
 #include <QDir>
 #include <QFile>
-#include <QTextStream>
 #include "simplecrypt.h"
+#include <QDateTime>
+#include <QTextStream>
+#include <algorithm>
+#include <vector>
+#include <QApplication>
 
 class Accounts
 {
@@ -13,7 +17,7 @@ public:
     Accounts(QString username,QString password);
     QString AttemptSignUp();
     QString AttemptSignIn();
-    QString UpdateHistory(QString username,double score, int game);
+    QString UpdateHistory(double score, int game);
     QString GetDOB();
     QString GetImgPath();
     QString GetUsername();

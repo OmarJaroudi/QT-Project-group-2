@@ -123,8 +123,9 @@ void MainMenuWidget::PlayGame1(){
 }
 
 void MainMenuWidget::LogOut(){
-    delete current_user;
-    WelcomeWidget *welcome = new WelcomeWidget();
-    welcome->show();
-    this->close();
+//    delete current_user;
+//    WelcomeWidget *welcome = new WelcomeWidget();
+//    welcome->show();
+//    this->close();
+    current_user->UpdateHistory(14,2);
 }
