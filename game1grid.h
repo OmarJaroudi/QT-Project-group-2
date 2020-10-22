@@ -20,6 +20,8 @@ public:
     int current_score;
     int winning_score;
     int current_virus;
+    double rolling_speed;
+    int current_count;
     vector <vector<int>> virus_loc;
     QLabel *timer_info;
     QLabel *score_info;

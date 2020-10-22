@@ -5,16 +5,11 @@ Game1::Game1(Accounts *acc, QWidget *parent) : QWidget(parent)
     this->setAttribute(Qt::WA_DeleteOnClose);
 
     player = acc;
-    easy  =new QPushButton("easy");
-    medium = new QPushButton("medium");
-    hard = new QPushButton("hard");
-
     back_button = new QPushButton();
 
     back_button->setIcon(QIcon(":/thumbnails/back_button.png"));
     back_button->setIconSize(QSize(30, 30));
     back_button->setFixedSize(30,30);
-
 
     QRect primaryScreenGeometry(QApplication::desktop()->screenGeometry());
     this->move(-500000,-500000);
@@ -47,37 +42,18 @@ Game1::Game1(Accounts *acc, QWidget *parent) : QWidget(parent)
     layout->addWidget(back_button,30,Qt::AlignLeft|Qt::AlignBottom);
 
     this->setLayout(layout);
-
     this->setFixedSize(this->size());
 
-    QObject::connect(play_button,SIGNAL(clicked()),this,SLOT(ChooseDifficulty()));
-
+    QObject::connect(play_button,SIGNAL(clicked()),this,SLOT(StartGame()));
     QObject::connect(back_button,SIGNAL(clicked()),this,SLOT(PressBack()));
 
-    QObject::connect(easy,SIGNAL(clicked()),this,SLOT(StartGame()));
-    QObject::connect(medium,SIGNAL(clicked()),this,SLOT(StartGame()));
-    QObject::connect(hard,SIGNAL(clicked()),this,SLOT(StartGame()));
-
 }
-
 void Game1::keyPressEvent(QKeyEvent * event){
     if(event->key() == Qt::Key_F1)
-        ChooseDifficulty();
+        StartGame();
 }
 
-void Game1::ChooseDifficulty(){
 
-    delete play_button;
-    delete layout;
-    QSpacerItem *spacer = new QSpacerItem(300,400, QSizePolicy::Expanding, QSizePolicy::Fixed);
-
-    difficulty_layout = new QVBoxLayout();
-    difficulty_layout->addItem(spacer);
-    difficulty_layout->addWidget(easy,200,Qt::AlignCenter);
-    difficulty_layout->addWidget(medium,200,Qt::AlignCenter);
-    difficulty_layout->addWidget(hard,200,Qt::AlignCenter);
-    this->setLayout(difficulty_layout);
-}
 void Game1::PressBack(){
     this->close();
     MainMenuWidget * main_menu = new MainMenuWidget(this->player);
@@ -85,8 +61,6 @@ void Game1::PressBack(){
 
 }
 void Game1::StartGame(){
-    QPushButton* buttonSender = qobject_cast<QPushButton*>(sender());
-    QString difficulty = buttonSender->text();
     QGraphicsScene *grid = new Game1Grid();
     this->close();
     QGraphicsView *view = new QGraphicsView(grid);

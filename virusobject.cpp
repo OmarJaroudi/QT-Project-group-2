@@ -10,8 +10,9 @@ VirusObject::VirusObject(){
     this->setStyleSheet("QLabel {background-color: rgba(255, 255, 255, 0);}");
 }
 
-VirusObject::VirusObject(VirusObject::Color c)
+VirusObject::VirusObject(VirusObject::Color c,double speed)
 {
+    this->rolling_speed = speed;
     this->color = c;
 
     QString pix_map = "";
@@ -43,7 +44,7 @@ VirusObject::VirusObject(VirusObject::Color c)
 
     expiry_timer = new QTimer();
     QObject::connect(expiry_timer,SIGNAL(timeout()),this,SLOT(Expire()));
-    expiry_timer->start(1500);
+    expiry_timer->start(double(2500.00/rolling_speed)+100);
 
 
 }

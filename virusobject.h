@@ -15,10 +15,11 @@ public:
     VirusObject();
     QMediaPlayer *smash_sound;
     QTimer * expiry_timer;
-    VirusObject(VirusObject::Color c);
+    VirusObject(VirusObject::Color c,double speed);
     static bool recent_miss;
     static int total_misses;
     static Color missed_color;
+    double rolling_speed;
 
 private:
     Color color;
