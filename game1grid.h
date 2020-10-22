@@ -19,20 +19,25 @@ public:
     int elapsed_time;
     int current_score;
     int winning_score;
+    int current_virus;
+    vector <vector<int>> virus_loc;
     QLabel *timer_info;
     QLabel *score_info;
     QTimer *timer;
+    QTimer *spawn_timer;
+    QTimer *game_over_timer;
     QLabel *blue_virus;
     QLabel *yellow_virus;
     QLabel *green_virus;
     QLabel *smashed_virus;
     QMediaPlayer *smash_sound;
-    vector <vector<int>> next_virus;
-    void LoadGrid();
-
+    vector<vector<int>> LoadGrid();
 
 public slots: void ShootVirus();
     void UpdateTime();
+    void SpawnVirus();
+    void GameOver();
+
 
 };
 
