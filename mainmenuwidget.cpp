@@ -93,12 +93,17 @@ MainMenuWidget::MainMenuWidget(Accounts *curr,QWidget *parent) : QWidget(parent)
     game_grid->addItem(new QSpacerItem(200,150),0,1);
     vbox->addItem(game_grid);
 
+    history= new QPushButton("Highscores and Leaderboards");
+    vbox->addWidget(history);
+
     this->setLayout(vbox);
     this->setStyleSheet("QWidget { background-color : grey }");//set background color to grey
     this->show();
 
     QObject::connect(game_1_label,SIGNAL(clicked()),this,SLOT(PlayGame1()));
     QObject::connect(logout,SIGNAL(clicked()),this,SLOT(LogOut()));
+    QObject::connect(history,SIGNAL(clicked()),this,SLOT(history_clicked()));
+
 
 
 }
@@ -123,9 +128,23 @@ void MainMenuWidget::PlayGame1(){
 }
 
 void MainMenuWidget::LogOut(){
-//    delete current_user;
-//    WelcomeWidget *welcome = new WelcomeWidget();
-//    welcome->show();
-//    this->close();
-    current_user->UpdateHistory(14,2);
+    delete current_user;
+    WelcomeWidget *welcome = new WelcomeWidget();
+    welcome->show();
+    this->close();
+}
+
+void MainMenuWidget::history_clicked(){
+//    if(current_user->GetUsername()!="Guest player")
+//    {
+//        historyWidget *HL = new historyWidget(current_user);
+//        HL->show();
+//    }
+//    else
+//    {
+//        Accounts * guestAcc = new Accounts("Guest player","","","","","","",":/thumbnails/blank_profile.png");
+//        historyWidget *HL = new historyWidget(guestAcc);
+//        HL->show();
+//    }
+
 }

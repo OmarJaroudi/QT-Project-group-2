@@ -9,6 +9,7 @@
 #include <QTimer>
 #include <QObject>
 #include <clickablelabel.h>
+#include <historywidget.h>
 
 class MainMenuWidget : public QWidget
 {
@@ -26,11 +27,13 @@ public:
     QTimer *timer;
     QSpacerItem *bigSpacer;
     QPushButton *logout;
+    QPushButton *history;
     ClickableLabel *game_1_label;
 private slots:
     void Blink();
     void PlayGame1();
     void LogOut();
+    void history_clicked();
 signals:
 
 };
