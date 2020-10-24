@@ -2,7 +2,7 @@
 
 Game1::Game1(Accounts *acc, QWidget *parent) : QWidget(parent)
 {
-    this->setAttribute(Qt::WA_DeleteOnClose);
+    //this->setAttribute(Qt::WA_DeleteOnClose);
 
     player = acc;
     back_button = new QPushButton();
@@ -77,6 +77,8 @@ void Game1::StartGame(){
 }
 
 void Game1::SaveScore(){
+    qDebug()<<"game over";
+
     if (!(this->player->GetUsername()=="Guest player"))
         this->player->UpdateHistory(grid->current_score,1);
 }

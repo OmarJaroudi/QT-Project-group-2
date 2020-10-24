@@ -142,7 +142,6 @@ void Game1Grid::SpawnVirus(){
 
 void Game1Grid::GameOver(){
     if (VirusObject::total_misses>=3 || current_score==winning_score){
-        qDebug()<<"game over";
         timer->stop();
         spawn_timer->stop();
         game_over_timer->stop();
@@ -162,7 +161,6 @@ void Game1Grid::ClickPause(){
     QObject::connect(cont,SIGNAL(clicked()),this,SLOT(ClickContinue()));
     temp->addWidget(cont);
     pause_menu->setLayout(temp);
-    //pause_menu->setAttribute(Qt::WA_DeleteOnClose,)
     pause_menu->show();
 }
 
