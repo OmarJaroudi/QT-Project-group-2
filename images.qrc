@@ -8,5 +8,6 @@
         <file>thumbnails/yellow.png</file>
         <file>thumbnails/blue_.png</file>
         <file>thumbnails/smashed.png</file>
+        <file>thumbnails/pause.png</file>
     </qresource>
 </RCC>

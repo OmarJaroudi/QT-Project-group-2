@@ -2,7 +2,7 @@
 
 bool VirusObject::recent_miss = false;
 int VirusObject::total_misses = 0;
-VirusObject::Color VirusObject::missed_color = VirusObject::GREEN;
+vector<int> VirusObject::missed_shots;
 
 VirusObject::VirusObject(){
     this->setPixmap(QPixmap(":/thumbnails/smashed.png").scaled(60,60));
@@ -74,7 +74,7 @@ void VirusObject:: Expire(){
         qDebug()<<"MISS";
         recent_miss = true;
         total_misses+=1;
-        missed_color = this->color;
+        missed_shots.push_back(int(this->color));
     }
     delete this;
 

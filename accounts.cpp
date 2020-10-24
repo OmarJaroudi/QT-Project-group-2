@@ -187,7 +187,7 @@ QRegExp re("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])");
 
 }
 
-QString Accounts::UpdateHistory(double score, int game)
+QString Accounts::UpdateHistory(int score, int game)
 {
     QDateTime curr_date_time = QDateTime::currentDateTime();
     if(game==1 || game==2)

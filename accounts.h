@@ -17,7 +17,7 @@ public:
     Accounts(QString username,QString password);
     QString AttemptSignUp();
     QString AttemptSignIn();
-    QString UpdateHistory(double score, int game);
+    QString UpdateHistory(int score, int game);
     QString GetDOB();
     QString GetImgPath();
     QString GetUsername();

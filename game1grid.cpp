@@ -2,6 +2,14 @@
 #include <QDebug>
 Game1Grid::Game1Grid()
 {
+    pause_button = new ClickableLabel();
+    pause_button->setPixmap(QPixmap(":/thumbnails/pause.png").scaled(50,50));
+    pause_button->setFixedSize(50,50);
+    pause_button->setStyleSheet("QLabel {font-size:50px;color:white;background-color: rgba(255, 255, 255, 0);}");
+    pause_button->move(50,50);
+    this->addWidget(pause_button);
+    QObject::connect(pause_button,SIGNAL(clicked()),this,SLOT(ClickPause()));
+
     this->current_count=0;
     this->rolling_speed =1.0;
     setBackgroundBrush(QBrush(QColor::fromRgb(128,0,0),Qt::SolidPattern));
@@ -117,18 +125,17 @@ void Game1Grid::UpdateTime(){
     timer_info->setText(minutes + ":" + seconds);
 }
 void Game1Grid::SpawnVirus(){
-    VirusObject * new_virus;
-    if(!VirusObject::recent_miss) {
+    if(VirusObject::missed_shots.size()==0) {
         new_virus = new VirusObject(static_cast<VirusObject::Color>(virus_loc[current_virus][0]-1),this->rolling_speed);
         new_virus->move(virus_loc[current_virus][1],virus_loc[current_virus][2]);
         this->addWidget(new_virus);
         current_virus +=1;
     }
     else {
-        new_virus = new VirusObject(VirusObject::missed_color,this->rolling_speed);
+        new_virus = new VirusObject(static_cast<VirusObject::Color>(VirusObject::missed_shots.back()),this->rolling_speed);
         new_virus->move(int(rand()%900),rand()%300+100);
         this->addWidget(new_virus);
-        VirusObject::recent_miss = false;
+        VirusObject::missed_shots.pop_back();
     }
     QObject::connect(new_virus,SIGNAL(clicked()),this,SLOT(ShootVirus()));
 }
@@ -139,7 +146,33 @@ void Game1Grid::GameOver(){
         timer->stop();
         spawn_timer->stop();
         game_over_timer->stop();
-    }
-
-
+        emit (gameOver());
+   }
 }
+
+void Game1Grid::ClickPause(){
+    this->timer->stop();
+    this->game_over_timer->stop();
+    this->spawn_timer->stop();
+    if (new_virus!=NULL && this->new_virus->isVisible())
+        this->new_virus->expiry_timer->stop();
+    pause_menu = new QWidget();
+    QGridLayout *temp  =new QGridLayout();
+    QPushButton * cont = new QPushButton("continue");
+    QObject::connect(cont,SIGNAL(clicked()),this,SLOT(ClickContinue()));
+    temp->addWidget(cont);
+    pause_menu->setLayout(temp);
+    //pause_menu->setAttribute(Qt::WA_DeleteOnClose,)
+    pause_menu->show();
+}
+
+void Game1Grid::ClickContinue(){
+    this->timer->start(1000);
+    this->game_over_timer->start(10);
+    this->spawn_timer->start(2500.00/rolling_speed);
+    if (new_virus!=NULL && !this->new_virus->expiry_timer->isActive())
+        this->new_virus->expiry_timer->start(2500.00/rolling_speed +100);
+    pause_menu->close();
+    delete this->pause_menu;
+}
+

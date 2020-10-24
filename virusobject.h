@@ -4,6 +4,7 @@
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
 #include <QTimer>
+using namespace std;
 class VirusObject : public ClickableLabel
 {
     Q_OBJECT
@@ -18,7 +19,7 @@ public:
     VirusObject(VirusObject::Color c,double speed);
     static bool recent_miss;
     static int total_misses;
-    static Color missed_color;
+    static vector<int> missed_shots;
     double rolling_speed;
 
 private:

@@ -72,7 +72,6 @@ void Game1::StartGame(){
     view->setFixedSize(1010,485);
     view->setHorizontalScrollBarPolicy((Qt::ScrollBarAlwaysOff));
     view->setVerticalScrollBarPolicy((Qt::ScrollBarAlwaysOff));
-    view->setAttribute(Qt::WA_DeleteOnClose);
     QObject::connect(grid,SIGNAL(gameOver()),this,SLOT(SaveScore()));
 }
 
