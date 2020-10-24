@@ -135,16 +135,16 @@ void MainMenuWidget::LogOut(){
 }
 
 void MainMenuWidget::history_clicked(){
-//    if(current_user->GetUsername()!="Guest player")
-//    {
-//        historyWidget *HL = new historyWidget(current_user);
-//        HL->show();
-//    }
-//    else
-//    {
-//        Accounts * guestAcc = new Accounts("Guest player","","","","","","",":/thumbnails/blank_profile.png");
-//        historyWidget *HL = new historyWidget(guestAcc);
-//        HL->show();
-//    }
+    if(current_user->GetUsername()!="Guest player")
+    {
+        historyWidget *HL = new historyWidget(current_user);
+        HL->show();
+    }
+    else
+    {
+        Accounts * guestAcc = new Accounts("Guest player","","","","","","",":/thumbnails/blank_profile.png");
+        historyWidget *HL = new historyWidget(guestAcc);
+        HL->show();
+    }
 
 }

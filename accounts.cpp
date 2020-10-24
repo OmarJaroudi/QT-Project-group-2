@@ -220,6 +220,7 @@ QString Accounts::UpdateHistory(int score, int game)
                 {
                     tempData.push_back(line);
                     tempScores.push_back(tempLine[1].toInt());
+                    qDebug()<<tempLine[2];
                 }
                 line= stream.readLine();
             }
