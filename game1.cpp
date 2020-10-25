@@ -63,7 +63,8 @@ void Game1::PressBack(){
 void Game1::StartGame(){
     grid = new Game1Grid();
     this->close();
-    QGraphicsView *view = new QGraphicsView(grid);
+    view = new QGraphicsView(grid);
+    view->setAttribute(Qt::WA_DeleteOnClose);
     QRect primaryScreenGeometry(QApplication::desktop()->screenGeometry());
     view->move(-500000,-500000);
     view->move((primaryScreenGeometry.width() - this->width()) / 2.0,
@@ -73,12 +74,16 @@ void Game1::StartGame(){
     view->setHorizontalScrollBarPolicy((Qt::ScrollBarAlwaysOff));
     view->setVerticalScrollBarPolicy((Qt::ScrollBarAlwaysOff));
     view->setAttribute(Qt::WA_DeleteOnClose);
-    QObject::connect(grid,SIGNAL(gameOver()),this,SLOT(SaveScore()));
+    QObject::connect(grid,SIGNAL(gameOver()),this,SLOT(GameEnded()));
 }
 
-void Game1::SaveScore(){
+void Game1::GameEnded(){
     qDebug()<<"game over";
+    if(grid->save_score) {
+        if (!(this->player->GetUsername()=="Guest player"))
+            this->player->UpdateHistory(grid->current_score,1);
+    }
+    view->close();
+    this->show();
 
-    if (!(this->player->GetUsername()=="Guest player"))
-        this->player->UpdateHistory(grid->current_score,1);
 }

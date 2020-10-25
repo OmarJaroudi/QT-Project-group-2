@@ -16,6 +16,8 @@ class Game1 : public QWidget
     QVBoxLayout *difficulty_layout;
     QVBoxLayout *layout;
     QPushButton *back_button;
+    QGraphicsView *view;
+
     Q_OBJECT
 public:
     void keyPressEvent(QKeyEvent *event);
@@ -23,7 +25,7 @@ public:
 public slots:
     void PressBack();
     void StartGame();
-    void SaveScore();
+    void GameEnded();
 signals:
 
 };

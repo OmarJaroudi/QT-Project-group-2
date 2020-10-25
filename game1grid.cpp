@@ -2,6 +2,8 @@
 #include <QDebug>
 Game1Grid::Game1Grid()
 {
+    save_score = false;
+    paused_game = false;
     pause_button = new ClickableLabel();
     pause_button->setPixmap(QPixmap(":/thumbnails/pause.png").scaled(50,50));
     pause_button->setFixedSize(50,50);
@@ -45,9 +47,13 @@ Game1Grid::Game1Grid()
     game_over_timer = new QTimer();
     QObject::connect(game_over_timer,SIGNAL(timeout()),this,SLOT(GameOver()));
     game_over_timer->start(10);
+
+    new_virus = NULL;
 }
 
 void Game1Grid::ShootVirus(){
+    if (paused_game)
+        return;
     VirusObject * source = qobject_cast<VirusObject*>(sender());
     if (source->isVisible()){
         source->smash_sound->play();
@@ -64,8 +70,6 @@ void Game1Grid::ShootVirus(){
         smashed_virus->move(source->x(),source->y());
         this->addWidget(smashed_virus);
         source->hide();
-
-
     }
 
 }
@@ -145,32 +149,51 @@ void Game1Grid::GameOver(){
         timer->stop();
         spawn_timer->stop();
         game_over_timer->stop();
+        paused_game = true;
+        save_score = true;
+        QThread::msleep(3000);
+
         emit (gameOver());
    }
 }
 
 void Game1Grid::ClickPause(){
+    paused_game = true;
     this->timer->stop();
     this->game_over_timer->stop();
     this->spawn_timer->stop();
+
     if (new_virus!=NULL && this->new_virus->isVisible())
         this->new_virus->expiry_timer->stop();
     pause_menu = new QWidget();
+    pause_menu->setAttribute(Qt::WA_DeleteOnClose);
     QGridLayout *temp  =new QGridLayout();
-    QPushButton * cont = new QPushButton("continue");
+    QPushButton * cont = new QPushButton("Resume");
+    QPushButton * quit_game = new QPushButton("Quit");
+    QObject::connect(quit_game,SIGNAL(clicked()),this,SLOT(QuitGame()));
     QObject::connect(cont,SIGNAL(clicked()),this,SLOT(ClickContinue()));
-    temp->addWidget(cont);
+    temp->addWidget(cont,0,0);
+    temp->addWidget(quit_game,0,1);
     pause_menu->setLayout(temp);
-    pause_menu->show();
+    this->addWidget(pause_menu);
+    pause_menu->setFixedSize(300,100);
+    pause_menu->move(365,200);
 }
 
 void Game1Grid::ClickContinue(){
+    paused_game = false;
     this->timer->start(1000);
     this->game_over_timer->start(10);
     this->spawn_timer->start(2500.00/rolling_speed);
     if (new_virus!=NULL && !this->new_virus->expiry_timer->isActive())
         this->new_virus->expiry_timer->start(2500.00/rolling_speed +100);
+
     pause_menu->close();
-    delete this->pause_menu;
+    //delete this->pause_menu;
+}
+
+void Game1Grid::QuitGame(){
+    save_score = false;
+    emit(gameOver());
 }
 

@@ -1,6 +1,5 @@
 #ifndef GAME1GRID_H
 #define GAME1GRID_H
-
 #include <QGraphicsScene>
 #include "clickablelabel.h"
 #include "virusobject.h"
@@ -13,27 +12,28 @@
 #include <QPushButton>
 #include <QGridLayout>
 #include <QVector> // for 2D vector
+#include <QThread>
 using namespace std;
 class Game1Grid : public QGraphicsScene
 {
     Q_OBJECT
 public:
-    Game1Grid();
+    explicit Game1Grid();
+    //Game1 * game_menu;
     int elapsed_time;
     int current_score;
     int winning_score;
     int current_virus;
     double rolling_speed;
     int current_count;
+    bool paused_game;
+    bool save_score;
     vector <vector<int>> virus_loc;
     QLabel *timer_info;
     QLabel *score_info;
     QTimer *timer;
     QTimer *spawn_timer;
     QTimer *game_over_timer;
-    QLabel *blue_virus;
-    QLabel *yellow_virus;
-    QLabel *green_virus;
     QLabel *smashed_virus;
     QLabel *pause_button;
     QMediaPlayer *smash_sound;
@@ -41,13 +41,14 @@ public:
     VirusObject * new_virus;
     QWidget *pause_menu;
 
+
 public slots: void ShootVirus();
     void UpdateTime();
     void SpawnVirus();
     void GameOver();
     void ClickPause();
     void ClickContinue();
-
+    void QuitGame();
 signals:void gameOver();
 };
 
