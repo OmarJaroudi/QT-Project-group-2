@@ -62,15 +62,15 @@ historyWidget::historyWidget(Accounts * curr,QWidget *parent) : QWidget(parent)
     QVector<QString> leaderboard2={"","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""};
     i=0;
     QString path2 = qApp->applicationDirPath();
-    path1.append("/userData/game_2_history.txt");
-    QFile inputFile2(path1);
-    inputFile1.open(QIODevice::ReadOnly);
-    QTextStream stream2(&inputFile1);
-    if (inputFile1.size()!=0){
-        QString line = stream1.readLine();
+    path2.append("/userData/game_2_history.txt");
+    QFile inputFile2(path2);
+    inputFile2.open(QIODevice::ReadOnly);
+    QTextStream stream2(&inputFile2);
+    if (inputFile2.size()!=0){
+        QString line = stream2.readLine();
         while (line!="") {
             QStringList tempLine = line.split(" ");
-
+            qDebug()<<1;
             leaderboard2[i]=tempLine[0];
             leaderboard2[i+1]=tempLine[1];
             leaderboard2[i+2]=tempLine[2];
@@ -81,7 +81,7 @@ historyWidget::historyWidget(Accounts * curr,QWidget *parent) : QWidget(parent)
             i+=6;
 
             if(curr->GetUsername()==tempLine[0])
-            {
+            {qDebug()<<"2";
                 userdata2[0]=tempLine[0];
                 userdata2[1]=tempLine[1];
                 userdata2[2]=tempLine[2];
@@ -89,10 +89,10 @@ historyWidget::historyWidget(Accounts * curr,QWidget *parent) : QWidget(parent)
                 userdata2[4]=tempLine[4];
                 userdata2[5]=tempLine[5];
             }
-            line = stream1.readLine();
+            line=stream2.readLine();
         }
     }
-    inputFile1.close();
+    inputFile2.close();
 
 
 
@@ -227,6 +227,7 @@ historyWidget::historyWidget(Accounts * curr,QWidget *parent) : QWidget(parent)
     Vbox2->addItem(Grid2);
 
     this->setLayout(Vbox1);
+
     QObject::connect(switchGames,SIGNAL(clicked()),this,SLOT(changeGame()));
 
 }
@@ -236,8 +237,8 @@ void historyWidget::changeGame()
     if(b)
     {
         b=!b;
-        delete this->layout();
-        this->setLayout(Vbox2);
+        delete Grid1;
+        this->layout()->update();
     }
     else
     {
