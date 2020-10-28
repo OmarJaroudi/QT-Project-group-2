@@ -60,7 +60,7 @@ void Game1Grid::ShootVirus(){
         current_score += source->getScore();
         current_count += 1;
         if (current_count==5){
-            this->rolling_speed *=1.2;
+            this->rolling_speed *=1.3;
             current_count = 0;
             qDebug()<<rolling_speed;
             spawn_timer->start(double(2500.00/rolling_speed));
@@ -152,7 +152,6 @@ void Game1Grid::GameOver(){
         paused_game = true;
         save_score = true;
         QThread::msleep(3000);
-
         emit (gameOver());
    }
 }

@@ -234,7 +234,10 @@ historyWidget::historyWidget(Accounts * curr,QWidget *parent) : QWidget(parent)
 
 void historyWidget::changeGame()
 {
-    if(b)
+    //TODO in phase 3
+
+
+    /*if(b)
     {
         b=!b;
         delete Grid1;
@@ -245,5 +248,5 @@ void historyWidget::changeGame()
         b=!b;
         delete this;
         this->setLayout(Vbox1);
-    }
+    }*/
 }

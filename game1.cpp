@@ -61,6 +61,9 @@ void Game1::PressBack(){
 }
 
 void Game1::StartGame(){
+    VirusObject::recent_miss = false;
+    VirusObject::total_misses = 0;
+    VirusObject::missed_shots.clear();
     grid = new Game1Grid();
     this->close();
     view = new QGraphicsView(grid);
@@ -85,5 +88,4 @@ void Game1::GameEnded(){
     }
     view->close();
     this->show();
-
 }
