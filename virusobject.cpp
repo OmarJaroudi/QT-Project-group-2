@@ -44,7 +44,7 @@ VirusObject::VirusObject(VirusObject::Color c,double speed)
 
     expiry_timer = new QTimer();
     QObject::connect(expiry_timer,SIGNAL(timeout()),this,SLOT(Expire()));
-    expiry_timer->start(double(2500.00/rolling_speed)+100);
+    expiry_timer->start(double(2500.00/rolling_speed));
 
 
 }

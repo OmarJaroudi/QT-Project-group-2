@@ -27,6 +27,7 @@ public:
     double rolling_speed;
     int current_count;
     bool paused_game;
+    bool game_ended;
     bool save_score;
     vector <vector<int>> virus_loc;
     QLabel *timer_info;
@@ -40,7 +41,7 @@ public:
     vector<vector<int>> LoadGrid();
     VirusObject * new_virus;
     QWidget *pause_menu;
-
+    void keyPressEvent(QKeyEvent *event) override;
 
 public slots: void ShootVirus();
     void UpdateTime();

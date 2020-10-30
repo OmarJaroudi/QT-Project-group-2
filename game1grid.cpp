@@ -2,8 +2,11 @@
 #include <QDebug>
 Game1Grid::Game1Grid()
 {
+    srand(time(0));
+
     save_score = false;
     paused_game = false;
+    game_ended = false;
     pause_button = new ClickableLabel();
     pause_button->setPixmap(QPixmap(":/thumbnails/pause.png").scaled(50,50));
     pause_button->setFixedSize(50,50);
@@ -60,10 +63,10 @@ void Game1Grid::ShootVirus(){
         current_score += source->getScore();
         current_count += 1;
         if (current_count==5){
-            this->rolling_speed *=1.3;
+            this->rolling_speed *=1.35;
             current_count = 0;
             qDebug()<<rolling_speed;
-            spawn_timer->start(double(2500.00/rolling_speed));
+            spawn_timer->start(double(2500.00/rolling_speed)+100);
 
         }
         score_info->setText(QStringLiteral("%1").arg(current_score));
@@ -84,7 +87,7 @@ vector<vector<int>> Game1Grid::LoadGrid(){
         QString line = stream.readLine();
         this->winning_score  = line.toInt();
         line = stream.readLine();
-        while (!line.isNull()) { //extract grid info from txt file
+        while (!line.isNull() && theoretical_score!=winning_score) { //extract grid info from txt file
             QStringList tempLine = line.split(QRegExp(" |\t"));
             int increment =0;
             if (tempLine[0].toInt()==1)
@@ -104,9 +107,27 @@ vector<vector<int>> Game1Grid::LoadGrid(){
         }
         inputFile.close();
     }
-    qDebug()<<theoretical_score;
-    if (theoretical_score!=winning_score)
+    if (theoretical_score!=winning_score){
         qDebug()<<"Loading grid from text file failed.";
+        winning_score = 150;
+        theoretical_score = 0;
+        next_virus.clear();
+        for (int i=0;i<30;i++){
+            vector<int>single_virus;
+            if (i<10)
+                single_virus.push_back(1);
+            else if (i<20)
+                single_virus.push_back(2);
+            else
+                single_virus.push_back(3);
+            single_virus.push_back(rand()%900);
+            single_virus.push_back(rand()%300 + 100);
+            next_virus.push_back(single_virus);
+        }
+
+        std::random_shuffle(next_virus.begin(), next_virus.end());
+
+    }
     return next_virus;
 
 }
@@ -150,20 +171,37 @@ void Game1Grid::GameOver(){
         spawn_timer->stop();
         game_over_timer->stop();
         paused_game = true;
+        game_ended = true;
         save_score = true;
-        QThread::msleep(3000);
-        emit (gameOver());
+        pause_menu = new QWidget();
+
+        pause_menu->setAttribute(Qt::WA_DeleteOnClose);
+        QGridLayout *temp  =new QGridLayout();
+        QLabel * prompt = new QLabel("Press any button");
+        prompt->setStyleSheet("QLabel {color:black; font-size:32px}");
+        temp->addWidget(prompt,0,1);
+        pause_menu->setLayout(temp);
+        pause_menu->setFixedSize(300,100);
+        pause_menu->move(365,200);
+        this->addWidget(pause_menu);
    }
 }
+void Game1Grid::keyPressEvent(QKeyEvent *event){
 
+    if (game_ended==true){
+        pause_menu->close();
+        emit(gameOver());
+    }
+}
 void Game1Grid::ClickPause(){
     paused_game = true;
     this->timer->stop();
     this->game_over_timer->stop();
     this->spawn_timer->stop();
-
-    if (new_virus!=NULL && this->new_virus->isVisible())
+    if (new_virus!=NULL){
         this->new_virus->expiry_timer->stop();
+        qDebug()<<"stopped";
+    }
     pause_menu = new QWidget();
     pause_menu->setAttribute(Qt::WA_DeleteOnClose);
     QGridLayout *temp  =new QGridLayout();
