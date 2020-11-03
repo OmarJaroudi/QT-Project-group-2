@@ -9,5 +9,6 @@
         <file>thumbnails/blue_.png</file>
         <file>thumbnails/smashed.png</file>
         <file>thumbnails/pause.png</file>
+        <file>thumbnails/heart.png</file>
     </qresource>
 </RCC>

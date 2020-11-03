@@ -3,6 +3,26 @@
 Game1Grid::Game1Grid()
 {
     srand(time(0));
+    chance1 = new QLabel();
+    chance1->setPixmap(QPixmap(":/thumbnails/heart.png").scaled(40,40));
+    chance1->setFixedSize(40,40);
+    chance1->setStyleSheet("QLabel {font-size:50px;color:white;background-color: rgba(255, 255, 255, 0);}");
+    chance1->move(950,10);
+    this->addWidget(chance1);
+
+    chance2 = new QLabel();
+    chance2->setPixmap(QPixmap(":/thumbnails/heart.png").scaled(40,40));
+    chance2->setFixedSize(40,40);
+    chance2->setStyleSheet("QLabel {font-size:50px;color:white;background-color: rgba(255, 255, 255, 0);}");
+    chance2->move(900,10);
+    this->addWidget(chance2);
+
+    chance3 = new QLabel();
+    chance3->setPixmap(QPixmap(":/thumbnails/heart.png").scaled(40,40));
+    chance3->setFixedSize(40,40);
+    chance3->setStyleSheet("QLabel {font-size:50px;color:white;background-color: rgba(255, 255, 255, 0);}");
+    chance3->move(850,10);
+    this->addWidget(chance3);
 
     save_score = false;
     paused_game = false;
@@ -24,7 +44,7 @@ Game1Grid::Game1Grid()
     timer = new QTimer();
     elapsed_time = 0;
     timer->start(1000);
-    timer_info->move(890,50);
+    timer_info->move(865,50);
     timer_info->setFixedSize(150,40);
     timer_info->setStyleSheet("QLabel {font-size:40px;color:white;background-color: rgba(255, 255, 255, 0);}");
     this->addWidget(timer_info);
@@ -166,7 +186,15 @@ void Game1Grid::SpawnVirus(){
 }
 
 void Game1Grid::GameOver(){
+    if (VirusObject::total_misses==1){
+        chance3->clear();
+    }
+    else if (VirusObject::total_misses==2){
+        chance2->clear();
+    }
     if (VirusObject::total_misses>=3 || current_score==winning_score){
+        chance1->clear();
+
         timer->stop();
         spawn_timer->stop();
         game_over_timer->stop();
@@ -174,7 +202,8 @@ void Game1Grid::GameOver(){
         game_ended = true;
         save_score = true;
         pause_menu = new QWidget();
-
+        new_virus->clear();
+        this->pause_button->clear();
         pause_menu->setAttribute(Qt::WA_DeleteOnClose);
         QGridLayout *temp  =new QGridLayout();
         QLabel * prompt = new QLabel("Press any button");
@@ -193,7 +222,7 @@ void Game1Grid::keyPressEvent(QKeyEvent *event){
         emit(gameOver());
     }
 }
-void Game1Grid::ClickPause(){
+void Game1Grid::ClickPause() {
     paused_game = true;
     this->timer->stop();
     this->game_over_timer->stop();
