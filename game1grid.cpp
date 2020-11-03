@@ -83,7 +83,7 @@ void Game1Grid::ShootVirus(){
         current_score += source->getScore();
         current_count += 1;
         if (current_count==5){
-            this->rolling_speed *=1.35;
+            this->rolling_speed *=1.25;
             current_count = 0;
             qDebug()<<rolling_speed;
             spawn_timer->start(double(2500.00/rolling_speed)+100);
@@ -193,8 +193,6 @@ void Game1Grid::GameOver(){
         chance2->clear();
     }
     if (VirusObject::total_misses>=3 || current_score==winning_score){
-        chance1->clear();
-
         timer->stop();
         spawn_timer->stop();
         game_over_timer->stop();
@@ -202,7 +200,6 @@ void Game1Grid::GameOver(){
         game_ended = true;
         save_score = true;
         pause_menu = new QWidget();
-        new_virus->clear();
         this->pause_button->clear();
         pause_menu->setAttribute(Qt::WA_DeleteOnClose);
         QGridLayout *temp  =new QGridLayout();
