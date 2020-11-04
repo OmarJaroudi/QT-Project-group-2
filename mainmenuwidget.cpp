@@ -90,7 +90,12 @@ MainMenuWidget::MainMenuWidget(Accounts *curr,QWidget *parent) : QWidget(parent)
     game_1_label->setPixmap(QPixmap(":/thumbnails/game1.PNG").scaled(200,150));
     game_1_label->setFixedSize(200,150);
     game_grid->addWidget(game_1_label,0,0);
-    game_grid->addItem(new QSpacerItem(200,150),0,1);
+    //game_grid->addItem(new QSpacerItem(10,150),0,1);
+
+    game_2_label=new ClickableLabel();
+    game_2_label->setPixmap(QPixmap(":/thumbnails/game2.jpg").scaled(200,150));
+    game_2_label->setFixedSize(200,150);
+    game_grid->addWidget(game_2_label,0,2);
     vbox->addItem(game_grid);
 
     history= new QPushButton("Highscores and Leaderboards");
@@ -101,6 +106,8 @@ MainMenuWidget::MainMenuWidget(Accounts *curr,QWidget *parent) : QWidget(parent)
     this->show();
 
     QObject::connect(game_1_label,SIGNAL(clicked()),this,SLOT(PlayGame1()));
+    QObject::connect(game_2_label,SIGNAL(clicked()),this,SLOT(PlayGame2()));
+
     QObject::connect(logout,SIGNAL(clicked()),this,SLOT(LogOut()));
     QObject::connect(history,SIGNAL(clicked()),this,SLOT(history_clicked()));
 
@@ -124,6 +131,13 @@ void MainMenuWidget::PlayGame1(){
     Accounts *temp = new Accounts(*(current_user));
     Game1 * game1 = new Game1(temp);
     game1->show();
+    this->close();
+}
+
+void MainMenuWidget::PlayGame2(){
+    Accounts *temp = new Accounts(*(current_user));
+    Game2 * game2 = new Game2(temp);
+    game2->show();
     this->close();
 }
 

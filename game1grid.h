@@ -37,10 +37,10 @@ public:
     QTimer *game_over_timer;
     QLabel *smashed_virus;
     QLabel *pause_button;
-
     QLabel *chance1;
     QLabel *chance2;
     QLabel *chance3;
+
 
     QMediaPlayer *smash_sound;
     vector<vector<int>> LoadGrid();

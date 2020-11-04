@@ -4,6 +4,7 @@ HEADERS += \
     clickablelabel.h \
     game1.h \
     game1grid.h \
+    game2.h \
     historywidget.h \
     mainmenuwidget.h \
     signinwidget.h \
@@ -18,6 +19,7 @@ SOURCES += \
     clickablelabel.cpp \
     game1.cpp \
     game1grid.cpp \
+    game2.cpp \
     historywidget.cpp \
     main.cpp \
     mainmenuwidget.cpp \

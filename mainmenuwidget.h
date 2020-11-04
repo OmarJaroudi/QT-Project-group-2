@@ -3,8 +3,9 @@
 #pragma once
 
 #include <QWidget>
-#include <accounts.h>
-#include <game1.h>
+#include "accounts.h"
+#include "game1.h"
+#include "game2.h"
 #include <QtWidgets>
 #include <QTimer>
 #include <QObject>
@@ -29,9 +30,12 @@ public:
     QPushButton *logout;
     QPushButton *history;
     ClickableLabel *game_1_label;
+    ClickableLabel *game_2_label;
+
 private slots:
     void Blink();
     void PlayGame1();
+    void PlayGame2();
     void LogOut();
     void history_clicked();
 signals:
