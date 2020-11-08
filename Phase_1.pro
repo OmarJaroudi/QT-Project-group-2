@@ -5,6 +5,7 @@ HEADERS += \
     game1.h \
     game1grid.h \
     game2.h \
+    game2grid.h \
     historywidget.h \
     mainmenuwidget.h \
     signinwidget.h \
@@ -20,6 +21,7 @@ SOURCES += \
     game1.cpp \
     game1grid.cpp \
     game2.cpp \
+    game2grid.cpp \
     historywidget.cpp \
     main.cpp \
     mainmenuwidget.cpp \
