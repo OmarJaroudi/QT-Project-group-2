@@ -12,9 +12,10 @@ class Game2Grid : public QGraphicsScene
 {
     Q_OBJECT
 public:
-    vector <ReversiSlot*> AvailableSlots;
+    vector <ReversiSlot*> * Cells;
     Game2Grid();
-public slots: void ShowDisc();
+    static ReversiSlot::COLOR turn;
+public slots: void PlayTurn();
 signals:void gameOver();
 
 };
