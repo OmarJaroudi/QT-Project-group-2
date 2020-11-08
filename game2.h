@@ -4,14 +4,14 @@
 #include <QWidget>
 #include <QtWidgets>
 #include "mainmenuwidget.h"
-
+#include "game2grid.h"
 #include "accounts.h"
 class Game2 : public QWidget
 {
-    //Game1Grid * grid;
+    Game2Grid * grid;
     Accounts *player;
     QPushButton *play_button;
-    QVBoxLayout *difficulty_layout;
+    QVBoxLayout *v_layout;
     QHBoxLayout *layout;
     QPushButton *back_button;
     QGraphicsView *view;

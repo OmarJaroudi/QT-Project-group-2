@@ -38,9 +38,9 @@ Game2::Game2(Accounts *acc, QWidget *parent) : QWidget(parent)
     layout->addItem(spacer);
 
     layout->addWidget(play_button,50,Qt::AlignCenter|Qt::AlignBottom);
-    QVBoxLayout *temp = new QVBoxLayout();
-    temp->addItem(layout);
-    this->setLayout(temp);
+    v_layout = new QVBoxLayout();
+    v_layout->addItem(layout);
+    this->setLayout(v_layout);
     this->setFixedSize(this->size());
 
     QObject::connect(play_button,SIGNAL(clicked()),this,SLOT(StartGame()));
@@ -51,7 +51,28 @@ void Game2::PressBack(){
     this->close();
     MainMenuWidget * main_menu = new MainMenuWidget(this->player);
     main_menu->show();
+    this->deleteLater();
 }
-void Game2::StartGame(){}
+void Game2::StartGame(){
+    grid = new Game2Grid();
+    this->close();
+    view = new QGraphicsView(grid);
+    view->setAttribute(Qt::WA_DeleteOnClose);
+    QRect primaryScreenGeometry(QApplication::desktop()->screenGeometry());
+    view->move(-500000,-500000);
+    view->move((primaryScreenGeometry.width() - this->width()) / 2.0,
+                    (primaryScreenGeometry.height() - this->height()) / 2.0);
+    view->show();
+    view->setFixedSize(500,600);
+    view->setHorizontalScrollBarPolicy((Qt::ScrollBarAlwaysOff));
+    view->setVerticalScrollBarPolicy((Qt::ScrollBarAlwaysOff));
+    view->setAttribute(Qt::WA_DeleteOnClose);
+
+
+    QObject::connect(grid,SIGNAL(gameOver()),this,SLOT(GameEnded()));
+
+}
 void Game2::GameEnded(){}
 void Game2::keyPressEvent(QKeyEvent *event){}
+
+
