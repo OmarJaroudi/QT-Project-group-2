@@ -8,6 +8,7 @@ HEADERS += \
     game2grid.h \
     historywidget.h \
     mainmenuwidget.h \
+    reversislot.h \
     signinwidget.h \
     signupwidget.h \
     simplecrypt.h \
@@ -25,6 +26,7 @@ SOURCES += \
     historywidget.cpp \
     main.cpp \
     mainmenuwidget.cpp \
+    reversislot.cpp \
     signinwidget.cpp \
     signupwidget.cpp \
     simplecrypt.cpp \

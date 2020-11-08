@@ -63,7 +63,7 @@ void Game2::StartGame(){
     view->move((primaryScreenGeometry.width() - this->width()) / 2.0,
                     (primaryScreenGeometry.height() - this->height()) / 2.0);
     view->show();
-    view->setFixedSize(500,600);
+    view->setFixedSize(400,450);
     view->setHorizontalScrollBarPolicy((Qt::ScrollBarAlwaysOff));
     view->setVerticalScrollBarPolicy((Qt::ScrollBarAlwaysOff));
     view->setAttribute(Qt::WA_DeleteOnClose);
@@ -73,6 +73,10 @@ void Game2::StartGame(){
 
 }
 void Game2::GameEnded(){}
-void Game2::keyPressEvent(QKeyEvent *event){}
+void Game2::keyPressEvent(QKeyEvent *event){
+    if(event->key() == Qt::Key_F1)
+        StartGame();
+}
+
 
 

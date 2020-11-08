@@ -10,9 +10,9 @@
         <file>thumbnails/smashed.png</file>
         <file>thumbnails/pause.png</file>
         <file>thumbnails/heart.png</file>
-        <file>thumbnails/black_checker.png</file>
-        <file>thumbnails/white_checker.png</file>
         <file>thumbnails/grid.png</file>
         <file>thumbnails/game2.jpg</file>
+        <file>thumbnails/white_checker.png</file>
+        <file>thumbnails/black_checker.png</file>
     </qresource>
 </RCC>
