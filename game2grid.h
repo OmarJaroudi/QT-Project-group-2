@@ -15,6 +15,7 @@ public:
     vector <ReversiSlot*> * Cells;
     Game2Grid();
     static ReversiSlot::COLOR turn;
+    vector<ReversiSlot*>* ValidMove();
 public slots: void PlayTurn();
 signals:void gameOver();
 

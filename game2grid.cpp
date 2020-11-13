@@ -39,4 +39,446 @@ void Game2Grid::PlayTurn(){
             else turn = ReversiSlot::BLACK;
 
     }
+
+    vector<ReversiSlot*>* test=ValidMove();
+    for(int i=0;i<(int)test->size();i++)
+    {
+        qDebug()<<test->at(i)->x*8+test->at(i)->y<<test->at(i)->x<<test->at(i)->y;
+    }
+}
+
+vector<ReversiSlot*>* Game2Grid::ValidMove()
+{
+    vector<ReversiSlot*> *result= new vector<ReversiSlot*>();
+
+    for(int i=0;i<8;i++)
+    {
+        for(int j=0;j<8;j++)
+        {
+            if(!Cells->at(8*i+j)->DiscIsPlaced())
+            {
+                //cell we're looking at: 8i+j
+                if(8*i-9+j>=0 && 8*i-9+j<63)
+                {
+                    if(Cells->at(8*i-9+j)->x<Cells->at(8*i+j)->x && Cells->at(8*i-9+j)->y<Cells->at(8*i+j)->y)
+                    {
+                        if(Cells->at(8*i-9+j)->DiscIsPlaced())
+                        {
+                            if(Cells->at(8*i-9+j)->current_color!=turn)
+                            {
+                                int m=0;
+                                while(8*i-18+m+j>=0 && 8*i-18+m+j<64)
+                                {
+                                    if(Cells->at(8*i-18+j+m)->x<Cells->at(8*i+j)->x && Cells->at(8*i-18+j+m)->y<Cells->at(8*i+j)->y)
+                                    {
+                                        if(Cells->at(8*i+j-18+m)->DiscIsPlaced())
+                                        {
+                                            if(Cells->at(8*i+j-18+m)->current_color==turn)
+                                            {
+                                                result->push_back(Cells->at(8*i+j));
+                                                break;
+                                            }
+                                        }
+                                        else break;
+                                    }
+                                    m+=-9;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if(8*i-8+j>=0 && 8*i-8+j<63)
+                {
+                    if(Cells->at(8*i-8+j)->x<Cells->at(8*i+j)->x && Cells->at(8*i-8+j)->y==Cells->at(8*i+j)->y)
+                    {
+                        if(Cells->at(8*i-8+j)->DiscIsPlaced())
+                        {
+                            if(Cells->at(8*i-8+j)->current_color!=turn)
+                            {
+                                int m=0;
+                                while(8*i-16+m+j>=0 && 8*i-16+m+j<64)
+                                {
+                                    if(Cells->at(8*i-16+j+m)->x<Cells->at(8*i+j)->x && Cells->at(8*i-16+j+m)->y==Cells->at(8*i+j)->y)
+                                    {
+                                        if(Cells->at(8*i+j-16+m)->DiscIsPlaced())
+                                        {
+                                            if(Cells->at(8*i+j-16+m)->current_color==turn)
+                                            {
+                                                result->push_back(Cells->at(8*i+j));
+                                                break;
+                                            }
+                                        }
+                                        else break;
+                                    }
+                                    m+=-8;
+                                }
+                            }
+                        }
+                    }
+                }
+                if(8*i-7+j>=0 && 8*i-7+j<63)
+                {
+                    if(Cells->at(8*i-7+j)->x<Cells->at(8*i+j)->x && Cells->at(8*i-7+j)->y>Cells->at(8*i+j)->y)
+                    {
+                        if(Cells->at(8*i-7+j)->DiscIsPlaced())
+                        {
+                            if(Cells->at(8*i-7+j)->current_color!=turn)
+                            {
+                                int m=0;
+                                while(8*i-14+m+j>=0 && 8*i-14+m+j<64)
+                                {
+                                    if(Cells->at(8*i-14+j+m)->x<Cells->at(8*i+j)->x && Cells->at(8*i-14+j+m)->y>Cells->at(8*i+j)->y)
+                                    {
+                                        if(Cells->at(8*i+j-14+m)->DiscIsPlaced())
+                                        {
+                                            if(Cells->at(8*i+j-14+m)->current_color==turn)
+                                            {
+                                                result->push_back(Cells->at(8*i+j));
+                                                break;
+                                            }
+                                        }
+                                        else break;
+                                    }
+                                    m+=-7;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if(8*i+1+j>=0 && 8*i+1+j<63)
+                {
+                    if(Cells->at(8*i+1+j)->x==Cells->at(8*i+j)->x && Cells->at(8*i+1+j)->y>Cells->at(8*i+j)->y)
+                    {
+                        if(Cells->at(8*i+1+j)->DiscIsPlaced())
+                        {
+                            if(Cells->at(8*i+1+j)->current_color!=turn)
+                            {
+                                int m=0;
+                                while(8*i+2+m+j>=0 && 8*i+2+m+j<64)
+                                {
+                                    if(Cells->at(8*i+2+j+m)->x==Cells->at(8*i+j)->x && Cells->at(8*i+2+j+m)->y>Cells->at(8*i+j)->y)
+                                    {
+                                        if(Cells->at(8*i+j+2+m)->DiscIsPlaced())
+                                        {
+                                            if(Cells->at(8*i+j+2+m)->current_color==turn)
+                                            {
+                                                result->push_back(Cells->at(8*i+j));
+                                                break;
+                                            }
+                                        }
+                                        else break;
+                                    }
+                                    m+=1;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if(8*i+9+j>=0 && 8*i+9+j<63)
+                {
+                    if(Cells->at(8*i+9+j)->x>Cells->at(8*i+j)->x && Cells->at(8*i+9+j)->y>Cells->at(8*i+j)->y)
+                    {
+                        if(Cells->at(8*i+9+j)->DiscIsPlaced())
+                        {
+                            if(Cells->at(8*i+9+j)->current_color!=turn)
+                            {
+                                int m=0;
+                                while(8*i+18+m+j>=0 && 8*i+18+m+j<64)
+                                {
+                                    if(Cells->at(8*i+18+j+m)->x>Cells->at(8*i+j)->x && Cells->at(8*i+18+j+m)->y>Cells->at(8*i+j)->y)
+                                    {
+                                        if(Cells->at(8*i+j+18+m)->DiscIsPlaced())
+                                        {
+                                            if(Cells->at(8*i+j+18+m)->current_color==turn)
+                                            {
+                                                result->push_back(Cells->at(8*i+j));
+                                                break;
+                                            }
+                                        }
+                                        else break;
+                                    }
+                                    m+=9;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if(8*i+8+j>=0 && 8*i+8+j<63)
+                {
+                    if(Cells->at(8*i+8+j)->x>Cells->at(8*i+j)->x && Cells->at(8*i+8+j)->y==Cells->at(8*i+j)->y)
+                    {
+                        if(Cells->at(8*i+8+j)->DiscIsPlaced())
+                        {
+                            if(Cells->at(8*i+8+j)->current_color!=turn)
+                            {
+                                int m=0;
+                                while(8*i+16+m+j>=0 && 8*i+16+m+j<64)
+                                {
+                                    if(Cells->at(8*i+16+j+m)->x>Cells->at(8*i+j)->x && Cells->at(8*i+16+j+m)->y==Cells->at(8*i+j)->y)
+                                    {
+                                        if(Cells->at(8*i+j+16+m)->DiscIsPlaced())
+                                        {
+                                            if(Cells->at(8*i+j+16+m)->current_color==turn)
+                                            {
+                                                result->push_back(Cells->at(8*i+j));
+                                                break;
+                                            }
+                                        }
+                                        else break;
+                                    }
+                                    m+=8;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if(8*i+7+j>=0 && 8*i+7+j<63)
+                {
+                    if(Cells->at(8*i+7+j)->x>Cells->at(8*i+j)->x && Cells->at(8*i+7+j)->y<Cells->at(8*i+j)->y)
+                    {
+                        if(Cells->at(8*i+7+j)->DiscIsPlaced())
+                        {
+                            if(Cells->at(8*i+7+j)->current_color!=turn)
+                            {
+                                int m=0;
+                                while(8*i+14+m+j>=0 && 8*i+14+m+j<64)
+                                {
+                                    if(Cells->at(8*i+14+j+m)->x>Cells->at(8*i+j)->x && Cells->at(8*i+14+j+m)->y<Cells->at(8*i+j)->y)
+                                    {
+                                        if(Cells->at(8*i+j+14+m)->DiscIsPlaced())
+                                        {
+                                            if(Cells->at(8*i+j+14+m)->current_color==turn)
+                                            {
+                                                result->push_back(Cells->at(8*i+j));
+                                                break;
+                                            }
+                                        }
+                                        else break;
+                                    }
+                                    m+=7;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if(8*i-1+j>=0 && 8*i-1+j<63)
+                {
+                    if(Cells->at(8*i-1+j)->x==Cells->at(8*i+j)->x && Cells->at(8*i-1+j)->y<Cells->at(8*i+j)->y)
+                    {
+                        if(Cells->at(8*i-1+j)->DiscIsPlaced())
+                        {
+                            if(Cells->at(8*i-1+j)->current_color!=turn)
+                            {
+                                int m=0;
+                                while(8*i-2+m+j>=0 && 8*i-2+m+j<64)
+                                {
+                                    if(Cells->at(8*i-2+j+m)->x==Cells->at(8*i+j)->x && Cells->at(8*i-2+j+m)->y<Cells->at(8*i+j)->y)
+                                    {
+                                        if(Cells->at(8*i+j-2+m)->DiscIsPlaced())
+                                        {
+                                            if(Cells->at(8*i+j-2+m)->current_color==turn)
+                                            {
+                                                result->push_back(Cells->at(8*i+j));
+                                                break;
+                                            }
+                                        }
+                                        else break;
+                                    }
+                                    m+=-1;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+                /*else if(8*i-9+j>=0 && 8*i-9+j<63)
+                {
+                    if(Cells->at(8*i-9+j)->x<Cells->at(8*i+j)->x && Cells->at(8*i-9+j)->y<Cells->at(8*i+j)->y)
+                    {
+                        if(Cells->at(8*i-9+j)->DiscIsPlaced())
+                        {
+                            if(Cells->at(8*i-9+j)->current_color!=turn)
+                            {
+                                int m=0;
+                                while(8*i-18+m+j>=0 && 8*i-18+m+j<64)
+                                {
+                                    if(Cells->at(8*i-18+j+m)->x<Cells->at(8*i+j)->x && Cells->at(8*i-18+j+m)->y<Cells->at(8*i+j)->y)
+                                    {
+                                        if(Cells->at(8*i+j-18+m)->DiscIsPlaced())
+                                        {
+                                            if(Cells->at(8*i+j-18+m)->current_color==turn)
+                                            {
+                                                result->push_back(Cells->at(8*i+j));
+                                                break;
+                                            }
+                                        }
+                                        else break;
+                                    }
+                                    m+=-9;
+                                }
+                            }
+                        }
+                    }
+                }
+                else if(8*i-9+j>=0 && 8*i-9+j<63)
+                {
+                    if(Cells->at(8*i-9+j)->x<Cells->at(8*i+j)->x && Cells->at(8*i-9+j)->y<Cells->at(8*i+j)->y)
+                    {
+                        if(Cells->at(8*i-9+j)->DiscIsPlaced())
+                        {
+                            if(Cells->at(8*i-9+j)->current_color!=turn)
+                            {
+                                int m=0;
+                                while(8*i-18+m+j>=0 && 8*i-18+m+j<64)
+                                {
+                                    if(Cells->at(8*i-18+j+m)->x<Cells->at(8*i+j)->x && Cells->at(8*i-18+j+m)->y<Cells->at(8*i+j)->y)
+                                    {
+                                        if(Cells->at(8*i+j-18+m)->DiscIsPlaced())
+                                        {
+                                            if(Cells->at(8*i+j-18+m)->current_color==turn)
+                                            {
+                                                result->push_back(Cells->at(8*i+j));
+                                                break;
+                                            }
+                                        }
+                                        else break;
+                                    }
+                                    m+=-9;
+                                }
+                            }
+                        }
+                    }
+                }
+                else if(8*i-9+j>=0 && 8*i-9+j<63)
+                {
+                    if(Cells->at(8*i-9+j)->x<Cells->at(8*i+j)->x && Cells->at(8*i-9+j)->y<Cells->at(8*i+j)->y)
+                    {
+                        if(Cells->at(8*i-9+j)->DiscIsPlaced())
+                        {
+                            if(Cells->at(8*i-9+j)->current_color!=turn)
+                            {
+                                int m=0;
+                                while(8*i-18+m+j>=0 && 8*i-18+m+j<64)
+                                {
+                                    if(Cells->at(8*i-18+j+m)->x<Cells->at(8*i+j)->x && Cells->at(8*i-18+j+m)->y<Cells->at(8*i+j)->y)
+                                    {
+                                        if(Cells->at(8*i+j-18+m)->DiscIsPlaced())
+                                        {
+                                            if(Cells->at(8*i+j-18+m)->current_color==turn)
+                                            {
+                                                result->push_back(Cells->at(8*i+j));
+                                                break;
+                                            }
+                                        }
+                                        else break;
+                                    }
+                                    m+=-9;
+                                }
+                            }
+                        }
+                    }
+                }
+                else if(8*i-9+j>=0 && 8*i-9+j<63)
+                {
+                    if(Cells->at(8*i-9+j)->x<Cells->at(8*i+j)->x && Cells->at(8*i-9+j)->y<Cells->at(8*i+j)->y)
+                    {
+                        if(Cells->at(8*i-9+j)->DiscIsPlaced())
+                        {
+                            if(Cells->at(8*i-9+j)->current_color!=turn)
+                            {
+                                int m=0;
+                                while(8*i-18+m+j>=0 && 8*i-18+m+j<64)
+                                {
+                                    if(Cells->at(8*i-18+j+m)->x<Cells->at(8*i+j)->x && Cells->at(8*i-18+j+m)->y<Cells->at(8*i+j)->y)
+                                    {
+                                        if(Cells->at(8*i+j-18+m)->DiscIsPlaced())
+                                        {
+                                            if(Cells->at(8*i+j-18+m)->current_color==turn)
+                                            {
+                                                result->push_back(Cells->at(8*i+j));
+                                                break;
+                                            }
+                                        }
+                                        else break;
+                                    }
+                                    m+=-9;
+                                }
+                            }
+                        }
+                    }
+                }
+                else if(8*i-9+j>=0 && 8*i-9+j<63)
+                {
+                    if(Cells->at(8*i-9+j)->x<Cells->at(8*i+j)->x && Cells->at(8*i-9+j)->y<Cells->at(8*i+j)->y)
+                    {
+                        if(Cells->at(8*i-9+j)->DiscIsPlaced())
+                        {
+                            if(Cells->at(8*i-9+j)->current_color!=turn)
+                            {
+                                int m=0;
+                                while(8*i-18+m+j>=0 && 8*i-18+m+j<64)
+                                {
+                                    if(Cells->at(8*i-18+j+m)->x<Cells->at(8*i+j)->x && Cells->at(8*i-18+j+m)->y<Cells->at(8*i+j)->y)
+                                    {
+                                        if(Cells->at(8*i+j-18+m)->DiscIsPlaced())
+                                        {
+                                            if(Cells->at(8*i+j-18+m)->current_color==turn)
+                                            {
+                                                result->push_back(Cells->at(8*i+j));
+                                                break;
+                                            }
+                                        }
+                                        else break;
+                                    }
+                                    m+=-9;
+                                }
+                            }
+                        }
+                    }
+                }
+                else if(8*i-9+j>=0 && 8*i-9+j<63)
+                {
+                    if(Cells->at(8*i-9+j)->x<Cells->at(8*i+j)->x && Cells->at(8*i-9+j)->y<Cells->at(8*i+j)->y)
+                    {
+                        if(Cells->at(8*i-9+j)->DiscIsPlaced())
+                        {
+                            if(Cells->at(8*i-9+j)->current_color!=turn)
+                            {
+                                int m=0;
+                                while(8*i-18+m+j>=0 && 8*i-18+m+j<64)
+                                {
+                                    if(Cells->at(8*i-18+j+m)->x<Cells->at(8*i+j)->x && Cells->at(8*i-18+j+m)->y<Cells->at(8*i+j)->y)
+                                    {
+                                        if(Cells->at(8*i+j-18+m)->DiscIsPlaced())
+                                        {
+                                            if(Cells->at(8*i+j-18+m)->current_color==turn)
+                                            {
+                                                result->push_back(Cells->at(8*i+j));
+                                                break;
+                                            }
+                                        }
+                                        else break;
+                                    }
+                                    m+=-9;
+                                }
+                            }
+                        }
+                    }
+                }*/
+
+            }
+
+
+
+
+        }
+
+    return result;
 }
