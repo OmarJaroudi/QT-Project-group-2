@@ -10,7 +10,7 @@ ReversiSlot::ReversiSlot(int x, int y){
 }
 
 bool ReversiSlot::DiscIsPlaced(){
-    return is_placed;
+    return this->is_placed;
 }
 
 void ReversiSlot::PlaceDisc(ReversiSlot::COLOR color){
@@ -24,5 +24,5 @@ void ReversiSlot::PlaceDisc(ReversiSlot::COLOR color){
         this->setIcon(checker);
         current_color=color;
     }
-    is_placed = true;
+    this->is_placed = true;
 }
