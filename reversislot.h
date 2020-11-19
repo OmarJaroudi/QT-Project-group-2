@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QWidget>
 #include  <QPushButton>
-
+#include <QPainter>
 class ReversiSlot : public QPushButton
 {
     Q_OBJECT
@@ -18,6 +18,7 @@ public:
     void PlaceDisc(ReversiSlot::COLOR);
     ReversiSlot::COLOR current_color; //0 for white 1 for black
     bool is_placed;
+    void Flip();
 };
 
 #endif // REVERSISLOT_H

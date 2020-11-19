@@ -72,7 +72,10 @@ void Game2::StartGame(){
     QObject::connect(grid,SIGNAL(gameOver()),this,SLOT(GameEnded()));
 
 }
-void Game2::GameEnded(){}
+void Game2::GameEnded(){
+    view->close();
+    this->show();
+}
 void Game2::keyPressEvent(QKeyEvent *event){
     if(event->key() == Qt::Key_F1)
         StartGame();

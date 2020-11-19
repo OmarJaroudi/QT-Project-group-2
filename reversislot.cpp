@@ -26,3 +26,10 @@ void ReversiSlot::PlaceDisc(ReversiSlot::COLOR color){
     }
     this->is_placed = true;
 }
+
+void ReversiSlot::Flip(){
+    if (this->current_color==ReversiSlot::WHITE)
+        this->PlaceDisc(ReversiSlot::BLACK);
+    else
+        this->PlaceDisc(ReversiSlot::WHITE);
+}
