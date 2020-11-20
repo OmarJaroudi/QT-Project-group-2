@@ -5,7 +5,7 @@ digraph "Graphical Class Hierarchy"
   rankdir="LR";
   Node15 [label="QGraphicsScene",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
   Node15 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node0 [label="Game1Grid",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGame1Grid.html"];
+  Node0 [label="Game1Grid",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGame1Grid.html",tooltip="The Game1Grid class. "];
   Node15 -> Node17 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node17 [label="Game2Grid",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGame2Grid.html"];
 }
