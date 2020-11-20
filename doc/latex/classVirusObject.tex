@@ -1,0 +1,71 @@
+\hypertarget{classVirusObject}{}\section{Virus\+Object Class Reference}
+\label{classVirusObject}\index{Virus\+Object@{Virus\+Object}}
+
+
+Inheritance diagram for Virus\+Object\+:
+% FIG 0
+
+
+Collaboration diagram for Virus\+Object\+:
+% FIG 1
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVirusObject_aaa5f4d0c62dc440075a3a3bdf2eb5638}\label{classVirusObject_aaa5f4d0c62dc440075a3a3bdf2eb5638}} 
+enum {\bfseries Color} \{ {\bfseries G\+R\+E\+EN}, 
+{\bfseries Y\+E\+L\+L\+OW}, 
+{\bfseries B\+L\+UE}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVirusObject_a90bb071dbf5c8ec544466f1e5b8fa7ac}\label{classVirusObject_a90bb071dbf5c8ec544466f1e5b8fa7ac}} 
+void {\bfseries Expire} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVirusObject_a29dc5c7a7acb2a8c29c3e22ea0350035}\label{classVirusObject_a29dc5c7a7acb2a8c29c3e22ea0350035}} 
+Q\+String {\bfseries get\+Color} ()
+\item 
+\mbox{\Hypertarget{classVirusObject_aaff81b3029f927fbce8e066a982da97b}\label{classVirusObject_aaff81b3029f927fbce8e066a982da97b}} 
+int {\bfseries get\+Score} ()
+\item 
+\mbox{\Hypertarget{classVirusObject_a0c2e1ad387f8888977c7c9d4c3d51ece}\label{classVirusObject_a0c2e1ad387f8888977c7c9d4c3d51ece}} 
+int {\bfseries get\+Size} ()
+\item 
+\mbox{\Hypertarget{classVirusObject_ac37483ccb4d3814c67adf78e6497f667}\label{classVirusObject_ac37483ccb4d3814c67adf78e6497f667}} 
+{\bfseries Virus\+Object} (Virus\+Object\+::\+Color c, double speed)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVirusObject_a90c989c71463003b8e69ccfbb5e8be62}\label{classVirusObject_a90c989c71463003b8e69ccfbb5e8be62}} 
+Q\+Media\+Player $\ast$ {\bfseries smash\+\_\+sound}
+\item 
+\mbox{\Hypertarget{classVirusObject_a98f835b19e1ab22a79d1322ba5c6be07}\label{classVirusObject_a98f835b19e1ab22a79d1322ba5c6be07}} 
+Q\+Timer $\ast$ {\bfseries expiry\+\_\+timer}
+\item 
+\mbox{\Hypertarget{classVirusObject_a2d25a4fa8fc71cdc4b68936e8f578b21}\label{classVirusObject_a2d25a4fa8fc71cdc4b68936e8f578b21}} 
+double {\bfseries rolling\+\_\+speed}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVirusObject_a02fb079085e3880476a7aec592f999cb}\label{classVirusObject_a02fb079085e3880476a7aec592f999cb}} 
+static bool {\bfseries recent\+\_\+miss} = false
+\item 
+\mbox{\Hypertarget{classVirusObject_a4995134404253ee91b388a30909265d6}\label{classVirusObject_a4995134404253ee91b388a30909265d6}} 
+static int {\bfseries total\+\_\+misses} = 0
+\item 
+\mbox{\Hypertarget{classVirusObject_a01a7bcc32a9798d84d54c38f23a23add}\label{classVirusObject_a01a7bcc32a9798d84d54c38f23a23add}} 
+static vector$<$ int $>$ {\bfseries missed\+\_\+shots}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+virusobject.\+h\item 
+virusobject.\+cpp\end{DoxyCompactItemize}

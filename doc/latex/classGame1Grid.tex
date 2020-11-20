@@ -1,0 +1,127 @@
+\hypertarget{classGame1Grid}{}\section{Game1\+Grid Class Reference}
+\label{classGame1Grid}\index{Game1\+Grid@{Game1\+Grid}}
+
+
+Inheritance diagram for Game1\+Grid\+:
+% FIG 0
+
+
+Collaboration diagram for Game1\+Grid\+:
+% FIG 1
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGame1Grid_af541011eb2e1168669dde5b9cdd29a77}\label{classGame1Grid_af541011eb2e1168669dde5b9cdd29a77}} 
+void {\bfseries Shoot\+Virus} ()
+\item 
+\mbox{\Hypertarget{classGame1Grid_a7741eac6d405319474e22549b2e5a727}\label{classGame1Grid_a7741eac6d405319474e22549b2e5a727}} 
+void {\bfseries Update\+Time} ()
+\item 
+\mbox{\Hypertarget{classGame1Grid_a8ae09d14f2ffbcf3fa65f917ade6fb8d}\label{classGame1Grid_a8ae09d14f2ffbcf3fa65f917ade6fb8d}} 
+void {\bfseries Spawn\+Virus} ()
+\item 
+\mbox{\Hypertarget{classGame1Grid_a501210aa672a1e7593cb9be3ff238464}\label{classGame1Grid_a501210aa672a1e7593cb9be3ff238464}} 
+void {\bfseries Game\+Over} ()
+\item 
+\mbox{\Hypertarget{classGame1Grid_a9a6e5239a1b09f3f758503c24766583f}\label{classGame1Grid_a9a6e5239a1b09f3f758503c24766583f}} 
+void {\bfseries Click\+Pause} ()
+\item 
+\mbox{\Hypertarget{classGame1Grid_a82311dcf0ee4d0c41b413e4eb622a695}\label{classGame1Grid_a82311dcf0ee4d0c41b413e4eb622a695}} 
+void {\bfseries Click\+Continue} ()
+\item 
+\mbox{\Hypertarget{classGame1Grid_acb3fadeeb20d1d8b74ab820745c06551}\label{classGame1Grid_acb3fadeeb20d1d8b74ab820745c06551}} 
+void {\bfseries Quit\+Game} ()
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGame1Grid_ae12a5e01c80683d7d8f3187d8b560a8c}\label{classGame1Grid_ae12a5e01c80683d7d8f3187d8b560a8c}} 
+void {\bfseries game\+Over} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGame1Grid_a019f169cfa7cb777887ec2e8773c7e17}\label{classGame1Grid_a019f169cfa7cb777887ec2e8773c7e17}} 
+vector$<$ vector$<$ int $>$ $>$ {\bfseries Load\+Grid} ()
+\item 
+\mbox{\Hypertarget{classGame1Grid_af0ee0c96e8995ce18eddecafca1fdcfc}\label{classGame1Grid_af0ee0c96e8995ce18eddecafca1fdcfc}} 
+void {\bfseries key\+Press\+Event} (Q\+Key\+Event $\ast$event) override
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGame1Grid_af9bd5c08a0511489472cef0904bbe076}\label{classGame1Grid_af9bd5c08a0511489472cef0904bbe076}} 
+int {\bfseries elapsed\+\_\+time}
+\item 
+\mbox{\Hypertarget{classGame1Grid_af2031f545abc4c2453ae2c8e68cac2a4}\label{classGame1Grid_af2031f545abc4c2453ae2c8e68cac2a4}} 
+int {\bfseries current\+\_\+score}
+\item 
+\mbox{\Hypertarget{classGame1Grid_adcd49fbafcb94b2a8d22c2aacc9dbee9}\label{classGame1Grid_adcd49fbafcb94b2a8d22c2aacc9dbee9}} 
+int {\bfseries winning\+\_\+score}
+\item 
+\mbox{\Hypertarget{classGame1Grid_a076381d9a4906c991d02f8cbf3e794ce}\label{classGame1Grid_a076381d9a4906c991d02f8cbf3e794ce}} 
+int {\bfseries current\+\_\+virus}
+\item 
+\mbox{\Hypertarget{classGame1Grid_a080f9f38136ab7a8ffb8919bb6586f25}\label{classGame1Grid_a080f9f38136ab7a8ffb8919bb6586f25}} 
+double {\bfseries rolling\+\_\+speed}
+\item 
+\mbox{\Hypertarget{classGame1Grid_a6894b7fbdfdb34d4ca17c919bc11ed8c}\label{classGame1Grid_a6894b7fbdfdb34d4ca17c919bc11ed8c}} 
+int {\bfseries current\+\_\+count}
+\item 
+\mbox{\Hypertarget{classGame1Grid_a1fd5852433bb39f4d92a825be2bff9c8}\label{classGame1Grid_a1fd5852433bb39f4d92a825be2bff9c8}} 
+bool {\bfseries paused\+\_\+game}
+\item 
+\mbox{\Hypertarget{classGame1Grid_a3bb5c92a6f79f809f2967a40d102589b}\label{classGame1Grid_a3bb5c92a6f79f809f2967a40d102589b}} 
+bool {\bfseries game\+\_\+ended}
+\item 
+\mbox{\Hypertarget{classGame1Grid_ac7b283dc13d9d826e39da1cccf8fc56f}\label{classGame1Grid_ac7b283dc13d9d826e39da1cccf8fc56f}} 
+bool {\bfseries save\+\_\+score}
+\item 
+\mbox{\Hypertarget{classGame1Grid_a0d63233ec6ad42e0b176a85a23707e47}\label{classGame1Grid_a0d63233ec6ad42e0b176a85a23707e47}} 
+vector$<$ vector$<$ int $>$ $>$ {\bfseries virus\+\_\+loc}
+\item 
+\mbox{\Hypertarget{classGame1Grid_aec374b3c5f5b37a6f9a23078058b8b3e}\label{classGame1Grid_aec374b3c5f5b37a6f9a23078058b8b3e}} 
+Q\+Label $\ast$ {\bfseries timer\+\_\+info}
+\item 
+\mbox{\Hypertarget{classGame1Grid_a10a3952539821cfc4e0db86a2f86ccd6}\label{classGame1Grid_a10a3952539821cfc4e0db86a2f86ccd6}} 
+Q\+Label $\ast$ {\bfseries score\+\_\+info}
+\item 
+\mbox{\Hypertarget{classGame1Grid_a704f60910763788b7b4290899659094e}\label{classGame1Grid_a704f60910763788b7b4290899659094e}} 
+Q\+Timer $\ast$ {\bfseries timer}
+\item 
+\mbox{\Hypertarget{classGame1Grid_aed7fa5755da0eafafc6ad176868c6211}\label{classGame1Grid_aed7fa5755da0eafafc6ad176868c6211}} 
+Q\+Timer $\ast$ {\bfseries spawn\+\_\+timer}
+\item 
+\mbox{\Hypertarget{classGame1Grid_a21e20444387661ce1b03d6fee93a4a54}\label{classGame1Grid_a21e20444387661ce1b03d6fee93a4a54}} 
+Q\+Timer $\ast$ {\bfseries game\+\_\+over\+\_\+timer}
+\item 
+\mbox{\Hypertarget{classGame1Grid_abdcd3810ae3ffd32be7c7df6c63c090b}\label{classGame1Grid_abdcd3810ae3ffd32be7c7df6c63c090b}} 
+Q\+Label $\ast$ {\bfseries smashed\+\_\+virus}
+\item 
+\mbox{\Hypertarget{classGame1Grid_ad9deaa715b470d17465b11d3165de7e5}\label{classGame1Grid_ad9deaa715b470d17465b11d3165de7e5}} 
+Q\+Label $\ast$ {\bfseries pause\+\_\+button}
+\item 
+\mbox{\Hypertarget{classGame1Grid_a3cc574efec2c81436dd9081325931753}\label{classGame1Grid_a3cc574efec2c81436dd9081325931753}} 
+Q\+Label $\ast$ {\bfseries chance1}
+\item 
+\mbox{\Hypertarget{classGame1Grid_a73f9c88cdaecd0f6568159916468274e}\label{classGame1Grid_a73f9c88cdaecd0f6568159916468274e}} 
+Q\+Label $\ast$ {\bfseries chance2}
+\item 
+\mbox{\Hypertarget{classGame1Grid_ab641979a2d65824cdaefe7b71cc17693}\label{classGame1Grid_ab641979a2d65824cdaefe7b71cc17693}} 
+Q\+Label $\ast$ {\bfseries chance3}
+\item 
+\mbox{\Hypertarget{classGame1Grid_ab0879815a101f197acda0cf04f60bee8}\label{classGame1Grid_ab0879815a101f197acda0cf04f60bee8}} 
+Q\+Media\+Player $\ast$ {\bfseries smash\+\_\+sound}
+\item 
+\mbox{\Hypertarget{classGame1Grid_a756e336e0c58d2a882cc7bb53b8ef400}\label{classGame1Grid_a756e336e0c58d2a882cc7bb53b8ef400}} 
+\hyperlink{classVirusObject}{Virus\+Object} $\ast$ {\bfseries new\+\_\+virus}
+\item 
+\mbox{\Hypertarget{classGame1Grid_a71771dc2fc0122c6a07d3fb8446ed115}\label{classGame1Grid_a71771dc2fc0122c6a07d3fb8446ed115}} 
+Q\+Widget $\ast$ {\bfseries pause\+\_\+menu}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+game1grid.\+h\item 
+game1grid.\+cpp\end{DoxyCompactItemize}

@@ -35,7 +35,7 @@ public:
     QDateEdit * date;
     QFileDialog * browse;
     QPushButton * choose_pic;
-
+    Accounts *account;
 public slots:
     void BrowseForImage();
     void ClickReturn();

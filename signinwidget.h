@@ -22,6 +22,7 @@ public:
     QVBoxLayout * layout;
     QLabel * error_message;
     QPushButton * back_button;
+    Accounts *account;
 
 public slots:
     void VerifyCredentials();

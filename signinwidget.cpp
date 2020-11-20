@@ -83,13 +83,13 @@ void SignInWidget::VerifyCredentials(){//passes the input to attemptSignIn.
     QString user = this->username_box->text();
     QString pass = this->pass_box->text();
 
-    Accounts * acc = new Accounts(user,pass);
-    QString result = acc->AttemptSignIn();
+    account = new Accounts(user,pass);
+    QString result = account->AttemptSignIn();
     if (result!="success")
         error_message->setText(result);//failed verification
     else{
         this->close();
-        MainMenuWidget *menu = new MainMenuWidget(acc);//verification succes, transitions to mainmenu
+        MainMenuWidget *menu = new MainMenuWidget(account);//verification succes, transitions to mainmenu
     }
 }
 

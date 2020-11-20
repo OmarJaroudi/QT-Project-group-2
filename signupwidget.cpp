@@ -137,13 +137,13 @@ void SignUpWidget::CreateAccount(){//passes the info entered into an instance of
     QString confirmPassStr = confirm_password_box->text();
     QString dateStr = date->text();
     QString imgDirectory = browser->directory;
-    Accounts * acc = new Accounts(userStr,passStr,confirmPassStr,dateStr,emailStr,fNameStr,lNameStr,imgDirectory);
-    QString result = acc->AttemptSignUp();
+    account = new Accounts(userStr,passStr,confirmPassStr,dateStr,emailStr,fNameStr,lNameStr,imgDirectory);
+    QString result = account->AttemptSignUp();
     if (result!="success")//sign up failed, show error message
         error_message->setText(result);
     else {//sign up succeeded, transition to main menu
         this->close();
-        MainMenuWidget *menu = new MainMenuWidget(acc);
+        MainMenuWidget *menu = new MainMenuWidget(account);
 
     }
 

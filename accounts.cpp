@@ -279,16 +279,16 @@ QString Accounts::DecryptPass(QString ciphertext){
 
 //setters and getters
 QString  Accounts::GetDOB(){
-    return (*(new QString(dob)));
+    return dob;
 }
 
 QString  Accounts::GetUsername(){
-    return (*(new QString(username)));
+    return username;
 }
 QString  Accounts::GetFName(){
-    return (*(new QString(f_name)));
+    return f_name;
 }
 QString  Accounts::GetImgPath(){
-    return (*(new QString(img_path)));
+    return img_path;
 }
 
