@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['welcomewidget',['WelcomeWidget',['../classWelcomeWidget.html',1,'']]]
+  ['virusobject',['VirusObject',['../classVirusObject.html',1,'']]]
 ];

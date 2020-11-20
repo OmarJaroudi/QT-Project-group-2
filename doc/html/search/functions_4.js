@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['getdob',['GetDOB',['../classAccounts.html#add43226d678648809eae2c7b11d3692b',1,'Accounts']]],
-  ['getfname',['GetFName',['../classAccounts.html#a264f663ad2a101cdbfbf12d083ee86b5',1,'Accounts']]],
-  ['getimgpath',['GetImgPath',['../classAccounts.html#ad9cac5e9a586f525939b120070cbdc2d',1,'Accounts']]],
-  ['getusername',['GetUsername',['../classAccounts.html#aa5d96a34d4281ce65a473b761ad9515a',1,'Accounts']]]
+  ['encrypttobytearray',['encryptToByteArray',['../classSimpleCrypt.html#ae1991c7748b2bb74468bee0be372d2c4',1,'SimpleCrypt::encryptToByteArray(const QString &amp;plaintext)'],['../classSimpleCrypt.html#a741305d04e86bcb7d4625b05bf234887',1,'SimpleCrypt::encryptToByteArray(QByteArray plaintext)']]],
+  ['encrypttostring',['encryptToString',['../classSimpleCrypt.html#af26a3d3c6cef9732190c1d2c6a53a5b5',1,'SimpleCrypt::encryptToString(const QString &amp;plaintext)'],['../classSimpleCrypt.html#aa72b79bf7a5bb971bf3b0a52b9247efd',1,'SimpleCrypt::encryptToString(QByteArray plaintext)']]]
 ];

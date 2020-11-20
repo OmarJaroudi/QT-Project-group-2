@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['encrypttobytearray',['encryptToByteArray',['../classSimpleCrypt.html#ae1991c7748b2bb74468bee0be372d2c4',1,'SimpleCrypt::encryptToByteArray(const QString &amp;plaintext)'],['../classSimpleCrypt.html#a741305d04e86bcb7d4625b05bf234887',1,'SimpleCrypt::encryptToByteArray(QByteArray plaintext)']]],
-  ['encrypttostring',['encryptToString',['../classSimpleCrypt.html#af26a3d3c6cef9732190c1d2c6a53a5b5',1,'SimpleCrypt::encryptToString(const QString &amp;plaintext)'],['../classSimpleCrypt.html#aa72b79bf7a5bb971bf3b0a52b9247efd',1,'SimpleCrypt::encryptToString(QByteArray plaintext)']]]
+  ['decrypttobytearray',['decryptToByteArray',['../classSimpleCrypt.html#ad6785e087d449a1aa80c39248e98fcda',1,'SimpleCrypt::decryptToByteArray(const QString &amp;cyphertext)'],['../classSimpleCrypt.html#a4babb69e45849f672574a26b6433c85a',1,'SimpleCrypt::decryptToByteArray(QByteArray cypher)']]],
+  ['decrypttostring',['decryptToString',['../classSimpleCrypt.html#aa454cf372b534fd5ffaa2c5bd0fa57ea',1,'SimpleCrypt::decryptToString(const QString &amp;cyphertext)'],['../classSimpleCrypt.html#ad1a3257cefee43773803ec1b12654f92',1,'SimpleCrypt::decryptToString(QByteArray cypher)']]]
 ];

@@ -2,6 +2,15 @@
 \label{classBrowseFiles}\index{Browse\+Files@{Browse\+Files}}
 
 
+Utility class to browse for profile picture on system.  
+
+
+
+
+{\ttfamily \#include $<$browsefiles.\+h$>$}
+
+
+
 Inheritance diagram for Browse\+Files\+:
 % FIG 0
 
@@ -12,14 +21,13 @@ Collaboration diagram for Browse\+Files\+:
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classBrowseFiles_aa6a08bfe8ff01459895e92f139d5cb7a}\label{classBrowseFiles_aa6a08bfe8ff01459895e92f139d5cb7a}} 
-void {\bfseries Choose\+File} ()
-\end{DoxyCompactItemize}
+void \hyperlink{classBrowseFiles_aa6a08bfe8ff01459895e92f139d5cb7a}{Choose\+File} ()
+\begin{DoxyCompactList}\small\item\em Choose\+File. Saves the directory of selected image file as a Q\+String in class variable dir. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classBrowseFiles_addfcca698a87629cce838066b35e0293}\label{classBrowseFiles_addfcca698a87629cce838066b35e0293}} 
-{\bfseries Browse\+Files} (Q\+Widget $\ast$parent=nullptr)
-\end{DoxyCompactItemize}
+\hyperlink{classBrowseFiles_addfcca698a87629cce838066b35e0293}{Browse\+Files} (Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classBrowseFiles}{Browse\+Files} constructor intializes Q\+File\+Dialog and widget display of class. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -38,6 +46,27 @@ Q\+V\+Box\+Layout $\ast$ {\bfseries layout}
 \mbox{\Hypertarget{classBrowseFiles_aa14dbe9a4d097621232cd578c86c373f}\label{classBrowseFiles_aa14dbe9a4d097621232cd578c86c373f}} 
 Q\+String $\ast$ {\bfseries dir}
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Utility class to browse for profile picture on system. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBrowseFiles_addfcca698a87629cce838066b35e0293}\label{classBrowseFiles_addfcca698a87629cce838066b35e0293}} 
+\index{Browse\+Files@{Browse\+Files}!Browse\+Files@{Browse\+Files}}
+\index{Browse\+Files@{Browse\+Files}!Browse\+Files@{Browse\+Files}}
+\subsubsection{\texorpdfstring{Browse\+Files()}{BrowseFiles()}}
+{\footnotesize\ttfamily Browse\+Files\+::\+Browse\+Files (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\hyperlink{classBrowseFiles}{Browse\+Files} constructor intializes Q\+File\+Dialog and widget display of class. 
+
+Allowed files are images (e.\+g. jpg, png etc) 
+\begin{DoxyParams}{Parameters}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

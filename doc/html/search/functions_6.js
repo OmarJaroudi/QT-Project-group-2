@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['integrityprotectionmode',['integrityProtectionMode',['../classSimpleCrypt.html#ac8940489ec63b0022335d9d6ab3b11a1',1,'SimpleCrypt']]]
+  ['haskey',['hasKey',['../classSimpleCrypt.html#ad800808bcffc9a09225c651200b3ef5c',1,'SimpleCrypt']]]
 ];

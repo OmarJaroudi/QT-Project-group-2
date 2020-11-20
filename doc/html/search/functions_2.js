@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['decrypttobytearray',['decryptToByteArray',['../classSimpleCrypt.html#ad6785e087d449a1aa80c39248e98fcda',1,'SimpleCrypt::decryptToByteArray(const QString &amp;cyphertext)'],['../classSimpleCrypt.html#a4babb69e45849f672574a26b6433c85a',1,'SimpleCrypt::decryptToByteArray(QByteArray cypher)']]],
-  ['decrypttostring',['decryptToString',['../classSimpleCrypt.html#aa454cf372b534fd5ffaa2c5bd0fa57ea',1,'SimpleCrypt::decryptToString(const QString &amp;cyphertext)'],['../classSimpleCrypt.html#ad1a3257cefee43773803ec1b12654f92',1,'SimpleCrypt::decryptToString(QByteArray cypher)']]]
+  ['choosefile',['ChooseFile',['../classBrowseFiles.html#aa6a08bfe8ff01459895e92f139d5cb7a',1,'BrowseFiles']]],
+  ['clickablelabel',['ClickableLabel',['../classClickableLabel.html#a38070f5a2992348fe3fd453f674fb38e',1,'ClickableLabel']]],
+  ['clicked',['clicked',['../classClickableLabel.html#aba68cb811a595c6d90f5c994f2b31f4b',1,'ClickableLabel']]],
+  ['compressionmode',['compressionMode',['../classSimpleCrypt.html#ac0a68b3ef5441aaf7724f11376e036bd',1,'SimpleCrypt']]]
 ];

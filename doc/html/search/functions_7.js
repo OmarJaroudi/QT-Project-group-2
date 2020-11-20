@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lasterror',['lastError',['../classSimpleCrypt.html#acb412b13386bf2bcb31552bc40949b39',1,'SimpleCrypt']]]
+  ['integrityprotectionmode',['integrityProtectionMode',['../classSimpleCrypt.html#ac8940489ec63b0022335d9d6ab3b11a1',1,'SimpleCrypt']]]
 ];
