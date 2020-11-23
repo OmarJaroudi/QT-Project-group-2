@@ -53,6 +53,17 @@ public slots:
      * by calling the history class
      */
     void GameEnded();
+    /**
+     * @brief GameEnded: slot executes when Game2Grid emits gameOver signal\n
+     *
+     * This function deletes the game window and returns the user to the home screen
+     */
+    void ScoreUpdated();
+    /**
+     * @brief GameEnded: slot executes when Game2Grid emits updateScore signal\n
+     *
+     * This fucntion calls the UpdateHistory(int score, int game) to potentially update the user's high score
+     */
 signals:
 
 };

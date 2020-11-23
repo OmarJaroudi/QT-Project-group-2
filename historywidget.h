@@ -69,6 +69,12 @@ public:
     QGridLayout * Grid1;
     QVBoxLayout * Vbox2;
     QGridLayout * Grid2;
+    QStackedLayout *View;
+
+    QVBoxLayout * mainLayout;
+
+    QWidget * historyPage1;
+    QWidget * historyPage2;
 
 private slots:
     void changeGame();

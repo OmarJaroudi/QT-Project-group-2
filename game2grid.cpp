@@ -4,6 +4,7 @@ vector<vector<int>> Game2Grid::all_valid_moves;
 
 Game2Grid::Game2Grid()
 {
+    int_save_score=0;
     save_score = "";
     back_button = new QPushButton();
     back_button->setIcon(QIcon(":/thumbnails/back_button.png"));
@@ -96,14 +97,20 @@ void Game2Grid::PlayTurn(){
             if (white_count>black_count){
                 turn_label->setText("White wins!");
                 turn_label->setStyleSheet("QLabel {background-color: rgba(0,0,0,0%);font-size:20px;color:white;}");
+                int_save_score=white_count;
+                emit(updateScore());
+
             }
             else if (white_count<black_count){
                 turn_label->setText("Black wins!");
                 turn_label->setStyleSheet("QLabel {background-color: rgba(0,0,0,0%);font-size:20px;color:black;}");
+                int_save_score=black_count;
+                emit(updateScore());
             }
             else
                 turn_label->setText("Draw");
             save_score = "white=" + QString::number(white_count) + ",black=" + QString::number(black_count);
+            //qDebug()<<int_save_score;
             return;
         }
 

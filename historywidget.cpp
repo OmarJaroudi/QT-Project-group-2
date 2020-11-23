@@ -34,7 +34,6 @@ historyWidget::historyWidget(Accounts * curr,QWidget *parent) : QWidget(parent)
         QString line = stream1.readLine();
         while (line!="") {
             QStringList tempLine = line.split(" ");
-            qDebug()<<i;
             leaderboard1[i]=tempLine[0];
             leaderboard1[i+1]=tempLine[1];
             leaderboard1[i+2]=tempLine[2];
@@ -70,7 +69,6 @@ historyWidget::historyWidget(Accounts * curr,QWidget *parent) : QWidget(parent)
         QString line = stream2.readLine();
         while (line!="") {
             QStringList tempLine = line.split(" ");
-            qDebug()<<1;
             leaderboard2[i]=tempLine[0];
             leaderboard2[i+1]=tempLine[1];
             leaderboard2[i+2]=tempLine[2];
@@ -81,7 +79,7 @@ historyWidget::historyWidget(Accounts * curr,QWidget *parent) : QWidget(parent)
             i+=6;
 
             if(curr->GetUsername()==tempLine[0])
-            {qDebug()<<"2";
+            {
                 userdata2[0]=tempLine[0];
                 userdata2[1]=tempLine[1];
                 userdata2[2]=tempLine[2];
@@ -98,9 +96,9 @@ historyWidget::historyWidget(Accounts * curr,QWidget *parent) : QWidget(parent)
 
     if(curr->GetUsername()=="Guest player")
     {
-        highscoreLabel1 = new QLabel("Please Sign up to use this feature.");
+        highscoreLabel1 = new QLabel("Game 1 Scores. Please Sign up to use this feature.");
         highscoreLabel2 = new QLabel("");
-        highscoreLabel12 = new QLabel("Please Sign up to use this feature.");
+        highscoreLabel12 = new QLabel("Game 2 Scores. Please Sign up to use this feature.");
         highscoreLabel22 = new QLabel("");
     }
     else{
@@ -226,27 +224,33 @@ historyWidget::historyWidget(Accounts * curr,QWidget *parent) : QWidget(parent)
     Vbox2->addWidget(highscoreLabel22);
     Vbox2->addItem(Grid2);
 
-    this->setLayout(Vbox1);
+    View= new QStackedLayout();
+    qDebug()<<"yes";
+    historyPage1= new QWidget();
+    historyPage1->setLayout(Vbox1);
+    historyPage2= new QWidget();
+    historyPage2->setLayout(Vbox2);
+
+    View->addWidget(historyPage1);
+    View->addWidget(historyPage2);
+
+    mainLayout= new QVBoxLayout();
+    mainLayout->addLayout(View);
+    this->setLayout(mainLayout);
 
     QObject::connect(switchGames,SIGNAL(clicked()),this,SLOT(changeGame()));
-
 }
 
 void historyWidget::changeGame()
 {
-    //TODO in phase 3
-
-
-    /*if(b)
+    if(b)
     {
         b=!b;
-        delete Grid1;
-        this->layout()->update();
+        View->setCurrentIndex(1);
     }
     else
     {
         b=!b;
-        delete this;
-        this->setLayout(Vbox1);
-    }*/
+        View->setCurrentIndex(0);
+    }
 }

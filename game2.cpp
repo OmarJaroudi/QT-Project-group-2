@@ -70,6 +70,7 @@ void Game2::StartGame(){
 
 
     QObject::connect(grid,SIGNAL(gameOver()),this,SLOT(GameEnded()));
+    QObject::connect(grid,SIGNAL(updateScore()),this,SLOT(ScoreUpdated()));
 
 }
 void Game2::GameEnded(){
@@ -80,6 +81,10 @@ void Game2::keyPressEvent(QKeyEvent *event){
     if(event->key() == Qt::Key_F1)
         StartGame();
 }
-
+void Game2::ScoreUpdated()
+{
+    qDebug()<<grid->int_save_score;
+    this->player->UpdateHistory(grid->int_save_score,2);
+}
 
 

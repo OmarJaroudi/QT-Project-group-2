@@ -71,7 +71,15 @@ public:
      */
     QString AttemptSignIn();
 
-
+    /**
+     * @brief UpdateHistory.  Updates the leaderboard of the highscores after any game is player.
+     *
+     * The text file accessed depends on the game value given. It is streamed as read-write and the lines are fed one by one.
+     * For each line, the data is stored in an array. The data for the user who played a game is updated if a highscore was set.
+     * The txt file is then cleared and the data is the array is written into it in descending order.
+     * S string is returned to signify success of failure.
+     * @return succes or failure indicator
+     */
     QString UpdateHistory(int score, int game);
 
     /**

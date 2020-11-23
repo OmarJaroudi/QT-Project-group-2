@@ -75,6 +75,7 @@ public:
     static vector<vector<int>> all_valid_moves;
     QLabel * turn_label;
     QString save_score;
+    int int_save_score;
 public slots:
     /**
      * @brief PlayTurn: Slot connected to click signal for all ReversiSlots in grid
@@ -104,6 +105,10 @@ signals:
      * @brief signal emitted in PressBack(), aka when user clicks back_button
      */
     void gameOver();
+    /**
+     * @brief signal emitted on the final turn of PlayTurn(), aka when the game ends
+     */
+    void updateScore();
 
 };
 
