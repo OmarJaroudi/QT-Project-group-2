@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['updatetime',['UpdateTime',['../classGame1Grid.html#a7741eac6d405319474e22549b2e5a727',1,'Game1Grid']]]
+  ['reversislot',['ReversiSlot',['../classReversiSlot.html#a68d3c8efd58f9754fd7338287a391550',1,'ReversiSlot']]]
 ];

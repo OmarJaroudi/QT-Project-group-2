@@ -2,6 +2,15 @@
 \label{classReversiSlot}\index{Reversi\+Slot@{Reversi\+Slot}}
 
 
+The \hyperlink{classReversiSlot}{Reversi\+Slot} class is a utility class used as the building block of \hyperlink{classGame2Grid}{Game2\+Grid}.  
+
+
+
+
+{\ttfamily \#include $<$reversislot.\+h$>$}
+
+
+
 Inheritance diagram for Reversi\+Slot\+:
 % FIG 0
 
@@ -19,18 +28,16 @@ enum {\bfseries C\+O\+L\+OR} \{ {\bfseries B\+L\+A\+CK},
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classReversiSlot_a68d3c8efd58f9754fd7338287a391550}\label{classReversiSlot_a68d3c8efd58f9754fd7338287a391550}} 
-{\bfseries Reversi\+Slot} (int x, int y)
-\item 
-\mbox{\Hypertarget{classReversiSlot_a7816512c180521bc7d9f91bb4d87e7e1}\label{classReversiSlot_a7816512c180521bc7d9f91bb4d87e7e1}} 
-bool {\bfseries Disc\+Is\+Placed} ()
-\item 
+\hyperlink{classReversiSlot_a68d3c8efd58f9754fd7338287a391550}{Reversi\+Slot} (int x, int y)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classReversiSlot}{Reversi\+Slot} Constructor. initializes x and y components of slot. Sets is\+\_\+placed to false meaning no disc is placed on this slot. \end{DoxyCompactList}\item 
+bool \hyperlink{classReversiSlot_a7816512c180521bc7d9f91bb4d87e7e1}{Disc\+Is\+Placed} ()
+\begin{DoxyCompactList}\small\item\em Check is slot is empty or if a disc has been placed in it. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classReversiSlot_abe87bcc006fcd895d9149aee9fed0bb9}\label{classReversiSlot_abe87bcc006fcd895d9149aee9fed0bb9}} 
-void {\bfseries Place\+Disc} (Reversi\+Slot\+::\+C\+O\+L\+OR)
-\item 
+void \hyperlink{classReversiSlot_abe87bcc006fcd895d9149aee9fed0bb9}{Place\+Disc} (Reversi\+Slot\+::\+C\+O\+L\+OR)
+\begin{DoxyCompactList}\small\item\em Place\+Disc\+: Set is\+\_\+placed to true, assign value to checker icon and set current\+\_\+color to color. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classReversiSlot_ac6cc6ebc87a5042b2725207727992d4e}\label{classReversiSlot_ac6cc6ebc87a5042b2725207727992d4e}} 
-void {\bfseries Flip} ()
-\end{DoxyCompactItemize}
+void \hyperlink{classReversiSlot_ac6cc6ebc87a5042b2725207727992d4e}{Flip} ()
+\begin{DoxyCompactList}\small\item\em Flip the color of the disc placed on the slot. If white becomes black and vice versa. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -49,6 +56,48 @@ Reversi\+Slot\+::\+C\+O\+L\+OR {\bfseries current\+\_\+color}
 \mbox{\Hypertarget{classReversiSlot_a8ef75203a905d987eccef61999e9ae6a}\label{classReversiSlot_a8ef75203a905d987eccef61999e9ae6a}} 
 bool {\bfseries is\+\_\+placed}
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classReversiSlot}{Reversi\+Slot} class is a utility class used as the building block of \hyperlink{classGame2Grid}{Game2\+Grid}. 
+
+This class inherits from Q\+Push\+Button, meaning a \hyperlink{classReversiSlot}{Reversi\+Slot} is a clickable button but with additional attributes, which are~\newline
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classReversiSlot_a68d3c8efd58f9754fd7338287a391550}\label{classReversiSlot_a68d3c8efd58f9754fd7338287a391550}} 
+\index{Reversi\+Slot@{Reversi\+Slot}!Reversi\+Slot@{Reversi\+Slot}}
+\index{Reversi\+Slot@{Reversi\+Slot}!Reversi\+Slot@{Reversi\+Slot}}
+\subsubsection{\texorpdfstring{Reversi\+Slot()}{ReversiSlot()}}
+{\footnotesize\ttfamily Reversi\+Slot\+::\+Reversi\+Slot (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classReversiSlot}{Reversi\+Slot} Constructor. initializes x and y components of slot. Sets is\+\_\+placed to false meaning no disc is placed on this slot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classReversiSlot_a7816512c180521bc7d9f91bb4d87e7e1}\label{classReversiSlot_a7816512c180521bc7d9f91bb4d87e7e1}} 
+\index{Reversi\+Slot@{Reversi\+Slot}!Disc\+Is\+Placed@{Disc\+Is\+Placed}}
+\index{Disc\+Is\+Placed@{Disc\+Is\+Placed}!Reversi\+Slot@{Reversi\+Slot}}
+\subsubsection{\texorpdfstring{Disc\+Is\+Placed()}{DiscIsPlaced()}}
+{\footnotesize\ttfamily bool Reversi\+Slot\+::\+Disc\+Is\+Placed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Check is slot is empty or if a disc has been placed in it. 
+
+\begin{DoxyReturn}{Returns}
+this.\+is\+\_\+placed 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

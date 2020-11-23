@@ -68,6 +68,11 @@ $(function() {
 <div class="title">ReversiSlot Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The <a class="el" href="classReversiSlot.html" title="The ReversiSlot class is a utility class used as the building block of Game2Grid. ...">ReversiSlot</a> class is a utility class used as the building block of <a class="el" href="classGame2Grid.html" title="The Game2Grid class: Where user can actually play Game2. Accessed after user presses f1 key or play_b...">Game2Grid</a>.  
+ <a href="classReversiSlot.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="reversislot_8h_source.html">reversislot.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ReversiSlot:</div>
 <div class="dyncontent">
@@ -90,17 +95,19 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a68d3c8efd58f9754fd7338287a391550"><td class="memItemLeft" align="right" valign="top"><a id="a68d3c8efd58f9754fd7338287a391550"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ReversiSlot</b> (int x, int y)</td></tr>
+<tr class="memitem:a68d3c8efd58f9754fd7338287a391550"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReversiSlot.html#a68d3c8efd58f9754fd7338287a391550">ReversiSlot</a> (int x, int y)</td></tr>
+<tr class="memdesc:a68d3c8efd58f9754fd7338287a391550"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classReversiSlot.html" title="The ReversiSlot class is a utility class used as the building block of Game2Grid. ...">ReversiSlot</a> Constructor. initializes x and y components of slot. Sets is_placed to false meaning no disc is placed on this slot.  <a href="#a68d3c8efd58f9754fd7338287a391550">More...</a><br /></td></tr>
 <tr class="separator:a68d3c8efd58f9754fd7338287a391550"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7816512c180521bc7d9f91bb4d87e7e1"><td class="memItemLeft" align="right" valign="top"><a id="a7816512c180521bc7d9f91bb4d87e7e1"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>DiscIsPlaced</b> ()</td></tr>
+<tr class="memitem:a7816512c180521bc7d9f91bb4d87e7e1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReversiSlot.html#a7816512c180521bc7d9f91bb4d87e7e1">DiscIsPlaced</a> ()</td></tr>
+<tr class="memdesc:a7816512c180521bc7d9f91bb4d87e7e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check is slot is empty or if a disc has been placed in it.  <a href="#a7816512c180521bc7d9f91bb4d87e7e1">More...</a><br /></td></tr>
 <tr class="separator:a7816512c180521bc7d9f91bb4d87e7e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe87bcc006fcd895d9149aee9fed0bb9"><td class="memItemLeft" align="right" valign="top"><a id="abe87bcc006fcd895d9149aee9fed0bb9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>PlaceDisc</b> (ReversiSlot::COLOR)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReversiSlot.html#abe87bcc006fcd895d9149aee9fed0bb9">PlaceDisc</a> (ReversiSlot::COLOR)</td></tr>
+<tr class="memdesc:abe87bcc006fcd895d9149aee9fed0bb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">PlaceDisc: Set is_placed to true, assign value to checker icon and set current_color to color. <br /></td></tr>
 <tr class="separator:abe87bcc006fcd895d9149aee9fed0bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6cc6ebc87a5042b2725207727992d4e"><td class="memItemLeft" align="right" valign="top"><a id="ac6cc6ebc87a5042b2725207727992d4e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Flip</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classReversiSlot.html#ac6cc6ebc87a5042b2725207727992d4e">Flip</a> ()</td></tr>
+<tr class="memdesc:ac6cc6ebc87a5042b2725207727992d4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flip the color of the disc placed on the slot. If white becomes black and vice versa. <br /></td></tr>
 <tr class="separator:ac6cc6ebc87a5042b2725207727992d4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -121,6 +128,69 @@ ReversiSlot::COLOR&#160;</td><td class="memItemRight" valign="bottom"><b>current
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_placed</b></td></tr>
 <tr class="separator:a8ef75203a905d987eccef61999e9ae6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="classReversiSlot.html" title="The ReversiSlot class is a utility class used as the building block of Game2Grid. ...">ReversiSlot</a> class is a utility class used as the building block of <a class="el" href="classGame2Grid.html" title="The Game2Grid class: Where user can actually play Game2. Accessed after user presses f1 key or play_b...">Game2Grid</a>. </p>
+<p>This class inherits from QPushButton, meaning a <a class="el" href="classReversiSlot.html" title="The ReversiSlot class is a utility class used as the building block of Game2Grid. ...">ReversiSlot</a> is a clickable button but with additional attributes, which are<br />
+</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a68d3c8efd58f9754fd7338287a391550"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68d3c8efd58f9754fd7338287a391550">&#9670;&nbsp;</a></span>ReversiSlot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ReversiSlot::ReversiSlot </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classReversiSlot.html" title="The ReversiSlot class is a utility class used as the building block of Game2Grid. ...">ReversiSlot</a> Constructor. initializes x and y components of slot. Sets is_placed to false meaning no disc is placed on this slot. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td></td></tr>
+    <tr><td class="paramname">y</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7816512c180521bc7d9f91bb4d87e7e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7816512c180521bc7d9f91bb4d87e7e1">&#9670;&nbsp;</a></span>DiscIsPlaced()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ReversiSlot::DiscIsPlaced </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check is slot is empty or if a disc has been placed in it. </p>
+<dl class="section return"><dt>Returns</dt><dd>this.is_placed </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="reversislot_8h_source.html">reversislot.h</a></li>
 <li>reversislot.cpp</li>
