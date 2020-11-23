@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['integrityprotectionmode',['IntegrityProtectionMode',['../classSimpleCrypt.html#a42a5172e558d346b28421cc4e85feb2d',1,'SimpleCrypt::IntegrityProtectionMode()'],['../classSimpleCrypt.html#ac8940489ec63b0022335d9d6ab3b11a1',1,'SimpleCrypt::integrityProtectionMode() const']]]
+  ['integrityprotectionmode',['integrityProtectionMode',['../classSimpleCrypt.html#ac8940489ec63b0022335d9d6ab3b11a1',1,'SimpleCrypt::integrityProtectionMode() const'],['../classSimpleCrypt.html#a42a5172e558d346b28421cc4e85feb2d',1,'SimpleCrypt::IntegrityProtectionMode()']]]
 ];

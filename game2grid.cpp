@@ -64,7 +64,7 @@ void Game2Grid::PlayTurn(){
         source = Cells->at(index);
     }
 
-    vector<vector<int>> result = ValidMove2(source->x,source->y);
+    vector<vector<int>> result = ValidMove(source->x,source->y);
     if (result.size()!=0){
         for (int i=0;i<result.size();i++){
             this->Cells->at(result[i][0]*8+result[i][1])->Flip();
@@ -125,14 +125,14 @@ vector<vector<int>> Game2Grid::AllValidMoves(){
         for (int j=0;j<8;j++){
             if (this->Cells->at(i*8+j)->DiscIsPlaced())
                 continue;
-            vector<vector<int>> temp = ValidMove2(i,j);
+            vector<vector<int>> temp = ValidMove(i,j);
             if (temp.size()!=0)
                 all_valid_moves.push_back(vector<int>{i,j});
         }
     }
     return all_valid_moves;
 }
-vector<vector<int>> Game2Grid:: ValidMove2(int x, int y){
+vector<vector<int>> Game2Grid:: ValidMove(int x, int y){
     vector<vector<int>> can_flip_total;
     for (int i=-1;i<=1;i++){
         for(int j=-1;j<=1;j++){
@@ -170,6 +170,5 @@ vector<vector<int>> Game2Grid::ExplorePath(int x0,int y0,int x_direction,int y_d
 }
 
 void Game2Grid::PressBack(){
-    qDebug()<<save_score;
     emit(gameOver());
 }

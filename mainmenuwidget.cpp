@@ -41,12 +41,7 @@ MainMenuWidget::MainMenuWidget(Accounts *curr,QWidget *parent) : QWidget(parent)
     welcome= new QLabel("Welcome");
     log->setFont(Font1);
     welcome->setFont(Font1);
-//    grid->addWidget(Welcome,2,1,Qt::AlignCenter);
-//    grid->addItem(bigSpacer,2,0);
-//    grid->addItem(bigSpacer,2,2);
-//    grid->addWidget(log,3,1,Qt::AlignCenter);
-//    grid->addItem(new QSpacerItem(150,0),3,0);
-//    grid->addItem(new QSpacerItem(150,0),3,2);
+
 
 
 
@@ -90,7 +85,6 @@ MainMenuWidget::MainMenuWidget(Accounts *curr,QWidget *parent) : QWidget(parent)
     game_1_label->setPixmap(QPixmap(":/thumbnails/game1.PNG").scaled(200,150));
     game_1_label->setFixedSize(200,150);
     game_grid->addWidget(game_1_label,0,0);
-    //game_grid->addItem(new QSpacerItem(10,150),0,1);
 
     game_2_label=new ClickableLabel();
     game_2_label->setPixmap(QPixmap(":/thumbnails/game2.jpg").scaled(200,150));
@@ -109,7 +103,7 @@ MainMenuWidget::MainMenuWidget(Accounts *curr,QWidget *parent) : QWidget(parent)
     QObject::connect(game_2_label,SIGNAL(clicked()),this,SLOT(PlayGame2()));
 
     QObject::connect(logout,SIGNAL(clicked()),this,SLOT(LogOut()));
-    QObject::connect(history,SIGNAL(clicked()),this,SLOT(history_clicked()));
+    QObject::connect(history,SIGNAL(clicked()),this,SLOT(HistoryClicked()));
 
 
 
@@ -148,7 +142,7 @@ void MainMenuWidget::LogOut(){
     this->close();
 }
 
-void MainMenuWidget::history_clicked(){
+void MainMenuWidget::HistoryClicked(){
     if(current_user->GetUsername()!="Guest player")
     {
         historyWidget *HL = new historyWidget(current_user);
