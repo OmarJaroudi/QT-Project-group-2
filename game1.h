@@ -13,7 +13,6 @@
  */
 class Game1 : public QWidget
 {
-
     Game1Grid * grid;
     Accounts *player;
     QPushButton *play_button;

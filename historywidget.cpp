@@ -113,11 +113,27 @@ historyWidget::historyWidget(Accounts * curr,QWidget *parent) : QWidget(parent)
     username_header = new QLabel("username");
     score_header = new QLabel("score");
 
+    rank_header2 = new QLabel("rank");
+    date_header2 = new QLabel("date and time");
+    username_header2 = new QLabel("username");
+    score_header2 = new QLabel("score");
+
     rank1= new QLabel("1");
     rank2= new QLabel("2");
     rank3= new QLabel("3");
     rank4= new QLabel("4");
     rank5= new QLabel("5");
+
+    rank12= new QLabel("1");
+    rank22= new QLabel("2");
+    rank32= new QLabel("3");
+    rank42= new QLabel("4");
+    rank52= new QLabel("5");
+
+    rank_header2->setStyleSheet(QString("color: %1").arg(col.name()));
+    date_header2->setStyleSheet(QString("color: %1").arg(col.name()));
+    username_header2->setStyleSheet(QString("color: %1").arg(col.name()));
+    score_header2->setStyleSheet(QString("color: %1").arg(col.name()));
 
     rank_header->setStyleSheet(QString("color: %1").arg(col.name()));
     date_header->setStyleSheet(QString("color: %1").arg(col.name()));
@@ -191,30 +207,30 @@ historyWidget::historyWidget(Accounts * curr,QWidget *parent) : QWidget(parent)
     date_top52= new QLabel(leaderboard2[27]+" "+leaderboard2[28]+" "+leaderboard2[29]);
 
     Grid2= new QGridLayout();
-    Grid2->addWidget(rank_header,0,0);
-    Grid2->addWidget(username_header,0,1);
-    Grid2->addWidget(score_header,0,2);
-    Grid2->addWidget(date_header,0,3);
-    Grid2->addWidget(rank1,1,0);
+    Grid2->addWidget(rank_header2,0,0);
+    Grid2->addWidget(username_header2,0,1);
+    Grid2->addWidget(score_header2,0,2);
+    Grid2->addWidget(date_header2,0,3);
+    Grid2->addWidget(rank12,1,0);
     Grid2->addWidget(username_top12,1,1);
     Grid2->addWidget(score_top12,1,2);
     Grid2->addWidget(date_top12,1,3);
-    Grid2->addWidget(rank2,2,0);
+    Grid2->addWidget(rank22,2,0);
     Grid2->addWidget(username_top22,2,1);
     Grid2->addWidget(score_top22,2,2);
     Grid2->addWidget(date_top22,2,3);
-    Grid2->addWidget(rank3,3,0);
+    Grid2->addWidget(rank32,3,0);
     Grid2->addWidget(username_top32,3,1);
     Grid2->addWidget(score_top32,3,2);
     Grid2->addWidget(date_top32,3,3);
-    Grid2->addWidget(rank4,4,0);
+    Grid2->addWidget(rank42,4,0);
     Grid2->addWidget(username_top42,4,1);
     Grid2->addWidget(score_top42,4,2);
     Grid2->addWidget(date_top42,4,3);
-    Grid2->addWidget(rank5,5,0);
-    Grid2->addWidget(username_top52,52,1);
-    Grid2->addWidget(score_top52,52,2);
-    Grid2->addWidget(date_top52,52,3);
+    Grid2->addWidget(rank52,5,0);
+    Grid2->addWidget(username_top52,5,1);
+    Grid2->addWidget(score_top52,5,2);
+    Grid2->addWidget(date_top52,5,3);
     Vbox2= new QVBoxLayout();
     highscoreLabel12->setAlignment(Qt::AlignCenter);
     Vbox2->addWidget(highscoreLabel12);
@@ -223,14 +239,14 @@ historyWidget::historyWidget(Accounts * curr,QWidget *parent) : QWidget(parent)
     Vbox2->addItem(Grid2);
 
     View= new QStackedLayout();
-    qDebug()<<"yes";
-    historyPage1= new QWidget();
-    historyPage1->setLayout(Vbox1);
-    historyPage2= new QWidget();
-    historyPage2->setLayout(Vbox2);
 
-    View->addWidget(historyPage1);
-    View->addWidget(historyPage2);
+    historyTopPage1= new QWidget();
+    historyTopPage1->setLayout(Vbox1);
+    historyTopPage2= new QWidget();
+    historyTopPage2->setLayout(Vbox2);
+
+    View->addWidget(historyTopPage1);
+    View->addWidget(historyTopPage2);
 
     mainLayout= new QVBoxLayout();
     mainLayout->addItem(topButtonBox);
@@ -245,11 +261,11 @@ void historyWidget::changeGame()
     if(b)
     {
         b=!b;
-        View->setCurrentWidget(historyPage2);
+        View->setCurrentWidget(historyTopPage2);
     }
     else
     {
         b=!b;
-        View->setCurrentWidget(historyPage1);
+        View->setCurrentWidget(historyTopPage1);
     }
 }

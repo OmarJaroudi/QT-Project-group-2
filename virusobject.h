@@ -16,6 +16,10 @@ public:
     VirusObject();
     QMediaPlayer *smash_sound;
     QTimer * expiry_timer;
+    /**
+     * @brief VirusObject constructor
+     * @param parent
+     */
     VirusObject(VirusObject::Color c,double speed);
     static bool recent_miss;
     static int total_misses;
@@ -26,7 +30,13 @@ private:
     Color color;
     int score;
     int size;
-public slots: void Expire();
+public slots:
+    /**
+     * @brief VerifyCredentials: slot executes when the signal is invoked by a timer
+     *
+     * Deletes the virus object and alters the player score
+     */
+    void Expire();
 };
 
 #endif // VIRUSOBJECT_H
