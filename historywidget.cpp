@@ -166,7 +166,6 @@ historyWidget::historyWidget(Accounts * curr,QWidget *parent) : QWidget(parent)
     Grid1->addWidget(score_top5,5,2);
     Grid1->addWidget(date_top5,5,3);
     Vbox1= new QVBoxLayout();
-    Vbox1->addItem(topButtonBox);
     highscoreLabel1->setAlignment(Qt::AlignCenter);
     Vbox1->addWidget(highscoreLabel1);
     highscoreLabel2->setAlignment(Qt::AlignCenter);
@@ -217,7 +216,6 @@ historyWidget::historyWidget(Accounts * curr,QWidget *parent) : QWidget(parent)
     Grid2->addWidget(score_top52,52,2);
     Grid2->addWidget(date_top52,52,3);
     Vbox2= new QVBoxLayout();
-    Vbox2->addItem(topButtonBox);
     highscoreLabel12->setAlignment(Qt::AlignCenter);
     Vbox2->addWidget(highscoreLabel12);
     highscoreLabel22->setAlignment(Qt::AlignCenter);
@@ -235,6 +233,7 @@ historyWidget::historyWidget(Accounts * curr,QWidget *parent) : QWidget(parent)
     View->addWidget(historyPage2);
 
     mainLayout= new QVBoxLayout();
+    mainLayout->addItem(topButtonBox);
     mainLayout->addLayout(View);
     this->setLayout(mainLayout);
 
@@ -246,11 +245,11 @@ void historyWidget::changeGame()
     if(b)
     {
         b=!b;
-        View->setCurrentIndex(1);
+        View->setCurrentWidget(historyPage2);
     }
     else
     {
         b=!b;
-        View->setCurrentIndex(0);
+        View->setCurrentWidget(historyPage1);
     }
 }
