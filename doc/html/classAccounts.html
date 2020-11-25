@@ -86,8 +86,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a94aa6f557c36a7ca958780cfeacdec83"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccounts.html#a94aa6f557c36a7ca958780cfeacdec83">AttemptSignIn</a> ()</td></tr>
 <tr class="memdesc:a94aa6f557c36a7ca958780cfeacdec83"><td class="mdescLeft">&#160;</td><td class="mdescRight">AttemptSignIn. verify that username and password exist in text file.  <a href="#a94aa6f557c36a7ca958780cfeacdec83">More...</a><br /></td></tr>
 <tr class="separator:a94aa6f557c36a7ca958780cfeacdec83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a2edd82ca79c9c05341296e86c2a972"><td class="memItemLeft" align="right" valign="top"><a id="a8a2edd82ca79c9c05341296e86c2a972"></a>
-QString&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateHistory</b> (int score, int game)</td></tr>
+<tr class="memitem:a8a2edd82ca79c9c05341296e86c2a972"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccounts.html#a8a2edd82ca79c9c05341296e86c2a972">UpdateHistory</a> (int score, int game)</td></tr>
+<tr class="memdesc:a8a2edd82ca79c9c05341296e86c2a972"><td class="mdescLeft">&#160;</td><td class="mdescRight">UpdateHistory. Updates the leaderboard of the highscores after any game is player.  <a href="#a8a2edd82ca79c9c05341296e86c2a972">More...</a><br /></td></tr>
 <tr class="separator:a8a2edd82ca79c9c05341296e86c2a972"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add43226d678648809eae2c7b11d3692b"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAccounts.html#add43226d678648809eae2c7b11d3692b">GetDOB</a> ()</td></tr>
 <tr class="memdesc:add43226d678648809eae2c7b11d3692b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple getter for DOB variable.  <a href="#add43226d678648809eae2c7b11d3692b">More...</a><br /></td></tr>
@@ -352,6 +352,37 @@ Note: Before writing to the text file, password is encrypted using <a class="el"
 
 <p>Getter for username variable. </p>
 <dl class="section return"><dt>Returns</dt><dd>username </dd></dl>
+
+</div>
+</div>
+<a id="a8a2edd82ca79c9c05341296e86c2a972"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a2edd82ca79c9c05341296e86c2a972">&#9670;&nbsp;</a></span>UpdateHistory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString Accounts::UpdateHistory </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>score</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>game</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>UpdateHistory. Updates the leaderboard of the highscores after any game is player. </p>
+<p>The text file accessed depends on the game value given. It is streamed as read-write and the lines are fed one by one. For each line, the data is stored in an array. The data for the user who played a game is updated if a highscore was set. The txt file is then cleared and the data is the array is written into it in descending order. S string is returned to signify success of failure. </p><dl class="section return"><dt>Returns</dt><dd>succes or failure indicator </dd></dl>
 
 </div>
 </div>

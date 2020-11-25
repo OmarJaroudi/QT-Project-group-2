@@ -11,21 +11,17 @@ Collaboration diagram for Welcome\+Widget\+:
 \subsection*{Public Slots}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classWelcomeWidget_abd744cc72e89fc94825bcbce670181d0}\label{classWelcomeWidget_abd744cc72e89fc94825bcbce670181d0}} 
-void {\bfseries Sign\+In\+Button} ()
-\item 
-\mbox{\Hypertarget{classWelcomeWidget_a3c90bf38f03e2892d4a990ba3cdcf958}\label{classWelcomeWidget_a3c90bf38f03e2892d4a990ba3cdcf958}} 
-void {\bfseries Sign\+Up\+Button} ()
-\item 
-\mbox{\Hypertarget{classWelcomeWidget_adf8132423915c0d69ac51c9cb4cec04b}\label{classWelcomeWidget_adf8132423915c0d69ac51c9cb4cec04b}} 
-void {\bfseries Play\+As\+Guest\+Button} ()
-\end{DoxyCompactItemize}
+void \hyperlink{classWelcomeWidget_abd744cc72e89fc94825bcbce670181d0}{Sign\+In\+Button} ()
+\begin{DoxyCompactList}\small\item\em Sign\+In\+Button\+: slot executes when the sign in button is pushed. \end{DoxyCompactList}\item 
+void \hyperlink{classWelcomeWidget_a3c90bf38f03e2892d4a990ba3cdcf958}{Sign\+Up\+Button} ()
+\begin{DoxyCompactList}\small\item\em Sign\+Up\+Button\+: slot executes when the sign up button is pushed. \end{DoxyCompactList}\item 
+void \hyperlink{classWelcomeWidget_adf8132423915c0d69ac51c9cb4cec04b}{Play\+As\+Guest\+Button} ()
+\begin{DoxyCompactList}\small\item\em Play\+As\+Guest\+Button\+: slot executes when the play as guest button is pushed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classWelcomeWidget_a8098178a4ddbc597a6afe1a151fd40a6}\label{classWelcomeWidget_a8098178a4ddbc597a6afe1a151fd40a6}} 
-{\bfseries Welcome\+Widget} (Q\+Widget $\ast$parent=nullptr)
-\end{DoxyCompactItemize}
+\hyperlink{classWelcomeWidget_a8098178a4ddbc597a6afe1a151fd40a6}{Welcome\+Widget} (Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classWelcomeWidget}{Welcome\+Widget} constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -45,6 +41,57 @@ Q\+Push\+Button $\ast$ {\bfseries play\+\_\+as\+\_\+guest}
 Q\+V\+Box\+Layout $\ast$ {\bfseries vbox}
 \end{DoxyCompactItemize}
 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classWelcomeWidget_a8098178a4ddbc597a6afe1a151fd40a6}\label{classWelcomeWidget_a8098178a4ddbc597a6afe1a151fd40a6}} 
+\index{Welcome\+Widget@{Welcome\+Widget}!Welcome\+Widget@{Welcome\+Widget}}
+\index{Welcome\+Widget@{Welcome\+Widget}!Welcome\+Widget@{Welcome\+Widget}}
+\subsubsection{\texorpdfstring{Welcome\+Widget()}{WelcomeWidget()}}
+{\footnotesize\ttfamily Welcome\+Widget\+::\+Welcome\+Widget (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\hyperlink{classWelcomeWidget}{Welcome\+Widget} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classWelcomeWidget_adf8132423915c0d69ac51c9cb4cec04b}\label{classWelcomeWidget_adf8132423915c0d69ac51c9cb4cec04b}} 
+\index{Welcome\+Widget@{Welcome\+Widget}!Play\+As\+Guest\+Button@{Play\+As\+Guest\+Button}}
+\index{Play\+As\+Guest\+Button@{Play\+As\+Guest\+Button}!Welcome\+Widget@{Welcome\+Widget}}
+\subsubsection{\texorpdfstring{Play\+As\+Guest\+Button}{PlayAsGuestButton}}
+{\footnotesize\ttfamily void Welcome\+Widget\+::\+Play\+As\+Guest\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Play\+As\+Guest\+Button\+: slot executes when the play as guest button is pushed. 
+
+switches to the mainmenuwidget with the account set as guest and deletes the current widget \mbox{\Hypertarget{classWelcomeWidget_abd744cc72e89fc94825bcbce670181d0}\label{classWelcomeWidget_abd744cc72e89fc94825bcbce670181d0}} 
+\index{Welcome\+Widget@{Welcome\+Widget}!Sign\+In\+Button@{Sign\+In\+Button}}
+\index{Sign\+In\+Button@{Sign\+In\+Button}!Welcome\+Widget@{Welcome\+Widget}}
+\subsubsection{\texorpdfstring{Sign\+In\+Button}{SignInButton}}
+{\footnotesize\ttfamily void Welcome\+Widget\+::\+Sign\+In\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Sign\+In\+Button\+: slot executes when the sign in button is pushed. 
+
+switches to the \hyperlink{classSignInWidget}{Sign\+In\+Widget} and deletes the current widget \mbox{\Hypertarget{classWelcomeWidget_a3c90bf38f03e2892d4a990ba3cdcf958}\label{classWelcomeWidget_a3c90bf38f03e2892d4a990ba3cdcf958}} 
+\index{Welcome\+Widget@{Welcome\+Widget}!Sign\+Up\+Button@{Sign\+Up\+Button}}
+\index{Sign\+Up\+Button@{Sign\+Up\+Button}!Welcome\+Widget@{Welcome\+Widget}}
+\subsubsection{\texorpdfstring{Sign\+Up\+Button}{SignUpButton}}
+{\footnotesize\ttfamily void Welcome\+Widget\+::\+Sign\+Up\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Sign\+Up\+Button\+: slot executes when the sign up button is pushed. 
+
+switches to the \hyperlink{classSignUpWidget}{Sign\+Up\+Widget} and deletes the current widget 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

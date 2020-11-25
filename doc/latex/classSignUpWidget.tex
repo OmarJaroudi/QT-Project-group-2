@@ -11,21 +11,17 @@ Collaboration diagram for Sign\+Up\+Widget\+:
 \subsection*{Public Slots}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSignUpWidget_ae0de34039f7e05bb8901c84533e5a160}\label{classSignUpWidget_ae0de34039f7e05bb8901c84533e5a160}} 
-void {\bfseries Browse\+For\+Image} ()
-\item 
-\mbox{\Hypertarget{classSignUpWidget_ab4af9be338fd97119fe6e01234da8a80}\label{classSignUpWidget_ab4af9be338fd97119fe6e01234da8a80}} 
-void {\bfseries Click\+Return} ()
-\item 
-\mbox{\Hypertarget{classSignUpWidget_af5d2a451a5552737ccdb9c14b5a75ad5}\label{classSignUpWidget_af5d2a451a5552737ccdb9c14b5a75ad5}} 
-void {\bfseries Create\+Account} ()
-\end{DoxyCompactItemize}
+void \hyperlink{classSignUpWidget_ae0de34039f7e05bb8901c84533e5a160}{Browse\+For\+Image} ()
+\begin{DoxyCompactList}\small\item\em Browse\+For\+Image\+: slot executes when select picture button is pressed. \end{DoxyCompactList}\item 
+void \hyperlink{classSignUpWidget_ab4af9be338fd97119fe6e01234da8a80}{Click\+Return} ()
+\begin{DoxyCompactList}\small\item\em Verify\+Credentials\+: slot executes when the return button is pushed. \end{DoxyCompactList}\item 
+void \hyperlink{classSignUpWidget_af5d2a451a5552737ccdb9c14b5a75ad5}{Create\+Account} ()
+\begin{DoxyCompactList}\small\item\em Verify\+Credentials\+: slot executes when the sign up button is pushed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSignUpWidget_aa6ee3a3bcdfe86cc64a340ffdcc64088}\label{classSignUpWidget_aa6ee3a3bcdfe86cc64a340ffdcc64088}} 
-{\bfseries Sign\+Up\+Widget} (Q\+Widget $\ast$parent=nullptr)
-\end{DoxyCompactItemize}
+\hyperlink{classSignUpWidget_aa6ee3a3bcdfe86cc64a340ffdcc64088}{Sign\+Up\+Widget} (Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classSignUpWidget}{Sign\+Up\+Widget} constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -105,6 +101,57 @@ Q\+Push\+Button $\ast$ {\bfseries choose\+\_\+pic}
 \hyperlink{classAccounts}{Accounts} $\ast$ {\bfseries account}
 \end{DoxyCompactItemize}
 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSignUpWidget_aa6ee3a3bcdfe86cc64a340ffdcc64088}\label{classSignUpWidget_aa6ee3a3bcdfe86cc64a340ffdcc64088}} 
+\index{Sign\+Up\+Widget@{Sign\+Up\+Widget}!Sign\+Up\+Widget@{Sign\+Up\+Widget}}
+\index{Sign\+Up\+Widget@{Sign\+Up\+Widget}!Sign\+Up\+Widget@{Sign\+Up\+Widget}}
+\subsubsection{\texorpdfstring{Sign\+Up\+Widget()}{SignUpWidget()}}
+{\footnotesize\ttfamily Sign\+Up\+Widget\+::\+Sign\+Up\+Widget (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\hyperlink{classSignUpWidget}{Sign\+Up\+Widget} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classSignUpWidget_ae0de34039f7e05bb8901c84533e5a160}\label{classSignUpWidget_ae0de34039f7e05bb8901c84533e5a160}} 
+\index{Sign\+Up\+Widget@{Sign\+Up\+Widget}!Browse\+For\+Image@{Browse\+For\+Image}}
+\index{Browse\+For\+Image@{Browse\+For\+Image}!Sign\+Up\+Widget@{Sign\+Up\+Widget}}
+\subsubsection{\texorpdfstring{Browse\+For\+Image}{BrowseForImage}}
+{\footnotesize\ttfamily void Sign\+Up\+Widget\+::\+Browse\+For\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Browse\+For\+Image\+: slot executes when select picture button is pressed. 
+
+Opens a window for the user to select a profile picture \mbox{\Hypertarget{classSignUpWidget_ab4af9be338fd97119fe6e01234da8a80}\label{classSignUpWidget_ab4af9be338fd97119fe6e01234da8a80}} 
+\index{Sign\+Up\+Widget@{Sign\+Up\+Widget}!Click\+Return@{Click\+Return}}
+\index{Click\+Return@{Click\+Return}!Sign\+Up\+Widget@{Sign\+Up\+Widget}}
+\subsubsection{\texorpdfstring{Click\+Return}{ClickReturn}}
+{\footnotesize\ttfamily void Sign\+Up\+Widget\+::\+Click\+Return (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Verify\+Credentials\+: slot executes when the return button is pushed. 
+
+returns the user to the welcome screen. \mbox{\Hypertarget{classSignUpWidget_af5d2a451a5552737ccdb9c14b5a75ad5}\label{classSignUpWidget_af5d2a451a5552737ccdb9c14b5a75ad5}} 
+\index{Sign\+Up\+Widget@{Sign\+Up\+Widget}!Create\+Account@{Create\+Account}}
+\index{Create\+Account@{Create\+Account}!Sign\+Up\+Widget@{Sign\+Up\+Widget}}
+\subsubsection{\texorpdfstring{Create\+Account}{CreateAccount}}
+{\footnotesize\ttfamily void Sign\+Up\+Widget\+::\+Create\+Account (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Verify\+Credentials\+: slot executes when the sign up button is pushed. 
+
+passes the info entered into an instance of account. Attempts sign up. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

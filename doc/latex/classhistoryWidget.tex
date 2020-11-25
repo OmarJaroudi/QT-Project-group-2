@@ -2,6 +2,15 @@
 \label{classhistoryWidget}\index{history\+Widget@{history\+Widget}}
 
 
+The \hyperlink{classGame1}{Game1} class instantiated when user clicks on game1 from main menu.  
+
+
+
+
+{\ttfamily \#include $<$historywidget.\+h$>$}
+
+
+
 Inheritance diagram for history\+Widget\+:
 % FIG 0
 
@@ -11,9 +20,8 @@ Collaboration diagram for history\+Widget\+:
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classhistoryWidget_a0843e5d5c3c766bcdb3307fe00eb816a}\label{classhistoryWidget_a0843e5d5c3c766bcdb3307fe00eb816a}} 
-{\bfseries history\+Widget} (\hyperlink{classAccounts}{Accounts} $\ast$curr, Q\+Widget $\ast$parent=nullptr)
-\end{DoxyCompactItemize}
+\hyperlink{classhistoryWidget_a0843e5d5c3c766bcdb3307fe00eb816a}{history\+Widget} (\hyperlink{classAccounts}{Accounts} $\ast$curr, Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classhistoryWidget}{history\+Widget} constructor, needs to know the account of the user that is logged in to show the user\textquotesingle{}s scores \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -43,6 +51,18 @@ Q\+Label $\ast$ {\bfseries date\+\_\+header}
 \item 
 \mbox{\Hypertarget{classhistoryWidget_a907aaafd32e34a20ae110403e8d69281}\label{classhistoryWidget_a907aaafd32e34a20ae110403e8d69281}} 
 Q\+Label $\ast$ {\bfseries rank\+\_\+header}
+\item 
+\mbox{\Hypertarget{classhistoryWidget_a92b4602074a54ccf6f2e0033cda23e4a}\label{classhistoryWidget_a92b4602074a54ccf6f2e0033cda23e4a}} 
+Q\+Label $\ast$ {\bfseries username\+\_\+header2}
+\item 
+\mbox{\Hypertarget{classhistoryWidget_a20b4c1f35fcb92d77c6c799893695622}\label{classhistoryWidget_a20b4c1f35fcb92d77c6c799893695622}} 
+Q\+Label $\ast$ {\bfseries score\+\_\+header2}
+\item 
+\mbox{\Hypertarget{classhistoryWidget_ab890bf665a0532980c21e00f14f3f199}\label{classhistoryWidget_ab890bf665a0532980c21e00f14f3f199}} 
+Q\+Label $\ast$ {\bfseries date\+\_\+header2}
+\item 
+\mbox{\Hypertarget{classhistoryWidget_a4590774883e91d7639402f347941539d}\label{classhistoryWidget_a4590774883e91d7639402f347941539d}} 
+Q\+Label $\ast$ {\bfseries rank\+\_\+header2}
 \item 
 \mbox{\Hypertarget{classhistoryWidget_a7e5b7765e6649477ca969cca49e478d1}\label{classhistoryWidget_a7e5b7765e6649477ca969cca49e478d1}} 
 Q\+Label $\ast$ {\bfseries username\+\_\+top1}
@@ -155,6 +175,21 @@ Q\+Label $\ast$ {\bfseries rank4}
 \mbox{\Hypertarget{classhistoryWidget_a8fca20d07903b352714bada29e3ce6ea}\label{classhistoryWidget_a8fca20d07903b352714bada29e3ce6ea}} 
 Q\+Label $\ast$ {\bfseries rank5}
 \item 
+\mbox{\Hypertarget{classhistoryWidget_ae67430e13790abd4fda0795a6840bb88}\label{classhistoryWidget_ae67430e13790abd4fda0795a6840bb88}} 
+Q\+Label $\ast$ {\bfseries rank12}
+\item 
+\mbox{\Hypertarget{classhistoryWidget_a8535c0d920358988d7535d50c5860624}\label{classhistoryWidget_a8535c0d920358988d7535d50c5860624}} 
+Q\+Label $\ast$ {\bfseries rank22}
+\item 
+\mbox{\Hypertarget{classhistoryWidget_af056045d00efabc1fb9f5c7d3c535a8e}\label{classhistoryWidget_af056045d00efabc1fb9f5c7d3c535a8e}} 
+Q\+Label $\ast$ {\bfseries rank32}
+\item 
+\mbox{\Hypertarget{classhistoryWidget_a705a9290ffb9c05e0880cbcf73f49c18}\label{classhistoryWidget_a705a9290ffb9c05e0880cbcf73f49c18}} 
+Q\+Label $\ast$ {\bfseries rank42}
+\item 
+\mbox{\Hypertarget{classhistoryWidget_a535ea406940c11815596f558b6458975}\label{classhistoryWidget_a535ea406940c11815596f558b6458975}} 
+Q\+Label $\ast$ {\bfseries rank52}
+\item 
 \mbox{\Hypertarget{classhistoryWidget_a8e02202e60c60c52ff9617f962482622}\label{classhistoryWidget_a8e02202e60c60c52ff9617f962482622}} 
 Q\+V\+Box\+Layout $\ast$ {\bfseries Vbox1}
 \item 
@@ -166,7 +201,42 @@ Q\+V\+Box\+Layout $\ast$ {\bfseries Vbox2}
 \item 
 \mbox{\Hypertarget{classhistoryWidget_af116aab734f0bd61e5a02891b738f911}\label{classhistoryWidget_af116aab734f0bd61e5a02891b738f911}} 
 Q\+Grid\+Layout $\ast$ {\bfseries Grid2}
+\item 
+\mbox{\Hypertarget{classhistoryWidget_ac35321a6d1f75ff114bd66afa419c576}\label{classhistoryWidget_ac35321a6d1f75ff114bd66afa419c576}} 
+Q\+Stacked\+Layout $\ast$ {\bfseries View}
+\item 
+\mbox{\Hypertarget{classhistoryWidget_a08255f6e30326998f3bedb9ed50b5969}\label{classhistoryWidget_a08255f6e30326998f3bedb9ed50b5969}} 
+Q\+V\+Box\+Layout $\ast$ {\bfseries main\+Layout}
+\item 
+\mbox{\Hypertarget{classhistoryWidget_ae24bf641bb918fb645f3c97a7b7f9ae3}\label{classhistoryWidget_ae24bf641bb918fb645f3c97a7b7f9ae3}} 
+Q\+Widget $\ast$ {\bfseries history\+Top\+Page1}
+\item 
+\mbox{\Hypertarget{classhistoryWidget_a01a91e2dd757fc2e5aeba492eebbb0dc}\label{classhistoryWidget_a01a91e2dd757fc2e5aeba492eebbb0dc}} 
+Q\+Widget $\ast$ {\bfseries history\+Top\+Page2}
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classGame1}{Game1} class instantiated when user clicks on game1 from main menu. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classhistoryWidget_a0843e5d5c3c766bcdb3307fe00eb816a}\label{classhistoryWidget_a0843e5d5c3c766bcdb3307fe00eb816a}} 
+\index{history\+Widget@{history\+Widget}!history\+Widget@{history\+Widget}}
+\index{history\+Widget@{history\+Widget}!history\+Widget@{history\+Widget}}
+\subsubsection{\texorpdfstring{history\+Widget()}{historyWidget()}}
+{\footnotesize\ttfamily history\+Widget\+::history\+Widget (\begin{DoxyParamCaption}\item[{\hyperlink{classAccounts}{Accounts} $\ast$}]{curr,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\hyperlink{classhistoryWidget}{history\+Widget} constructor, needs to know the account of the user that is logged in to show the user\textquotesingle{}s scores 
+
+
+\begin{DoxyParams}{Parameters}
+{\em curr} & \\
+\hline
+{\em parent} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

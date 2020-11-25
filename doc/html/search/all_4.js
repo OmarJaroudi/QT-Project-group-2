@@ -7,5 +7,6 @@ var searchData=
   ['errornoerror',['ErrorNoError',['../classSimpleCrypt.html#ab7f81049e78f021b55a36f7cfac5a09ba77b7389ae8659e97df448c8fff79ca83',1,'SimpleCrypt']]],
   ['errornokeyset',['ErrorNoKeySet',['../classSimpleCrypt.html#ab7f81049e78f021b55a36f7cfac5a09bacfb6271ef5415fe5e6a0e5ee3094f3a7',1,'SimpleCrypt']]],
   ['errorunknownversion',['ErrorUnknownVersion',['../classSimpleCrypt.html#ab7f81049e78f021b55a36f7cfac5a09ba4c43644f04a0eefc3ed2205223f19479',1,'SimpleCrypt']]],
+  ['expire',['Expire',['../classVirusObject.html#a90bb071dbf5c8ec544466f1e5b8fa7ac',1,'VirusObject']]],
   ['explorepath',['ExplorePath',['../classGame2Grid.html#a530992f6eaed3c76ad923305cd7ae86a',1,'Game2Grid']]]
 ];

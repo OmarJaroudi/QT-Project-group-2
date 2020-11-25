@@ -27,6 +27,9 @@ void \hyperlink{classGame2_a2f51124a2ec3758fbc1bfd056ca137b6}{Start\+Game} ()
 . \end{DoxyCompactList}\item 
 void \hyperlink{classGame2_a39a8191a0c66453ed1070db56415f2a9}{Game\+Ended} ()
 \begin{DoxyCompactList}\small\item\em Game\+Ended\+: slot executes when \hyperlink{classGame2Grid}{Game2\+Grid} emits game\+Over signal~\newline
+. \end{DoxyCompactList}\item 
+void \hyperlink{classGame2_adea8085cc1e37f1103f7efabc0fe8244}{Score\+Updated} ()
+\begin{DoxyCompactList}\small\item\em Game\+Ended\+: slot executes when \hyperlink{classGame2Grid}{Game2\+Grid} emits game\+Over signal~\newline
 . \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -97,7 +100,18 @@ key\+Press\+Event\+: overloaded so that if user presses f1, game 2 will start
 
 Press\+Back\+: slot executes if user presses back\+\_\+button, takes them back to main menu widget. 
 
-closes current \hyperlink{classGame2}{Game2} widget, and instantiates new pointer of type Main\+Menu \mbox{\Hypertarget{classGame2_a2f51124a2ec3758fbc1bfd056ca137b6}\label{classGame2_a2f51124a2ec3758fbc1bfd056ca137b6}} 
+closes current \hyperlink{classGame2}{Game2} widget, and instantiates new pointer of type Main\+Menu \mbox{\Hypertarget{classGame2_adea8085cc1e37f1103f7efabc0fe8244}\label{classGame2_adea8085cc1e37f1103f7efabc0fe8244}} 
+\index{Game2@{Game2}!Score\+Updated@{Score\+Updated}}
+\index{Score\+Updated@{Score\+Updated}!Game2@{Game2}}
+\subsubsection{\texorpdfstring{Score\+Updated}{ScoreUpdated}}
+{\footnotesize\ttfamily void Game2\+::\+Score\+Updated (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Game\+Ended\+: slot executes when \hyperlink{classGame2Grid}{Game2\+Grid} emits game\+Over signal~\newline
+. 
+
+This function deletes the game window and returns the user to the home screen \mbox{\Hypertarget{classGame2_a2f51124a2ec3758fbc1bfd056ca137b6}\label{classGame2_a2f51124a2ec3758fbc1bfd056ca137b6}} 
 \index{Game2@{Game2}!Start\+Game@{Start\+Game}}
 \index{Start\+Game@{Start\+Game}!Game2@{Game2}}
 \subsubsection{\texorpdfstring{Start\+Game}{StartGame}}

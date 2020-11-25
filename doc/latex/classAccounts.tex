@@ -20,9 +20,8 @@ Q\+String \hyperlink{classAccounts_a726265a4bb4639f6f8cb95bd17e22b36}{Attempt\+S
 \begin{DoxyCompactList}\small\item\em Attempt\+Sign\+Up. Reads all needed credentials verifies if they are sound, stores info in text file, and returns result. \end{DoxyCompactList}\item 
 Q\+String \hyperlink{classAccounts_a94aa6f557c36a7ca958780cfeacdec83}{Attempt\+Sign\+In} ()
 \begin{DoxyCompactList}\small\item\em Attempt\+Sign\+In. verify that username and password exist in text file. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classAccounts_a8a2edd82ca79c9c05341296e86c2a972}\label{classAccounts_a8a2edd82ca79c9c05341296e86c2a972}} 
-Q\+String {\bfseries Update\+History} (int score, int game)
-\item 
+Q\+String \hyperlink{classAccounts_a8a2edd82ca79c9c05341296e86c2a972}{Update\+History} (int score, int game)
+\begin{DoxyCompactList}\small\item\em Update\+History. Updates the leaderboard of the highscores after any game is player. \end{DoxyCompactList}\item 
 Q\+String \hyperlink{classAccounts_add43226d678648809eae2c7b11d3692b}{Get\+D\+OB} ()
 \begin{DoxyCompactList}\small\item\em Simple getter for D\+OB variable. \end{DoxyCompactList}\item 
 Q\+String \hyperlink{classAccounts_ad9cac5e9a586f525939b120070cbdc2d}{Get\+Img\+Path} ()
@@ -174,6 +173,19 @@ Getter for username variable.
 
 \begin{DoxyReturn}{Returns}
 username 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAccounts_a8a2edd82ca79c9c05341296e86c2a972}\label{classAccounts_a8a2edd82ca79c9c05341296e86c2a972}} 
+\index{Accounts@{Accounts}!Update\+History@{Update\+History}}
+\index{Update\+History@{Update\+History}!Accounts@{Accounts}}
+\subsubsection{\texorpdfstring{Update\+History()}{UpdateHistory()}}
+{\footnotesize\ttfamily Q\+String Accounts\+::\+Update\+History (\begin{DoxyParamCaption}\item[{int}]{score,  }\item[{int}]{game }\end{DoxyParamCaption})}
+
+
+
+Update\+History. Updates the leaderboard of the highscores after any game is player. 
+
+The text file accessed depends on the game value given. It is streamed as read-\/write and the lines are fed one by one. For each line, the data is stored in an array. The data for the user who played a game is updated if a highscore was set. The txt file is then cleared and the data is the array is written into it in descending order. S string is returned to signify success of failure. \begin{DoxyReturn}{Returns}
+succes or failure indicator 
 \end{DoxyReturn}
 
 

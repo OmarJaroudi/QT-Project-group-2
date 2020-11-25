@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['welcomewidget',['WelcomeWidget',['../classWelcomeWidget.html',1,'']]]
+  ['welcomewidget',['WelcomeWidget',['../classWelcomeWidget.html',1,'WelcomeWidget'],['../classWelcomeWidget.html#a8098178a4ddbc597a6afe1a151fd40a6',1,'WelcomeWidget::WelcomeWidget()']]]
 ];

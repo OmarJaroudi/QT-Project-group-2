@@ -6,6 +6,7 @@
 
 WelcomeWidget::WelcomeWidget(QWidget *parent) : QWidget(parent)
 {
+    this->setWindowTitle("Welcome");
     this->setFixedSize(300,300);
     this->setAttribute(Qt::WA_DeleteOnClose);
 

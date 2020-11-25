@@ -2,6 +2,15 @@
 \label{classSignInWidget}\index{Sign\+In\+Widget@{Sign\+In\+Widget}}
 
 
+The \hyperlink{classSignInWidget}{Sign\+In\+Widget} class instantiated when user clicks sign in from welcome screen.  
+
+
+
+
+{\ttfamily \#include $<$signinwidget.\+h$>$}
+
+
+
 Inheritance diagram for Sign\+In\+Widget\+:
 % FIG 0
 
@@ -11,18 +20,15 @@ Collaboration diagram for Sign\+In\+Widget\+:
 \subsection*{Public Slots}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSignInWidget_a49decc48a2de009aa97b5a3358a76da7}\label{classSignInWidget_a49decc48a2de009aa97b5a3358a76da7}} 
-void {\bfseries Verify\+Credentials} ()
-\item 
-\mbox{\Hypertarget{classSignInWidget_a503bbf74ccb40642f4b05a48bb9dc99a}\label{classSignInWidget_a503bbf74ccb40642f4b05a48bb9dc99a}} 
-void {\bfseries Click\+Return} ()
-\end{DoxyCompactItemize}
+void \hyperlink{classSignInWidget_a49decc48a2de009aa97b5a3358a76da7}{Verify\+Credentials} ()
+\begin{DoxyCompactList}\small\item\em Verify\+Credentials\+: slot executes when the sign in button is pushed. \end{DoxyCompactList}\item 
+void \hyperlink{classSignInWidget_a503bbf74ccb40642f4b05a48bb9dc99a}{Click\+Return} ()
+\begin{DoxyCompactList}\small\item\em Verify\+Credentials\+: slot executes when the return button is pushed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classSignInWidget_afd6abbeff046b789c1801981c8b7358d}\label{classSignInWidget_afd6abbeff046b789c1801981c8b7358d}} 
-{\bfseries Sign\+In\+Widget} (Q\+Widget $\ast$parent=nullptr)
-\end{DoxyCompactItemize}
+\hyperlink{classSignInWidget_afd6abbeff046b789c1801981c8b7358d}{Sign\+In\+Widget} (Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classSignInWidget}{Sign\+In\+Widget} constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -60,6 +66,50 @@ Q\+Push\+Button $\ast$ {\bfseries back\+\_\+button}
 \hyperlink{classAccounts}{Accounts} $\ast$ {\bfseries account}
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+The \hyperlink{classSignInWidget}{Sign\+In\+Widget} class instantiated when user clicks sign in from welcome screen. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSignInWidget_afd6abbeff046b789c1801981c8b7358d}\label{classSignInWidget_afd6abbeff046b789c1801981c8b7358d}} 
+\index{Sign\+In\+Widget@{Sign\+In\+Widget}!Sign\+In\+Widget@{Sign\+In\+Widget}}
+\index{Sign\+In\+Widget@{Sign\+In\+Widget}!Sign\+In\+Widget@{Sign\+In\+Widget}}
+\subsubsection{\texorpdfstring{Sign\+In\+Widget()}{SignInWidget()}}
+{\footnotesize\ttfamily Sign\+In\+Widget\+::\+Sign\+In\+Widget (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\hyperlink{classSignInWidget}{Sign\+In\+Widget} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classSignInWidget_a503bbf74ccb40642f4b05a48bb9dc99a}\label{classSignInWidget_a503bbf74ccb40642f4b05a48bb9dc99a}} 
+\index{Sign\+In\+Widget@{Sign\+In\+Widget}!Click\+Return@{Click\+Return}}
+\index{Click\+Return@{Click\+Return}!Sign\+In\+Widget@{Sign\+In\+Widget}}
+\subsubsection{\texorpdfstring{Click\+Return}{ClickReturn}}
+{\footnotesize\ttfamily void Sign\+In\+Widget\+::\+Click\+Return (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Verify\+Credentials\+: slot executes when the return button is pushed. 
+
+returns the user to the welcome screen. \mbox{\Hypertarget{classSignInWidget_a49decc48a2de009aa97b5a3358a76da7}\label{classSignInWidget_a49decc48a2de009aa97b5a3358a76da7}} 
+\index{Sign\+In\+Widget@{Sign\+In\+Widget}!Verify\+Credentials@{Verify\+Credentials}}
+\index{Verify\+Credentials@{Verify\+Credentials}!Sign\+In\+Widget@{Sign\+In\+Widget}}
+\subsubsection{\texorpdfstring{Verify\+Credentials}{VerifyCredentials}}
+{\footnotesize\ttfamily void Sign\+In\+Widget\+::\+Verify\+Credentials (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Verify\+Credentials\+: slot executes when the sign in button is pushed. 
+
+passes the input to attempt\+Sign\+In 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
