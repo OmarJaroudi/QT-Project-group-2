@@ -1,0 +1,196 @@
+\hypertarget{classGame2Grid}{}\section{Game2\+Grid Class Reference}
+\label{classGame2Grid}\index{Game2\+Grid@{Game2\+Grid}}
+
+
+The \hyperlink{classGame2Grid}{Game2\+Grid} class\+: Where user can actually play \hyperlink{classGame2}{Game2}. Accessed after user presses f1 key or play\+\_\+button from \hyperlink{classGame2}{Game2} widget.  
+
+
+
+
+{\ttfamily \#include $<$game2grid.\+h$>$}
+
+
+
+Inheritance diagram for Game2\+Grid\+:
+% FIG 0
+
+
+Collaboration diagram for Game2\+Grid\+:
+% FIG 1
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classGame2Grid_a0b6b7e172797f39841d9cff2964777fa}{Play\+Turn} ()
+\begin{DoxyCompactList}\small\item\em Play\+Turn\+: Slot connected to click signal for all Reversi\+Slots in grid. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGame2Grid_afa62f8ea4795c6826402c53110c6ba49}\label{classGame2Grid_afa62f8ea4795c6826402c53110c6ba49}} 
+void \hyperlink{classGame2Grid_afa62f8ea4795c6826402c53110c6ba49}{Press\+Back} ()
+\begin{DoxyCompactList}\small\item\em Press\+Back\+:Slot connected to clicked() signal of back\+\_\+button emits signal \hyperlink{classGame2Grid_a33f724e897b96d77eebca3525ac4e095}{game\+Over()} which is connected to a slot in \hyperlink{classGame2}{Game2}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGame2Grid_a33f724e897b96d77eebca3525ac4e095}\label{classGame2Grid_a33f724e897b96d77eebca3525ac4e095}} 
+void \hyperlink{classGame2Grid_a33f724e897b96d77eebca3525ac4e095}{game\+Over} ()
+\begin{DoxyCompactList}\small\item\em signal emitted in \hyperlink{classGame2Grid_afa62f8ea4795c6826402c53110c6ba49}{Press\+Back()}, aka when user clicks back\+\_\+button \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGame2Grid_a57bb35871d7b4896f3ed9c6c48141e73}\label{classGame2Grid_a57bb35871d7b4896f3ed9c6c48141e73}} 
+void \hyperlink{classGame2Grid_a57bb35871d7b4896f3ed9c6c48141e73}{update\+Score} ()
+\begin{DoxyCompactList}\small\item\em signal emitted on the final turn of \hyperlink{classGame2Grid_a0b6b7e172797f39841d9cff2964777fa}{Play\+Turn()}, aka when the game ends \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classGame2Grid_a4bf23814b061f4674560548f922033ff}{Game2\+Grid} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classGame2Grid}{Game2\+Grid}\+: default constructor~\newline
+. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ int $>$ $>$ \hyperlink{classGame2Grid_a3505dced106fa8df9285b65a5e02f686}{Valid\+Move} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Valid\+Move\+: Function checks if a \hyperlink{classReversiSlot}{Reversi\+Slot} at position (x,y) can be played as a turn in the game. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ int $>$ $>$ \hyperlink{classGame2Grid_a530992f6eaed3c76ad923305cd7ae86a}{Explore\+Path} (int x0, int y0, int x\+\_\+direction, int y\+\_\+direction)
+\begin{DoxyCompactList}\small\item\em Explore\+Path\+: Explores a path (N,S,E,W,NE,NW,SE,SW) to tell if any discs can be flipped if move (x0,y0) is played. \end{DoxyCompactList}\item 
+vector$<$ vector$<$ int $>$ $>$ \hyperlink{classGame2Grid_aab66dd4b9d00c82f692cfaa6a8642815}{All\+Valid\+Moves} ()
+\begin{DoxyCompactList}\small\item\em All\+Valid\+Moves\+: For all cells in grid, check if each cell is a valid move. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGame2Grid_a7ea67a012555b1d0ebb399f8dc5727f7}\label{classGame2Grid_a7ea67a012555b1d0ebb399f8dc5727f7}} 
+vector$<$ \hyperlink{classReversiSlot}{Reversi\+Slot} $\ast$ $>$ $\ast$ {\bfseries Cells}
+\item 
+\mbox{\Hypertarget{classGame2Grid_af6253e3276dc0761176754d7b809bbe0}\label{classGame2Grid_af6253e3276dc0761176754d7b809bbe0}} 
+Q\+Push\+Button $\ast$ \hyperlink{classGame2Grid_af6253e3276dc0761176754d7b809bbe0}{back\+\_\+button}
+\begin{DoxyCompactList}\small\item\em back\+\_\+button\+:Q\+Push\+Button whose signal clicked is connected to Slot Press\+Back \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGame2Grid_a8fa6b4617803602470c056b31d637f31}\label{classGame2Grid_a8fa6b4617803602470c056b31d637f31}} 
+Q\+Label $\ast$ {\bfseries turn\+\_\+label}
+\item 
+\mbox{\Hypertarget{classGame2Grid_a7928ebdf454b758fc661ad9165b8dc91}\label{classGame2Grid_a7928ebdf454b758fc661ad9165b8dc91}} 
+Q\+String {\bfseries save\+\_\+score}
+\item 
+\mbox{\Hypertarget{classGame2Grid_afc903c48873bea6053f88cbe80d21dc3}\label{classGame2Grid_afc903c48873bea6053f88cbe80d21dc3}} 
+int {\bfseries int\+\_\+save\+\_\+score}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Reversi\+Slot\+::\+C\+O\+L\+OR \hyperlink{classGame2Grid_a1b09031451ce6d9644e40d7e7a36697e}{turn} = Reversi\+Slot\+::\+B\+L\+A\+CK
+\begin{DoxyCompactList}\small\item\em static variable to keep track of who\textquotesingle{}s turn it is. Starts as black, then typically alternates between enums B\+L\+A\+CK and W\+H\+I\+TE \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGame2Grid_a8cceb431251ac1f4583aaf2698265efb}\label{classGame2Grid_a8cceb431251ac1f4583aaf2698265efb}} 
+static vector$<$ vector$<$ int $>$ $>$ {\bfseries all\+\_\+valid\+\_\+moves}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classGame2Grid}{Game2\+Grid} class\+: Where user can actually play \hyperlink{classGame2}{Game2}. Accessed after user presses f1 key or play\+\_\+button from \hyperlink{classGame2}{Game2} widget. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGame2Grid_a4bf23814b061f4674560548f922033ff}\label{classGame2Grid_a4bf23814b061f4674560548f922033ff}} 
+\index{Game2\+Grid@{Game2\+Grid}!Game2\+Grid@{Game2\+Grid}}
+\index{Game2\+Grid@{Game2\+Grid}!Game2\+Grid@{Game2\+Grid}}
+\subsubsection{\texorpdfstring{Game2\+Grid()}{Game2Grid()}}
+{\footnotesize\ttfamily Game2\+Grid\+::\+Game2\+Grid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classGame2Grid}{Game2\+Grid}\+: default constructor~\newline
+. 
+
+Intializes the gird visual\textquotesingle{}s. Grid is 8x8 Reversi\+Slots, with 4 set discs in the center~\newline
+The 64 slots are saved in a 1d vector as pointers~\newline
+Their clicked signal is connected to slot Play\+Turn~\newline
+Initializes global variable turn to black since game always starts with black\textquotesingle{}s turn 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classGame2Grid_aab66dd4b9d00c82f692cfaa6a8642815}\label{classGame2Grid_aab66dd4b9d00c82f692cfaa6a8642815}} 
+\index{Game2\+Grid@{Game2\+Grid}!All\+Valid\+Moves@{All\+Valid\+Moves}}
+\index{All\+Valid\+Moves@{All\+Valid\+Moves}!Game2\+Grid@{Game2\+Grid}}
+\subsubsection{\texorpdfstring{All\+Valid\+Moves()}{AllValidMoves()}}
+{\footnotesize\ttfamily vector$<$ vector$<$ int $>$ $>$ Game2\+Grid\+::\+All\+Valid\+Moves (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+All\+Valid\+Moves\+: For all cells in grid, check if each cell is a valid move. 
+
+In a doubly nested loop, call Valid\+Move on each cell in 8x8 grid~\newline
+If move is valid, store coordinates in return vector Return 2d vector containing coordinates of all valid moves in grid \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGame2Grid_a530992f6eaed3c76ad923305cd7ae86a}\label{classGame2Grid_a530992f6eaed3c76ad923305cd7ae86a}} 
+\index{Game2\+Grid@{Game2\+Grid}!Explore\+Path@{Explore\+Path}}
+\index{Explore\+Path@{Explore\+Path}!Game2\+Grid@{Game2\+Grid}}
+\subsubsection{\texorpdfstring{Explore\+Path()}{ExplorePath()}}
+{\footnotesize\ttfamily vector$<$ vector$<$ int $>$ $>$ Game2\+Grid\+::\+Explore\+Path (\begin{DoxyParamCaption}\item[{int}]{x0,  }\item[{int}]{y0,  }\item[{int}]{x\+\_\+direction,  }\item[{int}]{y\+\_\+direction }\end{DoxyParamCaption})}
+
+
+
+Explore\+Path\+: Explores a path (N,S,E,W,NE,NW,SE,SW) to tell if any discs can be flipped if move (x0,y0) is played. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x0} & \\
+\hline
+{\em y0} & \\
+\hline
+{\em x\+\_\+direction} & \{-\/1,0,1\} to indicate in what increment we should move along the rows \\
+\hline
+{\em y\+\_\+direction} & \{-\/1,0,1\} to indicate in what increments we should move aling the columns\\
+\hline
+\end{DoxyParams}
+starting from x0,y0 proceed in increments of (+x\+\_\+direction,+y\+\_\+direction) and check\+:~\newline
+If slot is empty--$>$empty return vector and return~\newline
+If slot has a disc of same color --$>$ return~\newline
+If slot has a disc of opposite color --$>$ add (x\+\_\+slot,y\+\_\+slot) to return vector~\newline
+If end of board is reached without reaching slot of same color first --$>$emtpy return vector and return~\newline
+\begin{DoxyReturn}{Returns}
+vector of all discs that can be flipped in specified path. if vector is empty, nothing can be said about legality of the move, since other paths have to be checked 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGame2Grid_a0b6b7e172797f39841d9cff2964777fa}\label{classGame2Grid_a0b6b7e172797f39841d9cff2964777fa}} 
+\index{Game2\+Grid@{Game2\+Grid}!Play\+Turn@{Play\+Turn}}
+\index{Play\+Turn@{Play\+Turn}!Game2\+Grid@{Game2\+Grid}}
+\subsubsection{\texorpdfstring{Play\+Turn}{PlayTurn}}
+{\footnotesize\ttfamily void Game2\+Grid\+::\+Play\+Turn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Play\+Turn\+: Slot connected to click signal for all Reversi\+Slots in grid. 
+
+Checks if x and y coords of clicked slot are in all\+\_\+valid\+\_\+moves.~\newline
+If not, return~\newline
+If it exists, call Valid\+Move(x,y) to decide on what discs must be flipped~\newline
+For each disc in returned vector, change color to its opposite color (black to white and vice versa)~\newline
+Update static variable turn~\newline
+Update all\+\_\+valid\+\_\+moves by calling All\+Valid\+Moves~\newline
+If updated all\+\_\+valid\+\_\+moves is empty, the next player cannot make a move~\newline
+Reset turn to the player who just played, and call All\+Valid\+Moves~\newline
+If updated all\+\_\+valid\+\_\+moves is again empty, the current player cannot make a move as well, meaning both players can\textquotesingle{}t play~\newline
+Game has ended~\newline
+If so, compute the number of placed white discs and the black ones~\newline
+The player having more discs is the winner \mbox{\Hypertarget{classGame2Grid_a3505dced106fa8df9285b65a5e02f686}\label{classGame2Grid_a3505dced106fa8df9285b65a5e02f686}} 
+\index{Game2\+Grid@{Game2\+Grid}!Valid\+Move@{Valid\+Move}}
+\index{Valid\+Move@{Valid\+Move}!Game2\+Grid@{Game2\+Grid}}
+\subsubsection{\texorpdfstring{Valid\+Move()}{ValidMove()}}
+{\footnotesize\ttfamily vector$<$ vector$<$ int $>$ $>$ Game2\+Grid\+::\+Valid\+Move (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Valid\+Move\+: Function checks if a \hyperlink{classReversiSlot}{Reversi\+Slot} at position (x,y) can be played as a turn in the game. 
+
+For a move to be valid, it must lead to at least 1 of the opponents discs to be flipped.~\newline
+This function checks in all 8 possible path (N,S,E,W,NE,NW,SE,SW) if such a disc exists
+
+\begin{DoxyReturn}{Returns}
+vector of all discs that should be flipped if the move at (x,y) is played. If vector is empty, move is illegal 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classGame2Grid_a1b09031451ce6d9644e40d7e7a36697e}\label{classGame2Grid_a1b09031451ce6d9644e40d7e7a36697e}} 
+\index{Game2\+Grid@{Game2\+Grid}!turn@{turn}}
+\index{turn@{turn}!Game2\+Grid@{Game2\+Grid}}
+\subsubsection{\texorpdfstring{turn}{turn}}
+{\footnotesize\ttfamily Reversi\+Slot\+::\+C\+O\+L\+OR Game2\+Grid\+::turn = Reversi\+Slot\+::\+B\+L\+A\+CK\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+static variable to keep track of who\textquotesingle{}s turn it is. Starts as black, then typically alternates between enums B\+L\+A\+CK and W\+H\+I\+TE 
+
+This variable dictates what color the next disc that is placed on the grid will be 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+game2grid.\+h\item 
+game2grid.\+cpp\end{DoxyCompactItemize}

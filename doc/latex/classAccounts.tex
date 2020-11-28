@@ -1,0 +1,195 @@
+\hypertarget{classAccounts}{}\section{Accounts Class Reference}
+\label{classAccounts}\index{Accounts@{Accounts}}
+
+
+The \hyperlink{classAccounts}{Accounts} class for user sign in, sign up, and storing credentials in backend.  
+
+
+
+
+{\ttfamily \#include $<$accounts.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAccounts_ad1526db68d755eeac36773b25ce2fb5c}{Accounts} (Q\+String username, Q\+String password, Q\+String confirm\+Pass, Q\+String D\+OB, Q\+String email, Q\+String f\+Name, Q\+String l\+Name, Q\+String img\+Path)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classAccounts}{Accounts} constructor called when attempting to sign up. All fields are automatically read from their QT placeholders. \end{DoxyCompactList}\item 
+\hyperlink{classAccounts_a8ed6f0ed9cc9921eab9861c24c8c1150}{Accounts} (Q\+String username, Q\+String password)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classAccounts}{Accounts} constructor invoked when attempting to sign in. Only needs username and password. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{classAccounts_a726265a4bb4639f6f8cb95bd17e22b36}{Attempt\+Sign\+Up} ()
+\begin{DoxyCompactList}\small\item\em Attempt\+Sign\+Up. Reads all needed credentials verifies if they are sound, stores info in text file, and returns result. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{classAccounts_a94aa6f557c36a7ca958780cfeacdec83}{Attempt\+Sign\+In} ()
+\begin{DoxyCompactList}\small\item\em Attempt\+Sign\+In. verify that username and password exist in text file. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{classAccounts_a8a2edd82ca79c9c05341296e86c2a972}{Update\+History} (int score, int game)
+\begin{DoxyCompactList}\small\item\em Update\+History. Updates the leaderboard of the highscores after any game is player. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{classAccounts_add43226d678648809eae2c7b11d3692b}{Get\+D\+OB} ()
+\begin{DoxyCompactList}\small\item\em Simple getter for D\+OB variable. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{classAccounts_ad9cac5e9a586f525939b120070cbdc2d}{Get\+Img\+Path} ()
+\begin{DoxyCompactList}\small\item\em Getter for image path variable. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{classAccounts_aa5d96a34d4281ce65a473b761ad9515a}{Get\+Username} ()
+\begin{DoxyCompactList}\small\item\em Getter for username variable. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{classAccounts_a264f663ad2a101cdbfbf12d083ee86b5}{Get\+F\+Name} ()
+\begin{DoxyCompactList}\small\item\em Getter for first name variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classAccounts}{Accounts} class for user sign in, sign up, and storing credentials in backend. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAccounts_ad1526db68d755eeac36773b25ce2fb5c}\label{classAccounts_ad1526db68d755eeac36773b25ce2fb5c}} 
+\index{Accounts@{Accounts}!Accounts@{Accounts}}
+\index{Accounts@{Accounts}!Accounts@{Accounts}}
+\subsubsection{\texorpdfstring{Accounts()}{Accounts()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Accounts\+::\+Accounts (\begin{DoxyParamCaption}\item[{Q\+String}]{username,  }\item[{Q\+String}]{password,  }\item[{Q\+String}]{confirm\+Pass,  }\item[{Q\+String}]{D\+OB,  }\item[{Q\+String}]{email,  }\item[{Q\+String}]{f\+Name,  }\item[{Q\+String}]{l\+Name,  }\item[{Q\+String}]{img\+Path }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classAccounts}{Accounts} constructor called when attempting to sign up. All fields are automatically read from their QT placeholders. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & string \\
+\hline
+{\em password} & string \\
+\hline
+{\em confirm\+Pass} & string \\
+\hline
+{\em D\+OB} & Q\+Date \\
+\hline
+{\em email} & string \\
+\hline
+{\em f\+Name\+:string} & firstname \\
+\hline
+{\em l\+Name\+:string} & lastname \\
+\hline
+{\em img\+Path} & string path of profile picture\\
+\hline
+\end{DoxyParams}
+Also creates a 16 digit hexadecimal key to be used by \hyperlink{classSimpleCrypt}{Simple\+Crypt} in encrypting and decrypting the password for added security \mbox{\Hypertarget{classAccounts_a8ed6f0ed9cc9921eab9861c24c8c1150}\label{classAccounts_a8ed6f0ed9cc9921eab9861c24c8c1150}} 
+\index{Accounts@{Accounts}!Accounts@{Accounts}}
+\index{Accounts@{Accounts}!Accounts@{Accounts}}
+\subsubsection{\texorpdfstring{Accounts()}{Accounts()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Accounts\+::\+Accounts (\begin{DoxyParamCaption}\item[{Q\+String}]{username,  }\item[{Q\+String}]{password }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classAccounts}{Accounts} constructor invoked when attempting to sign in. Only needs username and password. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & string \\
+\hline
+{\em password} & string\\
+\hline
+\end{DoxyParams}
+Also creates a 16 digit hexadecimal key to be used by \hyperlink{classSimpleCrypt}{Simple\+Crypt} in encrypting and decrypting the password for added security 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classAccounts_a94aa6f557c36a7ca958780cfeacdec83}\label{classAccounts_a94aa6f557c36a7ca958780cfeacdec83}} 
+\index{Accounts@{Accounts}!Attempt\+Sign\+In@{Attempt\+Sign\+In}}
+\index{Attempt\+Sign\+In@{Attempt\+Sign\+In}!Accounts@{Accounts}}
+\subsubsection{\texorpdfstring{Attempt\+Sign\+In()}{AttemptSignIn()}}
+{\footnotesize\ttfamily Q\+String Accounts\+::\+Attempt\+Sign\+In (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Attempt\+Sign\+In. verify that username and password exist in text file. 
+
+Text file is accessed as read-\/only and lines are streamed one by one~\newline
+For each line, password is decrypted using \hyperlink{classSimpleCrypt}{Simple\+Crypt}, and line info is compared to account\textquotesingle{}s native username and password If there is a match, text file is closed and function returns success. If E\+OF is reached without a match, function reports that sign in failed. \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAccounts_a726265a4bb4639f6f8cb95bd17e22b36}\label{classAccounts_a726265a4bb4639f6f8cb95bd17e22b36}} 
+\index{Accounts@{Accounts}!Attempt\+Sign\+Up@{Attempt\+Sign\+Up}}
+\index{Attempt\+Sign\+Up@{Attempt\+Sign\+Up}!Accounts@{Accounts}}
+\subsubsection{\texorpdfstring{Attempt\+Sign\+Up()}{AttemptSignUp()}}
+{\footnotesize\ttfamily Q\+String Accounts\+::\+Attempt\+Sign\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Attempt\+Sign\+Up. Reads all needed credentials verifies if they are sound, stores info in text file, and returns result. 
+
+\begin{DoxyReturn}{Returns}
+String result of the transaction.
+\end{DoxyReturn}
+Function will directly terminate without accessing backend text file if\+:~\newline
+Any of credentials is empty or N\+U\+LL~\newline
+Email format is not deemed correct according to Validate\+Email()~\newline
+Password doesn\textquotesingle{}t meet requirements (at least 8 characters, containing 1 digit, 1 uppercase and 1 lowercase letters)~\newline
+Password and confirm password fields don\textquotesingle{}t match~\newline
+
+
+If the above checks pass, function will query text file, and report negative result if\+:~\newline
+username or email are already taken by another registered user~\newline
+ If all these flags are passed, function will store all the entered credentials as a string on one line in text file and report success.~\newline
+Note\+: Before writing to the text file, password is encrypted using \hyperlink{classSimpleCrypt}{Simple\+Crypt} \mbox{\Hypertarget{classAccounts_add43226d678648809eae2c7b11d3692b}\label{classAccounts_add43226d678648809eae2c7b11d3692b}} 
+\index{Accounts@{Accounts}!Get\+D\+OB@{Get\+D\+OB}}
+\index{Get\+D\+OB@{Get\+D\+OB}!Accounts@{Accounts}}
+\subsubsection{\texorpdfstring{Get\+D\+O\+B()}{GetDOB()}}
+{\footnotesize\ttfamily Q\+String Accounts\+::\+Get\+D\+OB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Simple getter for D\+OB variable. 
+
+\begin{DoxyReturn}{Returns}
+dob 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAccounts_a264f663ad2a101cdbfbf12d083ee86b5}\label{classAccounts_a264f663ad2a101cdbfbf12d083ee86b5}} 
+\index{Accounts@{Accounts}!Get\+F\+Name@{Get\+F\+Name}}
+\index{Get\+F\+Name@{Get\+F\+Name}!Accounts@{Accounts}}
+\subsubsection{\texorpdfstring{Get\+F\+Name()}{GetFName()}}
+{\footnotesize\ttfamily Q\+String Accounts\+::\+Get\+F\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for first name variable. 
+
+\begin{DoxyReturn}{Returns}
+f\+Name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAccounts_ad9cac5e9a586f525939b120070cbdc2d}\label{classAccounts_ad9cac5e9a586f525939b120070cbdc2d}} 
+\index{Accounts@{Accounts}!Get\+Img\+Path@{Get\+Img\+Path}}
+\index{Get\+Img\+Path@{Get\+Img\+Path}!Accounts@{Accounts}}
+\subsubsection{\texorpdfstring{Get\+Img\+Path()}{GetImgPath()}}
+{\footnotesize\ttfamily Q\+String Accounts\+::\+Get\+Img\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for image path variable. 
+
+\begin{DoxyReturn}{Returns}
+img\+\_\+path 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAccounts_aa5d96a34d4281ce65a473b761ad9515a}\label{classAccounts_aa5d96a34d4281ce65a473b761ad9515a}} 
+\index{Accounts@{Accounts}!Get\+Username@{Get\+Username}}
+\index{Get\+Username@{Get\+Username}!Accounts@{Accounts}}
+\subsubsection{\texorpdfstring{Get\+Username()}{GetUsername()}}
+{\footnotesize\ttfamily Q\+String Accounts\+::\+Get\+Username (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for username variable. 
+
+\begin{DoxyReturn}{Returns}
+username 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAccounts_a8a2edd82ca79c9c05341296e86c2a972}\label{classAccounts_a8a2edd82ca79c9c05341296e86c2a972}} 
+\index{Accounts@{Accounts}!Update\+History@{Update\+History}}
+\index{Update\+History@{Update\+History}!Accounts@{Accounts}}
+\subsubsection{\texorpdfstring{Update\+History()}{UpdateHistory()}}
+{\footnotesize\ttfamily Q\+String Accounts\+::\+Update\+History (\begin{DoxyParamCaption}\item[{int}]{score,  }\item[{int}]{game }\end{DoxyParamCaption})}
+
+
+
+Update\+History. Updates the leaderboard of the highscores after any game is player. 
+
+The text file accessed depends on the game value given. It is streamed as read-\/write and the lines are fed one by one. For each line, the data is stored in an array. The data for the user who played a game is updated if a highscore was set. The txt file is then cleared and the data is the array is written into it in descending order. S string is returned to signify success of failure. \begin{DoxyReturn}{Returns}
+succes or failure indicator 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+accounts.\+h\item 
+accounts.\+cpp\end{DoxyCompactItemize}

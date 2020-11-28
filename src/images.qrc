@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>thumbnails/back_button.png</file>
+        <file>thumbnails/blank_profile.png</file>
+        <file>thumbnails/game1.PNG</file>
+        <file>thumbnails/green_play_button.png</file>
+        <file>thumbnails/green.png</file>
+        <file>thumbnails/yellow.png</file>
+        <file>thumbnails/blue_.png</file>
+        <file>thumbnails/smashed.png</file>
+        <file>thumbnails/pause.png</file>
+        <file>thumbnails/heart.png</file>
+        <file>thumbnails/grid.png</file>
+        <file>thumbnails/game2.jpg</file>
+        <file>thumbnails/white_checker.png</file>
+        <file>thumbnails/black_checker.png</file>
+    </qresource>
+</RCC>
