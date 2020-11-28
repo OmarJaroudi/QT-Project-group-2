@@ -84,7 +84,8 @@ void Game2::keyPressEvent(QKeyEvent *event){
 void Game2::ScoreUpdated()
 {
     qDebug()<<grid->int_save_score;
-    this->player->UpdateHistory(grid->int_save_score,2);
+    if (!(this->player->GetUsername()=="Guest player"))
+        this->player->UpdateHistory(grid->int_save_score,2);
 }
 
 

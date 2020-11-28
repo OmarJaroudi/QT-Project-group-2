@@ -25,7 +25,7 @@ historyWidget::historyWidget(Accounts * curr,QWidget *parent) : QWidget(parent)
     QVector<QString> userdata1={"","","","","",""};
     QVector<QString> leaderboard1={"","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""};
     int i=0;
-    QString path1 = qApp->applicationDirPath();
+    QString path1 = QDir::currentPath();
     path1.append("/userData/game_1_history.txt");
     QFile inputFile1(path1);
     inputFile1.open(QIODevice::ReadOnly);
@@ -60,7 +60,7 @@ historyWidget::historyWidget(Accounts * curr,QWidget *parent) : QWidget(parent)
     QVector<QString> userdata2={"","","","","",""};
     QVector<QString> leaderboard2={"","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""};
     i=0;
-    QString path2 = qApp->applicationDirPath();
+    QString path2 = QDir::currentPath();
     path2.append("/userData/game_2_history.txt");
     QFile inputFile2(path2);
     inputFile2.open(QIODevice::ReadOnly);

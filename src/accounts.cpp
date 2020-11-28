@@ -133,11 +133,8 @@ QRegExp re("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])");
         if (!QDir(newPath).exists())
             QDir().mkdir(newPath);
         newPath.append("/" + username+ "." + imgInfo.suffix());
-        qDebug()<<newPath;
         if (QFile::exists(newPath))
-        {
             QFile::remove(newPath);
-        }
 
         //write all the account info into the txt file
         bool status = QFile::copy(img_path, newPath);
@@ -153,7 +150,8 @@ QRegExp re("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])");
         this->img_path = newPath;
         stream<<data<<endl;
         inputFile.close();
-        QString path2 = qApp->applicationDirPath();
+
+        QString path2 = QDir::currentPath();
         path2.append("/userData/game_1_history.txt");
         QFile inputFile2(path2);
         inputFile2.open(QIODevice::ReadWrite);
@@ -164,11 +162,12 @@ QRegExp re("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])");
                 line=stream2.readLine();
             }
         }
+
         QDateTime curr_date_time = QDateTime::currentDateTime();
         data=(username+" 0 "+ curr_date_time.toString());
         stream2<<data<<endl;
         inputFile2.close();
-        QString path3 = qApp->applicationDirPath();
+        QString path3 = QDir::currentPath();
         path3.append("/userData/game_2_history.txt");
         QFile inputFile3(path3);
         inputFile3.open(QIODevice::ReadWrite);
@@ -196,7 +195,7 @@ QString Accounts::UpdateHistory(int score, int game)
         QString gameString= QString::number(game);
         std::vector<QString> tempData;
         std::vector<int> tempScores;
-        QString path = qApp->applicationDirPath();
+        QString path = QDir::currentPath();
         path.append("/userData/game_"+gameString+"_history.txt");
         QString data;
         QFile inputFile(path);
@@ -220,7 +219,6 @@ QString Accounts::UpdateHistory(int score, int game)
                 {
                     tempData.push_back(line);
                     tempScores.push_back(tempLine[1].toInt());
-                    qDebug()<<tempLine[2];
                 }
                 line= stream.readLine();
             }
