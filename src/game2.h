@@ -7,6 +7,9 @@
 #include "accounts.h"
 #include <QVBoxLayout>
 #include <QHBoxLayout>
+#include <QLineEdit>
+#include <QLabel>
+#include <QRadioButton>
 /**
  * @brief The Game1 class instantiated when user clicks on game2 label from main menu
  */
@@ -19,7 +22,11 @@ class Game2 : public QWidget
     QHBoxLayout *layout;
     QPushButton *back_button;
     QGraphicsView *view;
-
+    QLineEdit * player2Name;
+    QLabel *error;
+    QRadioButton * pick_white;
+    QRadioButton * pick_black;
+    QSpacerItem *spacer;
     Q_OBJECT
 public:
     /**

@@ -3,8 +3,15 @@
 Game2::Game2(Accounts *acc, QWidget *parent) : QWidget(parent)
 {
     player = acc;
+    player2Name = new QLineEdit();
     back_button = new QPushButton();
+    error = new QLabel("Enter player 2 name");
+    error->setStyleSheet("QLabel {color:white;}");
+    pick_white = new QRadioButton("Player 2 is white");
+    pick_white->setStyleSheet("QRadioButton {color:red;}");
 
+    pick_black = new QRadioButton("Player 2 is black");
+    pick_black->setStyleSheet("QRadioButton {color:red;}");
     back_button->setIcon(QIcon(":/thumbnails/back_button.png"));
     back_button->setIconSize(QSize(30, 30));
     back_button->setFixedSize(30,30);
@@ -31,14 +38,20 @@ Game2::Game2(Accounts *acc, QWidget *parent) : QWidget(parent)
     play_button->setFixedSize(75,75);
     play_button->setStyleSheet("QPushButton {color: #333;border: 2px solid #555;border-radius: 20px;border-style: outset;background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #fff, stop: 1 #888);padding: 5px;}");
 
-    QSpacerItem *spacer = new QSpacerItem(5,5, QSizePolicy::Expanding, QSizePolicy::Fixed);
+    spacer = new QSpacerItem(5,5, QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     layout = new QHBoxLayout();
     layout->addWidget(back_button,0,Qt::AlignLeft|Qt::AlignBottom);
     layout->addItem(spacer);
 
+
     layout->addWidget(play_button,50,Qt::AlignCenter|Qt::AlignBottom);
     v_layout = new QVBoxLayout();
+    v_layout->addWidget(player2Name,50,Qt::AlignRight);
+    v_layout->addWidget(error,50,Qt::AlignTop|Qt::AlignRight);
+    v_layout->addWidget(pick_black,50,Qt::AlignTop|Qt::AlignRight);
+    v_layout->addWidget(pick_white,50,Qt::AlignTop|Qt::AlignRight);
+    v_layout->addItem(new QSpacerItem(5,400, QSizePolicy::Expanding, QSizePolicy::Fixed));
     v_layout->addItem(layout);
     this->setLayout(v_layout);
     this->setFixedSize(this->size());
@@ -54,6 +67,10 @@ void Game2::PressBack(){
     this->deleteLater();
 }
 void Game2::StartGame(){
+    if (player2Name->text()=="" || (!pick_white->isChecked() && !pick_black->isChecked())){
+        error->setStyleSheet("QLabel {color:red;}");
+        return;
+    }
     grid = new Game2Grid();
     this->close();
     view = new QGraphicsView(grid);
